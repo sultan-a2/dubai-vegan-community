@@ -60,19 +60,22 @@ h1, h2, h3, p { margin: 0; }
 
 section[id], #top, #footer { scroll-margin-top: 96px; }
 
-.header {
+.site-nav {
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 20;
+}
+
+.header {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
   gap: 20px;
   min-height: 88px;
   padding: 12px var(--pad);
-  background: rgba(249, 228, 197, 0.86);
-  backdrop-filter: blur(16px) saturate(1.15);
-  -webkit-backdrop-filter: blur(16px) saturate(1.15);
+  background: transparent;
   border-bottom: 2px solid var(--moss);
 }
 
