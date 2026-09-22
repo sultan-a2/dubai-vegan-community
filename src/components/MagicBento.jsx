@@ -46,6 +46,18 @@ const cardData = [
   }
 ];
 
+const pointerInCard = (element, event) => {
+  const rect = element.getBoundingClientRect();
+  const dx = Number(gsap.getProperty(element, 'x')) || 0;
+  const dy = Number(gsap.getProperty(element, 'y')) || 0;
+  return {
+    x: event.clientX - rect.left + dx,
+    y: event.clientY - rect.top + dy,
+    centerX: (element.offsetWidth || rect.width) / 2,
+    centerY: (element.offsetHeight || rect.height) / 2
+  };
+};
+
 const createParticleElement = (x, y, color = DEFAULT_GLOW_COLOR) => {
   const el = document.createElement('div');
   el.className = 'particle';
@@ -214,11 +226,7 @@ const ParticleCard = ({
     const handleMouseMove = e => {
       if (!enableTilt && !enableMagnetism) return;
 
-      const rect = element.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
+      const { x, y, centerX, centerY } = pointerInCard(element, e);
 
       if (enableTilt) {
         const rotateX = ((y - centerY) / centerY) * -10;
@@ -543,11 +551,7 @@ const MagicBento = ({
                 const handleMouseMove = e => {
                   if (shouldDisableAnimations) return;
 
-                  const rect = el.getBoundingClientRect();
-                  const x = e.clientX - rect.left;
-                  const y = e.clientY - rect.top;
-                  const centerX = rect.width / 2;
-                  const centerY = rect.height / 2;
+                  const { x, y, centerX, centerY } = pointerInCard(el, e);
 
                   if (enableTilt) {
                     const rotateX = ((y - centerY) / centerY) * -10;

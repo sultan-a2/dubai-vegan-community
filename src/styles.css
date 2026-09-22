@@ -25,6 +25,7 @@ body {
   line-height: 1.45;
   text-rendering: optimizeLegibility;
   overflow-x: clip;
+  overflow-anchor: none;
 }
 
 img { display: block; max-width: 100%; }

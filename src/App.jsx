@@ -325,6 +325,7 @@ export default function App() {
           <ScrollStack
             className="story-stack"
             useWindowScroll
+            pin={false}
             itemDistance={28}
             itemScale={0.02}
             baseScale={0.94}

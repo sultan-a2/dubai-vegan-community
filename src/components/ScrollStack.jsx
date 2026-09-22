@@ -20,6 +20,7 @@ const ScrollStack = ({
   rotationAmount = 0,
   blurAmount = 0,
   useWindowScroll = false,
+  pin = true,
   onStackComplete
 }) => {
   const scrollerRef = useRef(null);
@@ -60,17 +61,15 @@ const ScrollStack = ({
     }
   }, [useWindowScroll]);
 
-  const getElementOffset = useCallback(
-    element => {
-      if (useWindowScroll) {
-        const rect = element.getBoundingClientRect();
-        return rect.top + window.scrollY;
-      } else {
-        return element.offsetTop;
-      }
-    },
-    [useWindowScroll]
-  );
+  const getElementOffset = useCallback(element => {
+    let top = 0;
+    let node = element;
+    while (node) {
+      top += node.offsetTop || 0;
+      node = node.offsetParent;
+    }
+    return top;
+  }, []);
 
   const updateCardTransforms = useCallback(() => {
     if (!cardsRef.current.length || isUpdatingRef.current) return;
@@ -127,11 +126,17 @@ const ScrollStack = ({
         translateY = pinEnd - cardTop + stackPositionPx + itemStackDistance * i;
       }
 
+      const headerClearance = 96;
+      const visualTop = cardTop - scrollTop + translateY;
+      if (visualTop < headerClearance) {
+        translateY += headerClearance - visualTop;
+      }
+
       const newTransform = {
-        translateY: Math.round(translateY * 100) / 100,
-        scale: Math.round(scale * 1000) / 1000,
-        rotation: Math.round(rotation * 100) / 100,
-        blur: Math.round(blur * 100) / 100
+        translateY: pin ? Math.round(translateY * 100) / 100 : 0,
+        scale: pin ? Math.round(scale * 1000) / 1000 : 1,
+        rotation: pin ? Math.round(rotation * 100) / 100 : 0,
+        blur: pin ? Math.round(blur * 100) / 100 : 0
       };
 
       const lastTransform = lastTransformsRef.current.get(i);
@@ -173,6 +178,7 @@ const ScrollStack = ({
     rotationAmount,
     blurAmount,
     useWindowScroll,
+    pin,
     onStackComplete,
     calculateProgress,
     parsePercentage,
@@ -198,28 +204,15 @@ const ScrollStack = ({
     }
 
     if (useWindowScroll) {
-      const lenis = new Lenis({
-        duration: 1.2,
-        easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        smoothWheel: true,
-        touchMultiplier: 2,
-        infinite: false,
-        wheelMultiplier: 1,
-        lerp: 0.1,
-        syncTouch: true,
-        syncTouchLerp: 0.075
-      });
-
-      lenis.on('scroll', handleScroll);
-
-      const raf = time => {
-        lenis.raf(time);
-        animationFrameRef.current = requestAnimationFrame(raf);
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      window.addEventListener('resize', handleScroll);
+      lenisRef.current = {
+        destroy() {
+          window.removeEventListener('scroll', handleScroll);
+          window.removeEventListener('resize', handleScroll);
+        }
       };
-      animationFrameRef.current = requestAnimationFrame(raf);
-
-      lenisRef.current = lenis;
-      return lenis;
+      return null;
     } else {
       const scroller = scrollerRef.current;
       if (!scroller) return;
@@ -237,8 +230,7 @@ const ScrollStack = ({
         wheelMultiplier: 1,
         touchInertiaMultiplier: 35,
         lerp: 0.1,
-        syncTouch: true,
-        syncTouchLerp: 0.075,
+        syncTouch: false,
         touchInertia: 0.6
       });
 
@@ -328,4 +320,5 @@ const ScrollStack = ({
 };
 
 export default ScrollStack;
+
 
