@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Woven — Dubai Vegan Community</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,460;8..60,560&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #f4f1ea;
+      --ink: #2f382c;
+      --quiet: #5d6758;
+      --line: #2f382c;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Karla, sans-serif;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 28px 0;
+    }
+    .logo { width: 72px; }
+    .nav ul {
+      display: flex;
+      gap: 26px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .nav a { text-decoration: none; font-size: 15px; color: var(--quiet); }
+    .nav a:hover { color: var(--ink); }
+    .join {
+      border: 1px solid var(--ink);
+      border-radius: 999px;
+      padding: 10px 18px;
+      text-decoration: none;
+      color: var(--ink);
+    }
+    .hero {
+      width: min(1100px, calc(100% - 40px));
+      margin: 36px auto 0;
+      text-align: center;
+    }
+    h1 {
+      margin: 0;
+      font-family: "Source Serif 4", serif;
+      font-weight: 460;
+      font-size: clamp(46px, 6.4vw, 84px);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+    .pill {
+      display: inline-block;
+      height: 0.72em;
+      width: 2.1em;
+      margin: 0 0.12em;
+      border-radius: 999px;
+      object-fit: cover;
+      vertical-align: middle;
+      transform: translateY(-0.06em);
+    }
+    .pill.tall { width: 1.35em; }
+    .lede {
+      max-width: 46ch;
+      margin: 28px auto 0;
+      color: var(--quiet);
+      font-size: 18px;
+      line-height: 1.5;
+    }
+    .explore {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 12px 22px;
+      border: 1px solid var(--ink);
+      border-radius: 999px;
+      text-decoration: none;
+    }
+    .explore:hover { background: var(--ink); color: var(--paper); }
+    .paths {
+      width: min(1000px, calc(100% - 40px));
+      margin: 92px auto 40px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 36px;
+    }
+    .paths article h2 {
+      margin: 0 0 8px;
+      font-family: "Source Serif 4", serif;
+      font-weight: 560;
+      font-size: 28px;
+    }
+    .paths p { margin: 0; color: var(--quiet); line-height: 1.5; }
+    .note {
+      width: min(720px, calc(100% - 40px));
+      margin: 20px auto 100px;
+      text-align: center;
+      color: var(--quiet);
+    }
+    :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+    @media (max-width: 800px) {
+      .nav { flex-wrap: wrap; justify-content: center; }
+      .paths { grid-template-columns: 1fr; }
+      h1 { font-size: 40px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <img class="logo" src="assets/logo.svg" alt="Dubai Vegan Community">
+    <ul>
+      <li><a href="#eat">Eat</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#guides">Guides</a></li>
+      <li><a href="#stories">Stories</a></li>
+    </ul>
+    <a class="join" href="#join">Join</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>
+        <img class="pill tall" src="assets/bowl.jpg" alt="">
+        Vegan food,
+        <img class="pill" src="assets/market.jpg" alt="">
+        gatherings
+        <img class="pill tall" src="assets/greens.jpg" alt="">
+        and a community that feels close.
+      </h1>
+      <p class="lede">A local guide to plant-based places, events and everyday choices across the UAE.</p>
+      <a class="explore" href="#eat">Explore the guide</a>
+    </section>
+
+    <section class="paths">
+      <article id="eat">
+        <h2>Eat somewhere vegan</h2>
+        <p>Cafés, restaurants and the neighbourhood places people actually return to.</p>
+      </article>
+      <article id="events">
+        <h2>Find a gathering</h2>
+        <p>Markets, shared tables and walks. Pick one thing, or make a day of it.</p>
+      </article>
+      <article id="guides">
+        <h2>Start with a guide</h2>
+        <p>Plain help for eating, shopping and choosing with a bit more confidence.</p>
+      </article>
+    </section>
+    <p class="note" id="stories">Stories, recipes and new plant-based businesses sit in the same guide. <a id="join" href="#join">Add yours</a>.</p>
+  </main>
+</body>
+</html>
