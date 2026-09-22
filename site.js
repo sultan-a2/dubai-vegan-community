@@ -55,6 +55,7 @@ function bindGuide() {
       if (visible) shown += 1;
     }
     if (empty) empty.hidden = shown !== 0;
+    document.querySelector(".places")?.dispatchEvent(new Event("gallery:update"));
   };
 
   for (const button of buttons) {
