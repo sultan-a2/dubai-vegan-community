@@ -1,9 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import AccordionGallery from './components/AccordionGallery.jsx'
 import GlassSurface from './components/GlassSurface.jsx'
-import MagicBento from './components/MagicBento.jsx'
-import PulseHeart from './components/PulseHeart.jsx'
-import ScrollStack, { ScrollStackItem } from './components/ScrollStack.jsx'
 
 const asset = (file) => `${import.meta.env.BASE_URL}assets/${file}`
 
@@ -27,33 +24,17 @@ const places = [
   {
     diet: 'friendly',
     label: 'Moreish',
-    detail: 'Al Barsha · Vegan-friendly',
+    detail: 'Mankhool · Vegan options',
     alt: 'A vegetable plate at Moreish',
     image: asset('moreish.jpg'),
-    link: 'https://www.google.com/maps/search/?api=1&query=Moreish+Al+Barsha+Dubai'
-  }
-]
-
-const stories = [
-  {
-    image: 'story-1.jpg',
-    title: 'Why finding other vegans changed everything'
-  },
-  {
-    image: 'story-2.jpg',
-    title: 'What it takes to build a plant-based kitchen in Dubai'
-  },
-  {
-    image: 'story-3.jpg',
-    title: 'The meals that made the transition feel possible'
+    link: 'https://www.google.com/maps/search/?api=1&query=Moreish+Mankhool+Dubai'
   }
 ]
 
 const filters = [
   ['all', 'All places'],
   ['vegan', 'Fully vegan'],
-  ['friendly', 'Vegan-friendly'],
-  ['new', 'New to the guide']
+  ['friendly', 'Vegan options']
 ]
 
 function Plant() {
@@ -148,11 +129,11 @@ export default function App() {
             <nav className="nav" aria-label="Page">
               <a href="#places">Places</a>
               <a href="#events">Events</a>
-              <a href="#stories">Stories</a>
+              <a href={`${import.meta.env.BASE_URL}edition.html#recipes`}>Recipes</a>
               <a href="#guides">Guides</a>
             </nav>
             <div className="header-action">
-              <a className="button" href="#list">List your business</a>
+              <a className="button" href="#list">For businesses</a>
             </div>
           </header>
         </GlassSurface>
@@ -162,7 +143,13 @@ export default function App() {
         <section className="hero" aria-labelledby="hero-title">
           <h1 id="hero-title">Where good food &<br />good people meet.</h1>
           <div className="rule" aria-hidden="true" />
-          <p className="dek">A generous guide to eating, gathering and living vegan in Dubai. Made by the community, for anyone curious enough to join the table.</p>
+          <p className="dek">Find a vegan meal, see where people are meeting, and keep a useful Dubai guide on your phone.</p>
+          <nav className="mobile-shortcuts" aria-label="Start here">
+            <a href="#places">Find food <span aria-hidden="true">↗</span></a>
+            <a href="#events">Meet people <span aria-hidden="true">↗</span></a>
+            <a href={`${import.meta.env.BASE_URL}edition.html#recipes`}>Cook at home <span aria-hidden="true">↗</span></a>
+            <a href="#guides">Get the guide <span aria-hidden="true">↗</span></a>
+          </nav>
 
           <div className="collage">
             <div className="slot slot-side" data-slot>
@@ -194,7 +181,7 @@ export default function App() {
         <section className="directory" id="places" aria-labelledby="places-title">
           <div className="split intro">
             <h2 id="places-title">Eat well,<br />all over Dubai.</h2>
-            <p>Vegan and vegan-friendly places we would actually send a friend.</p>
+            <p>A short starting list of vegan places and places with vegan options. Check details before visiting.</p>
           </div>
 
           <div className="tools">
@@ -231,145 +218,84 @@ export default function App() {
           </div>
 
           {visiblePlaces.length ? (
-            <AccordionGallery
-              key={`${diet}:${query}`}
-              className="places"
-              items={visiblePlaces}
-              defaultIndex={Math.min(1, visiblePlaces.length - 1)}
-              accentColor="#88A33B"
-              overlayColor="#1B4436"
-              textColor="#F9E4C5"
-              grayscale
-              showLabels
-              height={460}
-              gap={16}
-              radius={12}
-              expandRatio={0.52}
-              trigger="hover"
-            />
+            <>
+              <AccordionGallery
+                key={`${diet}:${query}`}
+                className="places"
+                items={visiblePlaces}
+                defaultIndex={Math.min(1, visiblePlaces.length - 1)}
+                accentColor="#88A33B"
+                overlayColor="#1B4436"
+                textColor="#F9E4C5"
+                grayscale
+                showLabels
+                height={460}
+                gap={16}
+                radius={12}
+                expandRatio={0.52}
+                trigger="hover"
+              />
+              <div className="mobile-places">
+                {visiblePlaces.map((place) => <a href={place.link} target="_blank" rel="noopener noreferrer" key={place.label}>
+                  <img src={place.image} alt="" loading="lazy" />
+                  <span><strong>{place.label}</strong><small>{place.detail}</small></span>
+                  <span aria-hidden="true">↗</span>
+                </a>)}
+              </div>
+            </>
           ) : (
             <p className="empty">Nothing in the guide matches that yet.</p>
           )}
 
-          <p className="browse"><a className="text-link" href="#places">Browse the full guide →</a></p>
         </section>
 
         <section className="events" id="events" aria-labelledby="events-title">
           <div className="split intro">
-            <h2 id="events-title">What's on this month</h2>
-            <p>Markets, potlucks, and the occasional film night. Come even if you are new.</p>
+            <h2 id="events-title">Find a vegan gathering.</h2>
+            <p>Our own calendar is still in the works. These live searches show what is happening nearby now.</p>
           </div>
-
-          <div className="bento">
-            <article className="feature">
-              <div className="shot feature-photo" data-slot>
-                <img src={asset('lunch.jpg')} alt="The community lunch table" width="800" height="912" data-speed="20" data-max="24" />
-              </div>
-              <div className="feature-copy">
-                <div>
-                  <p className="date"><span>26</span> September<br />Saturday</p>
-                  <h3>Lunch tastes better with company.</h3>
-                  <p>Come alone or bring a friend. Vegan or simply curious, you are welcome.</p>
-                </div>
-                <div>
-                  <p className="when">1:00 PM<br />Dobro Top Vegan, Dubai</p>
-                  <a className="text-link" href="https://www.google.com/maps/search/?api=1&query=Dobro+Top+Vegan+JLT+Dubai" target="_blank" rel="noopener">Save your seat →</a>
-                </div>
-              </div>
-            </article>
-
-            <a className="gathering" href="https://www.google.com/maps/search/?api=1&query=Ripe+Market+Alserkal+Avenue+Dubai" target="_blank" rel="noopener">
-              <p className="mini-date"><span>27</span> Sep</p>
-              <span className="gathering-copy">
-                <strong>Ripe Market, Alserkal</strong>
-                <span>Saturday, 10–4 · Free</span>
-              </span>
-              <span className="shot gathering-photo" data-slot>
-                <img src={asset('market.jpg')} alt="" width="280" height="440" data-speed="16" data-max="14" />
-              </span>
-            </a>
-
-            <article className="gathering">
-              <p className="mini-date"><span>3</span> Oct</p>
-              <span className="gathering-copy">
-                <strong>Leftover iftar potluck</strong>
-                <span>Jumeirah · Bring a dish</span>
-              </span>
-              <span className="shot gathering-photo" data-slot>
-                <img src={asset('potluck.jpg')} alt="" width="280" height="440" data-speed="-12" data-max="14" />
-              </span>
-            </article>
+          <div className="event-discovery">
+            <div className="event-image shot" data-slot><img src={asset('lunch.jpg')} alt="People sharing a meal outdoors" width="800" height="600" data-speed="16" data-max="18" /></div>
+            <div className="event-links">
+              <a href="https://www.eventbrite.com/d/united-arab-emirates--dubai/vegan/" target="_blank" rel="noopener noreferrer"><span>Vegan events on Eventbrite</span><span aria-hidden="true">↗</span></a>
+              <a href="https://www.meetup.com/find/?keywords=vegan&location=ae--Dubai" target="_blank" rel="noopener noreferrer"><span>Vegan groups on Meetup</span><span aria-hidden="true">↗</span></a>
+            </div>
           </div>
         </section>
 
         <section className="starter" id="guides" aria-labelledby="guides-title">
           <div className="shot starter-photo" data-slot>
-            <img src={asset('starter.jpg')} alt="Friends eating outdoors" width="1280" height="960" data-speed="18" data-max="22" />
+            <img src={asset('vegan-guide-still-life.png')} alt="Chickpeas, lemon, herbs and dates on a stone table" width="1086" height="1448" data-speed="18" data-max="22" />
           </div>
           <div className="starter-copy">
-            <h2 id="guides-title">You do not need to be perfect to begin.</h2>
-            <p>A practical Dubai guide for eating out, shopping, and the questions that come up when you are just starting.</p>
-            <a className="text-link" href="#guides">Read the starter guide →</a>
-            <p className="feeling">One meal can be<br />a beginning.</p>
+            <h2 id="guides-title">A vegan Dubai guide for your phone.</h2>
+            <p>Eating out, a first shopping list and a few easy meals, in a short PDF you can save.</p>
+            <a className="text-link" href={`${import.meta.env.BASE_URL}guides/vegan-dubai-starter-guide.pdf`} download>Download the free PDF ↗</a>
           </div>
         </section>
 
         <section className="stories" id="stories" aria-labelledby="stories-title">
           <div className="stories-intro">
-            <h2 id="stories-title">People,<br />not perfection.</h2>
-            <p>Meet the people changing their habits, feeding their neighbours, and making the city easier to eat in.</p>
-            <div className="shot stories-photo" data-slot>
-              <img src={asset('stories.jpg')} alt="The community around a table" width="1120" height="680" data-speed="16" data-max="20" />
-            </div>
+            <h2 id="stories-title">The people behind the meals.</h2>
+            <p>We want to share why people in Dubai went vegan, what helped them stay with it, and where they like to eat.</p>
           </div>
-          <ScrollStack
-            className="story-stack"
-            useWindowScroll
-            pin={false}
-            itemDistance={28}
-            itemScale={0.02}
-            baseScale={0.94}
-            blurAmount={0}
-            rotationAmount={0}
-          >
-            {stories.map((story) => (
-              <ScrollStackItem key={story.title}>
-                <article className="story">
-                  <img src={asset(story.image)} alt="" width="96" height="72" />
-                  <h3>{story.title}</h3>
-                  <PulseHeart
-                    count={0}
-                    likedColor="#88A33B"
-                    idleColor="#1B4436"
-                    pillColor="#1B4436"
-                    textColor="#F9E4C5"
-                    label={`Like ${story.title}`}
-                  />
-                </article>
-              </ScrollStackItem>
-            ))}
-          </ScrollStack>
+          <div className="story-invite"><p>We will publish local stories, reviews and meal photos once people can submit them and agree to sharing.</p><a className="text-link" href={`${import.meta.env.BASE_URL}edition.html#community`}>About community contributions ↗</a></div>
         </section>
 
         <section className="take-part" aria-labelledby="take-part-title">
-          <h2 id="take-part-title">Take part</h2>
-          <MagicBento
-            textAutoHide={false}
-            enableStars
-            enableSpotlight
-            enableBorderGlow
-            enableTilt
-            enableMagnetism
-            clickEffect
-            glowColor="136, 163, 59"
-          />
+          <h2 id="take-part-title">Start somewhere.</h2>
+          <div className="take-part-links">
+            <a href="#places">Find a place to eat <span aria-hidden="true">↗</span></a>
+            <a href={`${import.meta.env.BASE_URL}edition.html#recipes`}>Cook a vegan meal <span aria-hidden="true">↗</span></a>
+            <a href="#events">See where people meet <span aria-hidden="true">↗</span></a>
+          </div>
         </section>
 
         <section className="business" id="list" aria-labelledby="list-title">
-          <h2 id="list-title">Put your business on the community map.</h2>
+          <h2 id="list-title">For vegan businesses in Dubai.</h2>
           <div>
-            <p>Apply for a verified listing or propose an event collaboration.</p>
-            <a className="button button-line" href="#list">Start an application ↗</a>
+            <p>Listing applications and collaboration enquiries are opening soon. We will check business details before adding them.</p>
+            <a className="button button-line" href={`${import.meta.env.BASE_URL}edition.html#businesses`}>How listings will work ↗</a>
           </div>
         </section>
       </main>
@@ -389,9 +315,8 @@ export default function App() {
             </nav>
             <nav aria-label="Community">
               <a href={`${import.meta.env.BASE_URL}edition.html`}>Community guide</a>
-              <a href="#list">List your business</a>
-              <a id="instagram" href="#footer">Instagram</a>
-              <a id="contact" href="#footer">Contact</a>
+              <a href="#list">For businesses</a>
+              <a href={`${import.meta.env.BASE_URL}guides/vegan-dubai-starter-guide.pdf`} download>Download the guide</a>
             </nav>
           </div>
           <a className="to-top" href="#top">Back to top ↑</a>

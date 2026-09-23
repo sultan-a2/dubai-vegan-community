@@ -6,7 +6,7 @@ const asset = (name) => `${import.meta.env.BASE_URL}assets/${name}`
 const guide = `${import.meta.env.BASE_URL}guides/vegan-dubai-starter-guide.pdf`
 
 const places = [
-  { name: 'Top Vegan by Dobraw', area: 'Jumeirah Lakes Towers', type: 'Vegan', note: 'A fully vegan menu in JLT.', url: 'https://topvegan.ae/' },
+  { name: 'Top Vegan by Dobraw', area: 'Jumeirah Lakes Towers', type: 'Vegan', keywords: 'JLT', note: 'A fully vegan menu in JLT.', url: 'https://topvegan.ae/' },
   { name: 'Planet Terra', area: 'The Greens', type: 'Vegan', note: 'Vegan café in The Greens.', url: 'https://planetterra.life/' },
   { name: 'Wild & The Moon', area: 'Alserkal Avenue', type: 'Vegan', note: 'Vegan café at Alserkal Avenue.', url: 'https://www.wildandthemoon.ae/our-locations/' },
   { name: 'Moreish', area: 'Mankhool', type: 'Vegan options', note: 'Ask about the vegan options before ordering.', url: 'https://www.google.com/maps/search/?api=1&query=Moreish+Mankhool+Dubai' }
@@ -27,7 +27,7 @@ function App() {
   const [activePath, setActivePath] = useState(0)
   const visiblePlaces = useMemo(() => places.filter((place) =>
     (filter === 'All' || place.type === filter) &&
-    `${place.name} ${place.area}`.toLowerCase().includes(search.toLowerCase().trim())
+    `${place.name} ${place.area} ${place.keywords || ''}`.toLowerCase().includes(search.toLowerCase().trim())
   ), [filter, search])
 
   useEffect(() => {
@@ -60,6 +60,7 @@ function App() {
       <nav className="nav-left" aria-label="Explore"><a href="#restaurants">Restaurants</a><a href="#recipes">Recipes</a><a href="#events">Events</a></nav>
       <a className="brand" href="#top" aria-label="Dubai Vegan Community home"><img src={asset('logo-mark.png')} alt="" /><span>Dubai Vegan<br />Community</span></a>
       <nav className="nav-right" aria-label="Community"><a href="#guides">Guides</a><a href="#community">Community</a><a href="#businesses">Businesses</a></nav>
+      <nav className="mobile-nav" aria-label="Explore the guide"><a href="#restaurants">Restaurants</a><a href="#recipes">Recipes</a><a href="#events">Events</a><a href="#guides">Guides</a></nav>
     </header>
 
     <main id="main">
@@ -67,7 +68,7 @@ function App() {
         <h1 id="hero-title">Your guide to vegan Dubai.</h1>
         <div className="hero-pair">
           <div className="hero-image image-frame"><img src={asset('picnic.jpg')} alt="People sharing food together outdoors" data-parallax /></div>
-          <div className="hero-copy"><p>Find a vegan restaurant near you, make dinner from familiar ingredients, or see where local groups are meeting. You do not need to call yourself vegan to use this guide.</p><a className="inline-link" href="#explore">Explore the guide <Arrow /></a></div>
+          <div className="hero-copy"><p>Find vegan restaurants, easy recipes and people to meet in Dubai. You are welcome whether you are vegan or simply curious.</p><a className="inline-link" href="#explore">Explore the guide <Arrow /></a></div>
         </div>
       </section>
 
@@ -117,7 +118,7 @@ function App() {
         </div>
       </section>
 
-      <section className="community shell section-space" id="community" aria-labelledby="community-title"><div className="section-head"><h2 id="community-title">Vegan stories, in your own words</h2><p>Soon you will be able to share restaurant reviews, meal photos and your own story. We will ask permission before publishing any contribution.</p></div><div className="community-layout"><div className="community-image image-frame"><img src={asset('lunch.jpg')} alt="People sitting together at an outdoor meal" data-parallax /></div><div className="community-copy"><h3>Why did you go vegan?</h3><p>There is no single answer. We want to hear about the meals, decisions and people that shaped your journey, in your own words.</p><p>Restaurant reviews and meal photos are planned too. Submissions will be reviewed before they appear on the site.</p></div></div></section>
+      <section className="community shell section-space" id="community" aria-labelledby="community-title"><div className="section-head"><h2 id="community-title">Vegan stories, in your own words</h2><p>We are preparing a place for stories, restaurant reviews and meal photos from Dubai.</p></div><div className="community-layout"><div className="community-image image-frame"><img src={asset('lunch.jpg')} alt="People sitting together at an outdoor meal" data-parallax /></div><div className="community-copy"><h3>Why did you go vegan?</h3><p>When submissions open, tell us what changed your mind or what helped you continue. We will ask before publishing.</p></div></div></section>
 
       <section className="business shell" id="businesses" aria-labelledby="business-title"><div><h2 id="business-title">For vegan and vegan-friendly businesses</h2><p>We want this guide to help people discover local restaurants and emerging vegan businesses. Listing applications and collaboration enquiries are opening soon.</p></div><div className="business-aside"><p>When applications open, bring your business name, location, menu or product, vegan details and contact information. Listings will be checked before publication.</p></div></section>
     </main>

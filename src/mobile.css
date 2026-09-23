@@ -1,0 +1,129 @@
+.mobile-shortcuts, .mobile-places { display: none; }
+
+.event-discovery {
+  width: min(var(--content), 100%);
+  margin: 30px auto 0;
+  display: grid;
+  grid-template-columns: 44% minmax(0, 1fr);
+  gap: 7%;
+  align-items: center;
+}
+.event-image { height: 340px; }
+.event-links { border-top: 1px solid var(--brunswick); }
+.event-links a {
+  min-height: 106px;
+  border-bottom: 1px solid var(--brunswick);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  font-size: clamp(20px, 2.3vw, 30px);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+.event-links a:hover, .take-part-links a:hover { color: #637e32; }
+.story-invite {
+  width: min(450px, 42%);
+  border-top: 1px solid var(--buff);
+  padding-top: 24px;
+  font-size: 18px;
+  line-height: 1.5;
+}
+.story-invite .text-link { display: inline-block; margin-top: 25px; border-bottom: 1px solid currentColor; padding-bottom: 5px; }
+.take-part-links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--brunswick);
+  border-bottom: 1px solid var(--brunswick);
+}
+.take-part-links a {
+  min-height: 150px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: flex-end;
+  font-size: clamp(19px, 2vw, 28px);
+  letter-spacing: -0.03em;
+}
+.take-part-links a + a { border-left: 1px solid var(--brunswick); }
+.take-part-links a span { flex-shrink: 0; }
+
+@media (max-width: 980px) {
+  .story-invite { width: 100%; }
+}
+
+@media (max-width: 720px) {
+  section[id], #top, #footer { scroll-margin-top: 90px; }
+  .header { display: flex; flex-wrap: wrap; gap: 0; min-height: 0; padding: 10px 20px 0; border-bottom-width: 1px; }
+  .brand { gap: 7px; }
+  .brand img { width: 32px; height: 32px; }
+  .brand span { font-size: 13px; line-height: 1.1; }
+  .header-action { display: none; }
+  .nav { flex: 0 0 100%; display: flex; justify-content: flex-start; gap: 25px; flex-wrap: nowrap; overflow-x: auto; padding: 12px 0 10px; font-size: 13px; scrollbar-width: none; }
+  .nav::-webkit-scrollbar { display: none; }
+  .nav a { min-height: 32px; display: flex; align-items: center; }
+  .hero { align-items: stretch; gap: 0; padding: 36px 20px 28px; }
+  .hero h1 { width: 100%; text-align: left; font-size: clamp(46px, 12vw, 58px); line-height: .89; }
+  .hero .rule { display: none; }
+  .hero .dek { width: 100%; text-align: left; margin-top: 18px; font-size: 15px; line-height: 1.47; }
+  .mobile-shortcuts { display: grid; grid-template-columns: 1fr 1fr; margin-top: 23px; border-block: 1px solid var(--brunswick); }
+  .mobile-shortcuts a { min-height: 53px; padding: 14px 8px 12px 0; display: flex; justify-content: space-between; gap: 8px; font-size: 13px; font-weight: 600; }
+  .mobile-shortcuts a:nth-child(2n) { padding-left: 12px; border-left: 1px solid var(--buff); }
+  .mobile-shortcuts a:nth-child(-n+2) { border-bottom: 1px solid var(--buff); }
+  .collage { width: 100%; margin-top: 20px; display: block; }
+  .slot-side, .plant { display: none; }
+  .slot-center { width: 100%; }
+  .slot-center .shot { aspect-ratio: 16 / 9; border-radius: 6px; }
+  .slot-center .shot img { top: 0; height: 100%; transform: none !important; }
+  .hero-links { width: 100%; padding-top: 13px; }
+  .hero-links .mark { display: none; }
+  .hero-links .text-link { font-size: 13px; border-bottom: 1px solid; padding-bottom: 3px; }
+  .directory { padding: 48px 20px 35px; }
+  .intro, .split { gap: 9px; }
+  .directory h2 { font-size: 42px; }
+  .directory .intro p, .events .intro p { width: 100%; font-size: 14px; line-height: 1.5; }
+  .tools { margin: 17px auto 16px; gap: 14px; }
+  .search { height: 46px; }
+  .search input { font-size: 14px; }
+  .search-label { display: none; }
+  .filters.scroll-fade-x { mask-image: none; gap: 7px; }
+  .pill { height: 32px; padding-inline: 11px; font-size: 12px; }
+  .places { display: none; }
+  .mobile-places { display: block; border-top: 1px solid var(--brunswick); }
+  .mobile-places a { display: grid; grid-template-columns: 66px minmax(0,1fr) 20px; align-items: center; gap: 14px; min-height: 89px; border-bottom: 1px solid var(--buff); }
+  .mobile-places img { width: 66px; height: 66px; object-fit: cover; border-radius: 5px; }
+  .mobile-places strong { display: block; font-size: 17px; font-weight: 600; line-height: 1.15; }
+  .mobile-places small { display: block; margin-top: 5px; font-size: 12px; }
+  .mobile-places a > span:last-child { align-self: center; font-size: 18px; }
+  .events { padding: 47px 20px 48px; background: #f5e8d1; }
+  .events h2 { font-size: 40px; }
+  .event-discovery { display: block; margin-top: 17px; }
+  .event-image { display: none; }
+  .event-links a { min-height: 70px; font-size: 17px; letter-spacing: -.015em; }
+  .starter { display: block; width: auto; margin: 0 20px; padding: 24px; background: var(--brunswick); color: var(--champagne); border-radius: 8px; }
+  .starter-photo { display: none; }
+  .starter-copy { width: 100%; gap: 16px; }
+  .starter h2 { font-size: 39px; line-height: .96; }
+  .starter-copy > p { font-size: 14px; line-height: 1.5; }
+  .starter .text-link { border-bottom: 1px solid currentColor; padding-bottom: 4px; font-size: 14px; }
+  .stories { display: block; padding: 49px 20px 39px; }
+  .stories-intro { width: 100%; gap: 12px; }
+  .stories h2 { font-size: 43px; }
+  .stories-intro > p { font-size: 14px; line-height: 1.5; }
+  .stories-photo { display: none; }
+  .story-invite { margin-top: 23px; padding-top: 16px; font-size: 14px; line-height: 1.5; }
+  .story-invite .text-link { margin-top: 15px; font-size: 13px; }
+  .take-part { display: none; }
+  .business { display: block; padding: 26px 20px 45px; border-top: 1px solid var(--buff); }
+  .business h2 { width: 100%; font-size: 38px; }
+  .business div { width: 100%; gap: 17px; margin-top: 15px; }
+  .business p { font-size: 14px; line-height: 1.5; }
+  .business .button { font-size: 13px; }
+  .footer-links { padding: 31px 20px 15px; gap: 20px; }
+  .footer-cols { gap: 15px; width: 100%; justify-content: space-between; }
+  .footer-cols nav { font-size: 13px; gap: 9px; }
+  .to-top { font-size: 13px; }
+  .wordmark { padding: 8px 20px; font-size: 32px; line-height: 1; white-space: normal; }
+  .legal { padding: 10px 20px 20px; }
+}
