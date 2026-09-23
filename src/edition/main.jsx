@@ -12,18 +12,19 @@ const places = [
   { name: 'Moreish', area: 'Mankhool', type: 'Vegan options', note: 'Ask about the vegan options before ordering.', url: 'https://www.google.com/maps/search/?api=1&query=Moreish+Mankhool+Dubai' }
 ]
 const paths = [
-  { label: 'Restaurants', detail: 'Vegan places and places with vegan options', href: '#restaurants' },
-  { label: 'Recipes', detail: 'Simple meals to make at home', href: '#recipes' },
-  { label: 'Events', detail: 'Find a table, a market or a meetup', href: '#events' },
-  { label: 'Guides', detail: 'A practical PDF for getting started', href: '#guides' },
-  { label: 'Community', detail: 'Stories, reviews and shared meals', href: '#community' },
-  { label: 'Businesses', detail: 'Listings and future collaborations', href: '#businesses' }
+  { label: 'Restaurants', detail: 'Find your next vegan meal out', href: '#restaurants', image: 'bowl.jpg', caption: 'Places to eat across Dubai' },
+  { label: 'Recipes', detail: 'Make something good at home', href: '#recipes', image: 'greens.jpg', caption: 'Everyday meals, familiar ingredients' },
+  { label: 'Events', detail: 'See where people are meeting', href: '#events', image: 'lunch.jpg', caption: 'A reason to come together' },
+  { label: 'Guides', detail: 'Keep the vegan Dubai starter PDF', href: '#guides', caption: 'A guide to take with you' },
+  { label: 'Community', detail: 'Read and share real experiences', href: '#community', image: 'picnic.jpg', caption: 'People make this place' },
+  { label: 'Businesses', detail: 'Grow the local vegan scene', href: '#businesses', image: 'cafe.jpg', caption: 'For independent local businesses' }
 ]
 function Arrow() { return <span aria-hidden="true">↗</span> }
 
 function App() {
   const [filter, setFilter] = useState('All')
   const [search, setSearch] = useState('')
+  const [activePath, setActivePath] = useState(0)
   const visiblePlaces = useMemo(() => places.filter((place) =>
     (filter === 'All' || place.type === filter) &&
     `${place.name} ${place.area}`.toLowerCase().includes(search.toLowerCase().trim())
@@ -71,8 +72,18 @@ function App() {
       </section>
 
       <section className="explore shell" id="explore" aria-labelledby="explore-title">
-        <div className="section-head"><h2 id="explore-title">Explore the community</h2><p>Choose what you came for. You can always find your way back here.</p></div>
-        <div className="path-list">{paths.map((path) => <a className="path" href={path.href} key={path.label}><span>{path.label}</span><span>{path.detail}</span><Arrow /></a>)}</div>
+        <div className="section-head"><h2 id="explore-title">Where would you like to begin?</h2><p>Find dinner tonight, or take your time with the recipes and guides.</p></div>
+        <div className="explore-layout">
+          <div className="explore-preview" aria-hidden="true">
+            <div className="explore-preview-art" key={paths[activePath].label}>
+              {paths[activePath].image
+                ? <img src={asset(paths[activePath].image)} alt="" />
+                : <div className="explore-paper"><span>Dubai Vegan Community</span><strong>Getting started with vegan Dubai</strong><span>Restaurants · shopping · everyday meals</span></div>}
+            </div>
+            <div className="explore-caption"><strong>{paths[activePath].label}</strong><span>{paths[activePath].caption}</span></div>
+          </div>
+          <div className="path-list">{paths.map((path, index) => <a className={`path ${activePath === index ? 'is-active' : ''}`} href={path.href} key={path.label} onMouseEnter={() => setActivePath(index)} onFocus={() => setActivePath(index)}><span>{path.label}</span><span>{path.detail}</span><Arrow /></a>)}</div>
+        </div>
       </section>
 
       <section className="restaurants shell section-space" id="restaurants" aria-labelledby="restaurants-title">
