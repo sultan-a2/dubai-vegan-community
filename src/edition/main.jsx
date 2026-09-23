@@ -15,7 +15,7 @@ const paths = [
   { label: 'Restaurants', detail: 'Find your next vegan meal out', href: '#restaurants', image: 'bowl.jpg', caption: 'Places to eat across Dubai' },
   { label: 'Recipes', detail: 'Make something good at home', href: '#recipes', image: 'greens.jpg', caption: 'Everyday meals, familiar ingredients' },
   { label: 'Events', detail: 'See where people are meeting', href: '#events', image: 'lunch.jpg', caption: 'A reason to come together' },
-  { label: 'Guides', detail: 'Keep the vegan Dubai starter PDF', href: '#guides', caption: 'A guide to take with you' },
+  { label: 'Guides', detail: 'Keep the vegan Dubai starter PDF', href: '#guides', image: 'vegan-guide-still-life.png', caption: 'A guide to take with you' },
   { label: 'Community', detail: 'Read and share real experiences', href: '#community', image: 'picnic.jpg', caption: 'People make this place' },
   { label: 'Businesses', detail: 'Grow the local vegan scene', href: '#businesses', image: 'cafe.jpg', caption: 'For independent local businesses' }
 ]
@@ -76,9 +76,7 @@ function App() {
         <div className="explore-layout">
           <div className="explore-preview" aria-hidden="true">
             <div className="explore-preview-art" key={paths[activePath].label}>
-              {paths[activePath].image
-                ? <img src={asset(paths[activePath].image)} alt="" />
-                : <div className="explore-paper"><span>Dubai Vegan Community</span><strong>Getting started with vegan Dubai</strong><span>Restaurants · shopping · everyday meals</span></div>}
+              <img src={asset(paths[activePath].image)} alt="" />
             </div>
             <div className="explore-caption"><strong>{paths[activePath].label}</strong><span>{paths[activePath].caption}</span></div>
           </div>
@@ -101,7 +99,23 @@ function App() {
 
       <section className="events shell section-space" id="events" aria-labelledby="events-title"><div className="section-head"><h2 id="events-title">Meet vegans in Dubai</h2><p>Browse current meetups while we prepare our own event calendar.</p></div><div className="events-layout"><div className="events-photo image-frame"><img src={asset('cafe.jpg')} alt="Friends bringing drinks together over a table" data-parallax /></div><div className="events-copy"><p>We will share Dubai Vegan Community events here once dates, venues and hosts are confirmed. Until then, these live searches are the quickest way to see what is happening nearby.</p><a className="rule-link" href="https://www.eventbrite.com/d/united-arab-emirates--dubai/vegan/" target="_blank" rel="noopener noreferrer">Vegan events on Eventbrite <Arrow /></a><a className="rule-link" href="https://www.meetup.com/find/?keywords=vegan&location=ae--Dubai" target="_blank" rel="noopener noreferrer">Vegan groups on Meetup <Arrow /></a></div></div></section>
 
-      <section className="guides-band" id="guides" aria-labelledby="guides-title"><div className="shell guides-layout"><div><h2 id="guides-title">A vegan guide you can keep</h2><p>Our starter PDF covers eating out, shopping, simple meals and questions to ask when a menu is unclear. Save it for later or send it to a friend.</p><a className="solid-link" href={guide} download>Download the vegan Dubai starter guide ↓</a></div><div className="guide-preview" aria-hidden="true"><div className="guide-preview-inner"><span>Dubai Vegan Community</span><strong>Getting started<br />with vegan<br />Dubai</strong><span>Restaurants · shopping · everyday meals</span></div></div></div></section>
+      <section className="guides-band" id="guides" aria-labelledby="guides-title">
+        <div className="shell">
+          <div className="guide-feature">
+            <div className="guide-cover" aria-hidden="true">
+              <img src={asset('vegan-guide-still-life.png')} alt="" loading="lazy" />
+              <div className="guide-cover-title">Vegan<br />Dubai</div>
+            </div>
+            <div className="guide-copy">
+              <h2 id="guides-title">Vegan Dubai, in your pocket.</h2>
+              <p>A short PDF for eating out, shopping and making easy meals here. Keep it on your phone for the moments you need it.</p>
+            </div>
+            <a className="guide-download" href={guide} download aria-label="Download the vegan Dubai starter guide PDF">
+              <span>Download the guide <small>PDF · free</small></span><span className="guide-download-arrow" aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      </section>
 
       <section className="community shell section-space" id="community" aria-labelledby="community-title"><div className="section-head"><h2 id="community-title">Vegan stories, in your own words</h2><p>Soon you will be able to share restaurant reviews, meal photos and your own story. We will ask permission before publishing any contribution.</p></div><div className="community-layout"><div className="community-image image-frame"><img src={asset('lunch.jpg')} alt="People sitting together at an outdoor meal" data-parallax /></div><div className="community-copy"><h3>Why did you go vegan?</h3><p>There is no single answer. We want to hear about the meals, decisions and people that shaped your journey, in your own words.</p><p>Restaurant reviews and meal photos are planned too. Submissions will be reviewed before they appear on the site.</p></div></div></section>
 
