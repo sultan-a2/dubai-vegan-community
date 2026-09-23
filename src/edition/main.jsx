@@ -1,37 +1,49 @@
-import { StrictMode, useEffect, useState } from 'react'
+import { StrictMode, useEffect, useMemo, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import './styles.css'
 
 const asset = (name) => `${import.meta.env.BASE_URL}assets/${name}`
+const guide = `${import.meta.env.BASE_URL}guides/vegan-dubai-starter-guide.pdf`
 
 const places = [
-  { name: 'Dobro Top Vegan', area: 'Jumeirah Lakes Towers', image: 'dobro.jpg', alt: 'Colorful vegetable plate', query: 'Dobro Top Vegan JLT Dubai' },
-  { name: 'Planet Terra', area: 'The Greens', image: 'terra.jpg', alt: 'People raising drinks around a table', query: 'Planet Terra The Greens Dubai' },
-  { name: 'Moreish', area: 'Al Barsha', image: 'moreish.jpg', alt: 'Prepared vegetable dish', query: 'Moreish Al Barsha Dubai' }
+  { name: 'Top Vegan by Dobraw', area: 'Jumeirah Lakes Towers', type: 'Vegan', note: 'A fully vegan menu in JLT.', url: 'https://topvegan.ae/' },
+  { name: 'Planet Terra', area: 'The Greens', type: 'Vegan', note: 'Vegan café in The Greens.', url: 'https://planetterra.life/' },
+  { name: 'Wild & The Moon', area: 'Alserkal Avenue', type: 'Vegan', note: 'Vegan café at Alserkal Avenue.', url: 'https://www.wildandthemoon.ae/our-locations/' },
+  { name: 'Moreish', area: 'Mankhool', type: 'Vegan options', note: 'Ask about the vegan options before ordering.', url: 'https://www.google.com/maps/search/?api=1&query=Moreish+Mankhool+Dubai' }
 ]
-
-function Arrow({ diagonal = false }) {
-  return <span aria-hidden="true">{diagonal ? '↗' : '→'}</span>
-}
+const paths = [
+  { label: 'Restaurants', detail: 'Vegan places and places with vegan options', href: '#restaurants' },
+  { label: 'Recipes', detail: 'Simple meals to make at home', href: '#recipes' },
+  { label: 'Events', detail: 'Find a table, a market or a meetup', href: '#events' },
+  { label: 'Guides', detail: 'A practical PDF for getting started', href: '#guides' },
+  { label: 'Community', detail: 'Stories, reviews and shared meals', href: '#community' },
+  { label: 'Businesses', detail: 'Listings and future collaborations', href: '#businesses' }
+]
+function Arrow() { return <span aria-hidden="true">↗</span> }
 
 function App() {
-  const [selected, setSelected] = useState(0)
+  const [filter, setFilter] = useState('All')
+  const [search, setSearch] = useState('')
+  const visiblePlaces = useMemo(() => places.filter((place) =>
+    (filter === 'All' || place.type === filter) &&
+    `${place.name} ${place.area}`.toLowerCase().includes(search.toLowerCase().trim())
+  ), [filter, search])
 
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-    const items = document.querySelectorAll('[data-parallax]')
+    const images = document.querySelectorAll('[data-parallax]')
     let frame = 0
-    const move = () => {
+    const update = () => {
       frame = 0
-      for (const item of items) {
-        const rect = item.parentElement.getBoundingClientRect()
+      for (const image of images) {
+        const rect = image.parentElement.getBoundingClientRect()
         if (rect.bottom < 0 || rect.top > window.innerHeight) continue
-        const shift = Math.max(-18, Math.min(18, (rect.top + rect.height / 2 - window.innerHeight / 2) * -0.055))
-        item.style.transform = `translate3d(0, ${shift}px, 0)`
+        const distance = rect.top + rect.height / 2 - window.innerHeight / 2
+        image.style.transform = `translate3d(0, ${Math.max(-16, Math.min(16, distance * -0.035))}px, 0)`
       }
     }
-    const request = () => { if (!frame) frame = requestAnimationFrame(move) }
-    move()
+    const request = () => { if (!frame) frame = requestAnimationFrame(update) }
+    update()
     window.addEventListener('scroll', request, { passive: true })
     window.addEventListener('resize', request)
     return () => {
@@ -42,66 +54,50 @@ function App() {
   }, [])
 
   return <>
-    <a className="skip" href="#places">Skip to places</a>
-    <header className="site-header" id="top">
-      <a className="brand" href="#top"><img src={asset('logo-mark.png')} alt="" /><span>Dubai Vegan<br />Community</span></a>
-      <nav aria-label="Main navigation"><a href="#places">Find a place</a><a href="#start">Start here</a><a href="#meet">Meet people</a></nav>
-      <a className="original-link" href={import.meta.env.BASE_URL}>View original <Arrow diagonal /></a>
+    <a className="skip" href="#main">Skip to content</a>
+    <header className="header" id="top">
+      <nav className="nav-left" aria-label="Explore"><a href="#restaurants">Restaurants</a><a href="#recipes">Recipes</a><a href="#events">Events</a></nav>
+      <a className="brand" href="#top" aria-label="Dubai Vegan Community home"><img src={asset('logo-mark.png')} alt="" /><span>Dubai Vegan<br />Community</span></a>
+      <nav className="nav-right" aria-label="Community"><a href="#guides">Guides</a><a href="#community">Community</a><a href="#businesses">Businesses</a></nav>
     </header>
 
-    <main>
-      <section className="cover-stage" aria-labelledby="cover-title">
-        <div className="cover">
-          <div className="cover-topline"><span>Dubai Vegan Community</span><span>A guide to eating and gathering in Dubai</span></div>
-          <h1 id="cover-title">GOOD FOOD.<br />GOOD COMPANY.</h1>
-          <div className="cover-deck"><p>Find somewhere to eat.</p><p>Bring someone along.</p><p>Stay for the people.</p></div>
-          <div className="cover-photo"><img src={asset('picnic.jpg')} alt="A group sharing food at an outdoor picnic" data-parallax /></div>
-          <div className="cover-bottom"><p>For vegans, the curious, and anyone who wants a seat at the table.</p><a href="#places">Look around <Arrow diagonal /></a></div>
+    <main id="main">
+      <section className="hero shell" aria-labelledby="hero-title">
+        <h1 id="hero-title">Your guide to vegan Dubai.</h1>
+        <div className="hero-pair">
+          <div className="hero-image image-frame"><img src={asset('picnic.jpg')} alt="People sharing food together outdoors" data-parallax /></div>
+          <div className="hero-copy"><p>Find a vegan restaurant near you, make dinner from familiar ingredients, or see where local groups are meeting. You do not need to call yourself vegan to use this guide.</p><a className="inline-link" href="#explore">Explore the guide <Arrow /></a></div>
         </div>
       </section>
 
-      <section className="welcome section-wrap" aria-labelledby="welcome-title">
-        <p className="side-note">Dubai, UAE<br />Open to everyone</p>
-        <div>
-          <h2 id="welcome-title">A city to eat through, together.</h2>
-          <p>Looking for a plant-based dinner in Dubai? Starting with one meal? Just want to meet people who get it? Start with a place. The rest can happen around the table.</p>
-        </div>
+      <section className="explore shell" id="explore" aria-labelledby="explore-title">
+        <div className="section-head"><h2 id="explore-title">Explore the community</h2><p>Choose what you came for. You can always find your way back here.</p></div>
+        <div className="path-list">{paths.map((path) => <a className="path" href={path.href} key={path.label}><span>{path.label}</span><span>{path.detail}</span><Arrow /></a>)}</div>
       </section>
 
-      <section className="places section-wrap" id="places" aria-labelledby="places-title">
-        <div className="section-heading"><h2 id="places-title">Somewhere to start</h2><p>Three places from the existing guide. Check menus and opening hours before you go.</p></div>
-        <div className="places-layout">
-          <div className="place-list" role="list">
-            {places.map((place, index) => <div className={`place-row ${selected === index ? 'active' : ''}`} role="listitem" key={place.name} onMouseEnter={() => setSelected(index)}>
-              <button type="button" onClick={() => setSelected(index)} aria-pressed={selected === index} aria-label={`Preview ${place.name}`}><span><strong>{place.name}</strong><small>{place.area}</small></span><span aria-hidden="true">{selected === index ? '−' : '+'}</span></button>
-              {selected === index && <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place.query)}`} target="_blank" rel="noopener noreferrer">Find it on Maps <Arrow diagonal /></a>}
-            </div>)}
+      <section className="restaurants shell section-space" id="restaurants" aria-labelledby="restaurants-title">
+        <div className="section-head"><h2 id="restaurants-title">Find a vegan place to eat</h2><p>A short starting list, with links to current menus and locations. Check details before visiting.</p></div>
+        <div className="restaurant-layout">
+          <div className="restaurant-photo image-frame"><img src={asset('bowl.jpg')} alt="A bowl of vegetables, chickpeas and avocado" data-parallax /></div>
+          <div className="restaurant-content">
+            <div className="directory-tools"><label className="search-label"><span className="sr-only">Search restaurants by name or area</span><input value={search} onChange={(event) => setSearch(event.target.value)} type="search" placeholder="Search by name or area" /></label><div className="filter-buttons" role="group" aria-label="Restaurant type">{['All', 'Vegan', 'Vegan options'].map((type) => <button type="button" key={type} className={filter === type ? 'selected' : ''} aria-pressed={filter === type} onClick={() => setFilter(type)}>{type}</button>)}</div></div>
+            <div className="venue-list">{visiblePlaces.length ? visiblePlaces.map((place) => <article className="venue" key={place.name}><div><h3>{place.name}</h3><p>{place.area} · {place.type}</p><small>{place.note}</small></div><a href={place.url} target="_blank" rel="noopener noreferrer" aria-label={`Check ${place.name} details`}><Arrow /></a></article>) : <p className="empty">No places match that search. Try another area or type.</p>}</div>
           </div>
-          <div className="place-image" key={places[selected].image}><img src={asset(places[selected].image)} alt={places[selected].alt} /></div>
         </div>
       </section>
 
-      <section className="interlude" aria-labelledby="interlude-title">
-        <div className="interlude-photo"><img src={asset('community-table.png')} alt="Illustration of people sharing plant-based dishes at a table" data-parallax /></div>
-        <div className="interlude-card"><h2 id="interlude-title">Come as you are.</h2><p>You do not need a perfect pantry or a label. A good meal is enough of a reason to begin.</p><a href="#start">Start with the basics <Arrow /></a></div>
-      </section>
+      <section className="recipes-band" id="recipes" aria-labelledby="recipes-title"><div className="shell recipes-layout"><div className="recipe-intro"><h2 id="recipes-title">Cook something vegan tonight</h2><p>Start with meals that use familiar ingredients. These recipes need no specialist products.</p><div className="recipe-image image-frame"><img src={asset('greens.jpg')} alt="Fresh vegetables prepared for a meal" data-parallax /></div></div><div className="recipe-list"><details><summary><span>Tomato and lentil pot</span><span aria-hidden="true">+</span></summary><div className="recipe-body"><p><strong>You need</strong> red lentils, onion, garlic, canned tomatoes, cumin, vegetable stock and lemon.</p><p><strong>Make it</strong> Soften the onion and garlic. Add cumin, lentils, tomatoes and stock. Simmer until the lentils are soft, then finish with lemon. Serve with rice or bread.</p></div></details><details><summary><span>Chickpea and tahini bowl</span><span aria-hidden="true">+</span></summary><div className="recipe-body"><p><strong>You need</strong> cooked chickpeas, cucumber, tomatoes, greens, tahini, lemon and rice.</p><p><strong>Make it</strong> Put warm rice and chickpeas in a bowl. Add chopped vegetables. Thin the tahini with lemon and water, then spoon it over the top.</p></div></details><p className="recipe-note">Check packaged ingredients if you avoid dairy, eggs or honey.</p></div></div></section>
 
-      <section className="start section-wrap" id="start" aria-labelledby="start-title">
-        <div className="section-heading"><h2 id="start-title">New to plant-based Dubai?</h2><p>A few useful moves for your first week.</p></div>
-        <div className="start-grid">
-          <article><h3>Eating out</h3><p>Search the dish, not only the restaurant. Ask about stock, sauces, dairy and eggs when the menu is unclear.</p></article>
-          <article><h3>Shopping</h3><p>Start with meals you already like. Lentils, rice, vegetables, bread and spices go a long way without a specialist aisle.</p></article>
-          <article><h3>Going with friends</h3><p>Pick a place with options everyone can enjoy. The point is to share a table, not turn dinner into a debate.</p></article>
-        </div>
-      </section>
+      <section className="events shell section-space" id="events" aria-labelledby="events-title"><div className="section-head"><h2 id="events-title">Meet vegans in Dubai</h2><p>Browse current meetups while we prepare our own event calendar.</p></div><div className="events-layout"><div className="events-photo image-frame"><img src={asset('cafe.jpg')} alt="Friends bringing drinks together over a table" data-parallax /></div><div className="events-copy"><p>We will share Dubai Vegan Community events here once dates, venues and hosts are confirmed. Until then, these live searches are the quickest way to see what is happening nearby.</p><a className="rule-link" href="https://www.eventbrite.com/d/united-arab-emirates--dubai/vegan/" target="_blank" rel="noopener noreferrer">Vegan events on Eventbrite <Arrow /></a><a className="rule-link" href="https://www.meetup.com/find/?keywords=vegan&location=ae--Dubai" target="_blank" rel="noopener noreferrer">Vegan groups on Meetup <Arrow /></a></div></div></section>
 
-      <section className="meet section-wrap" id="meet" aria-labelledby="meet-title">
-        <div className="meet-art"><img src={asset('field.jpg')} alt="Yellow flowers in a sunlit field" data-parallax /></div>
-        <div className="meet-copy"><h2 id="meet-title">Find your people.</h2><p>We are not publishing an event calendar until dates and hosts are confirmed. These live searches are a practical way to see what is happening around Dubai now.</p><div className="meet-links"><a href="https://www.eventbrite.com/d/united-arab-emirates--dubai/vegan/" target="_blank" rel="noopener noreferrer">Search vegan events on Eventbrite <Arrow diagonal /></a><a href="https://www.meetup.com/find/?keywords=vegan&location=ae--Dubai" target="_blank" rel="noopener noreferrer">Search vegan meetups <Arrow diagonal /></a></div></div>
-      </section>
+      <section className="guides-band" id="guides" aria-labelledby="guides-title"><div className="shell guides-layout"><div><h2 id="guides-title">A vegan guide you can keep</h2><p>Our starter PDF covers eating out, shopping, simple meals and questions to ask when a menu is unclear. Save it for later or send it to a friend.</p><a className="solid-link" href={guide} download>Download the vegan Dubai starter guide ↓</a></div><div className="guide-preview" aria-hidden="true"><div className="guide-preview-inner"><span>Dubai Vegan Community</span><strong>Getting started<br />with vegan<br />Dubai</strong><span>Restaurants · shopping · everyday meals</span></div></div></div></section>
+
+      <section className="community shell section-space" id="community" aria-labelledby="community-title"><div className="section-head"><h2 id="community-title">Vegan stories, in your own words</h2><p>Soon you will be able to share restaurant reviews, meal photos and your own story. We will ask permission before publishing any contribution.</p></div><div className="community-layout"><div className="community-image image-frame"><img src={asset('lunch.jpg')} alt="People sitting together at an outdoor meal" data-parallax /></div><div className="community-copy"><h3>Why did you go vegan?</h3><p>There is no single answer. We want to hear about the meals, decisions and people that shaped your journey, in your own words.</p><p>Restaurant reviews and meal photos are planned too. Submissions will be reviewed before they appear on the site.</p></div></div></section>
+
+      <section className="business shell" id="businesses" aria-labelledby="business-title"><div><h2 id="business-title">For vegan and vegan-friendly businesses</h2><p>We want this guide to help people discover local restaurants and emerging vegan businesses. Listing applications and collaboration enquiries are opening soon.</p></div><div className="business-aside"><p>When applications open, bring your business name, location, menu or product, vegan details and contact information. Listings will be checked before publication.</p></div></section>
     </main>
 
-    <footer className="footer"><div className="footer-top"><a className="brand" href="#top"><img src={asset('logo-mark.png')} alt="" /><span>Dubai Vegan<br />Community</span></a><nav aria-label="Footer navigation"><a href="#places">Places</a><a href="#start">Start here</a><a href="#meet">Meet people</a><a href={import.meta.env.BASE_URL}>Original site</a></nav><a className="back-top" href="#top">Back to top ↑</a></div><p className="footer-wordmark">The table is open.</p><p className="footer-note">A concept edition of Dubai Vegan Community. Venue details and external listings can change; check before visiting.</p></footer>
+    <footer className="footer"><div className="shell footer-inner"><a className="footer-brand" href="#top">Dubai Vegan<br />Community</a><nav aria-label="Footer navigation"><a href="#restaurants">Restaurants</a><a href="#recipes">Recipes</a><a href="#events">Events</a><a href="#guides">Guides</a><a href="#community">Community</a><a href={import.meta.env.BASE_URL}>Original site</a></nav><p>A guide for vegans and the vegan-curious in Dubai. Venue information can change; check directly before visiting.</p></div></footer>
   </>
 }
 

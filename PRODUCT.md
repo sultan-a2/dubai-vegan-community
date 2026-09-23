@@ -43,3 +43,11 @@ The Paper file `Kindhearted nest` contains the approved hero, approved community
 - Keep the two blurry anchor sections special by placing quieter editorial sections between them.
 - Welcome curious newcomers without preaching or moral pressure.
 - Invite contribution so the community feels alive rather than published at people.
+
+## Separate community guide edition
+
+The original homepage remains at `/`. The alternate page at `/edition.html` follows Sultan's later Boerum reference: warm cream space, a centered identity, restrained serif typography, photography beside copy, and ruled category navigation. It replaces the earlier pink cover concept.
+
+This edition is a guide for vegans and people exploring vegan life in Dubai. It covers restaurants, recipes, events, a downloadable starter PDF, community stories, and future business collaboration. Use **vegan** in titles; plant-based may appear in body copy.
+
+Current working features are restaurant search and filters, venue links, two recipes, live external event searches, and the PDF download. Do not show invented events, testimonials, reviews, or community stories. Business applications, story submissions, reviews, and meal photos need a real submission destination plus consent and moderation before they are described as live.

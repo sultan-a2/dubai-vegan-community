@@ -388,7 +388,7 @@ export default function App() {
               <a href="#guides">Guides</a>
             </nav>
             <nav aria-label="Community">
-              <a href={`${import.meta.env.BASE_URL}edition.html`}>Editorial edition</a>
+              <a href={`${import.meta.env.BASE_URL}edition.html`}>Community guide</a>
               <a href="#list">List your business</a>
               <a id="instagram" href="#footer">Instagram</a>
               <a id="contact" href="#footer">Contact</a>
