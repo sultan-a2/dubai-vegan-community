@@ -15,6 +15,12 @@ export const products = [
   { name: 'Violife mozzarella block', detail: 'Cheese alternative · 200 g', category: 'Chilled', retailer: 'Carrefour UAE', image: 'products/violife-mozzarella.jpg', url: 'https://www.carrefouruae.com/mafuae/en/vegan-cheese/violife-blk-mozflavour-200g/p/1879867' },
   { name: 'Raw Halo salted almond chocolate', detail: 'Vegan dark chocolate · 90 g', category: 'Treats', retailer: 'Waitrose UAE', image: 'products/raw-halo-chocolate.jpg', url: 'https://www.waitrose.ae/en/products/raw-halo-dark-and-salted-almond-truffle-centre-organic-vegan-chocolate-90g_63855/' },
   { name: 'Cocos Organic yoghurt', detail: 'Coconut yoghurt · 400 g', category: 'Chilled', retailer: 'Waitrose UAE', image: 'products/cocos-yoghurt.jpg', url: 'https://www.waitrose.ae/en/products/cocos-organic-natural-coconut-yoghurt-alternative-400g_42000/' },
+  { name: 'The Tofoo Co organic smoked tofu', detail: 'Smoked tofu · 225 g', category: 'Chilled', retailer: 'Waitrose UAE', image: 'products/tofoo-smoked-tofu.jpg', url: 'https://www.waitrose.ae/en/products/tofoo-co-organic-smoked-tofu-225g_37773/' },
+  { name: 'Better Nature organic tempeh', detail: 'Organic tempeh · 200 g', category: 'Chilled', retailer: 'Waitrose UAE', image: 'products/better-nature-tempeh.jpg', url: 'https://www.waitrose.ae/en/products/better-nature-organic-tempeh-200g_41892/' },
+  { name: 'Oddlygood Dreamy lemon dessert', detail: 'Oat-based dessert · 130 g', category: 'Treats', retailer: 'Waitrose UAE', image: 'products/oddlygood-lemon.jpg', url: 'https://www.waitrose.ae/en/products/oddlygood-dreamy-lemon-dessert-130g_78151/' },
+  { name: 'FineFOOD medium-firm fresh tofu', detail: 'Fresh tofu · 500 g', category: 'Chilled', retailer: 'Waitrose UAE', image: 'products/finefood-tofu.jpg', url: 'https://www.waitrose.ae/en/products/finefood-medium-firm-fresh-tofu-500g_73997/' },
+  { name: 'Switch plant-based kafta', detail: 'Frozen kafta · 4 skewers · 240 g', category: 'Meals', retailer: 'Spinneys UAE', image: 'products/switch-kafta.jpg', url: 'https://www.spinneys.com/en-ae/catalogue/switch-plant-based-kafta-4s-240g_58350/' },
+  { name: 'Spinneysfood vegan chocolate ice cream', detail: 'Vegan ice cream · 500 ml', category: 'Treats', retailer: 'Spinneys UAE', image: 'products/spinneys-vegan-ice-cream.jpg', url: 'https://www.spinneys.com/en-ae/catalogue/test_46165/' },
 ]
 
 export const promotions = [
