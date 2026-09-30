@@ -1,0 +1,20 @@
+.guide-hero{display:grid;grid-template-columns:.82fr 1.18fr;gap:6%;align-items:center;padding-block:85px 105px}
+.guide-hero h1{font-size:clamp(68px,7vw,112px);line-height:.96;letter-spacing:-.075em}
+.guide-hero p{max-width:420px;margin-top:25px;font-size:18px;line-height:1.5}
+.guide-hero>div:first-child>a:not(.arrow-link){display:inline-flex;margin-top:30px;border:1px solid var(--forest);border-radius:100px;padding:14px 22px;font-size:12px;font-weight:600}
+.guide-hero>div:first-child>a:not(.arrow-link):hover{background:var(--forest);color:var(--paper)}
+.guide-hero-image{position:relative;height:520px;overflow:hidden;background:#314332}
+.guide-hero-image:after{content:"";position:absolute;inset:35% 0 0;background:linear-gradient(transparent,#16281a9c)}
+.guide-hero-image img{width:100%;height:100%;object-fit:cover}
+.guide-hero-image>span{position:absolute;z-index:1;left:5%;right:5%;bottom:7%;font-family:"Playfair Display",Georgia,serif;font-size:clamp(35px,4vw,66px);line-height:1.05;letter-spacing:-.055em}
+.guide-chapters{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:75px 30px;padding-bottom:125px}
+.guide-chapter{min-width:0}
+.guide-chapter:nth-child(even){padding-top:95px}
+.guide-chapter img{width:100%;height:clamp(290px,32vw,480px);object-fit:cover}
+.guide-chapter>div{max-width:570px;padding:26px 3px 0}
+.guide-chapter h2{font-size:clamp(42px,4.5vw,67px);line-height:1.04;letter-spacing:-.06em}
+.guide-chapter p{max-width:480px;margin-top:18px;font-size:17px;line-height:1.55}
+.guide-chapter a{display:inline-flex;margin-top:22px;border-bottom:1px solid currentColor;padding-bottom:4px;font-size:13px;font-weight:600}
+.guide-chapter a:hover{color:#4a7b4b}
+@media(max-width:760px){.guide-hero{grid-template-columns:1fr;gap:36px;padding-block:58px 70px}.guide-hero h1{font-size:clamp(61px,10vw,82px)}.guide-hero-image{height:390px}.guide-chapters{gap:65px 20px}.guide-chapter:nth-child(even){padding-top:50px}.guide-chapter img{height:260px}.guide-chapter h2{font-size:42px}.guide-chapter p{font-size:15px}}
+@media(max-width:540px){.guide-hero-image{height:300px}.guide-hero-image>span{font-size:clamp(31px,8vw,42px)}.guide-chapters{grid-template-columns:1fr;gap:65px;padding-bottom:80px}.guide-chapter:nth-child(even){padding-top:0}.guide-chapter img{height:290px}.guide-chapter h2{font-size:46px}}

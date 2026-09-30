@@ -1,0 +1,33 @@
+export const events = [
+  {
+    id: 'ripe-market',
+    date: '2026-10-10',
+    day: '10',
+    month: 'October',
+    title: 'The Ripe Market reopens',
+    venue: 'Academy Park · Dubai',
+    note: 'Community market · check individual food stalls for vegan options',
+    url: 'https://ripeevents.com/all/the-ripe-market-reopens-in-partnership-with-dubai-police-at-academy-park-this-october-celebrating-15-years-of-community/',
+  },
+  {
+    id: 'not-just-for-vegans',
+    date: null,
+    day: '11',
+    month: 'October',
+    title: 'Not Just For Vegans Market',
+    venue: 'Rove Hotel Trade Centre · Dubai',
+    note: 'Vegan market · 11 October is tentative; check the organiser',
+    url: 'https://notjustforvegans.com/products/rove-hotel-trade-centre-oct26-1',
+  },
+  {
+    id: 'organic-natural-expo',
+    date: '2026-11-16',
+    endDate: '2026-11-18',
+    day: '16–18',
+    month: 'November',
+    title: 'Organic & Natural Expo',
+    venue: 'Dubai World Trade Centre',
+    note: 'Trade expo · includes plant based and vegan exhibitors',
+    url: 'https://organicandnatural.com/organic-natural-food-beverage/',
+  },
+]

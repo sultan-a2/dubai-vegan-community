@@ -1,0 +1,24 @@
+// Starter listings for the design preview. Check menus, ingredients and stock before visiting or buying.
+export const places = [
+  { name: 'SEVA Table', area: 'Jumeirah 1', type: 'Vegan', moods: ['Healthy & fresh'], cuisines: ['International'], image: 'places/seva.jpg', imageAlt: 'Guests seated in the SEVA Table garden', url: 'https://www.sevaexperience.com/cafe', detail: 'A garden table for slow afternoons and food made entirely from plants.' },
+  { name: 'Planet Terra', area: 'The Greens', type: 'Vegan', moods: ['Healthy & fresh', 'Comfort food'], cuisines: ['Mediterranean', 'Asian'], image: 'places/planet.jpg', imageAlt: 'A plant based meal served by Planet Terra', url: 'https://planetterra.life/', detail: 'A neighbourhood café with falafel pitas, vegan burgers and Asian-inspired plates.' },
+  { name: 'Wild & The Moon', area: 'Dubai', type: 'Vegan', moods: ['Healthy & fresh', 'Comfort food'], cuisines: ['Asian', 'International'], image: 'places/wild.jpg', imageAlt: 'The interior of a Wild & The Moon café', url: 'https://www.wildandthemoon.ae/our-locations-2/', detail: 'Bowls, juices and plant based food for a quick pause in the city.' },
+  { name: "MyGovinda's", area: 'Multiple locations', type: 'Vegetarian', moods: ['Comfort food'], cuisines: ['Indian'], image: 'places/govindas.jpg', imageAlt: 'Indian vegetarian dishes from MyGovinda’s', url: 'https://www.mygovindas.com/', detail: 'Indian vegetarian cooking with vegan dishes to discover. Check dairy in individual dishes.' },
+  { name: 'Wagamama', area: 'Across Dubai', type: 'Vegan friendly', moods: ['Comfort food'], cuisines: ['Asian'], image: 'places/wagamama.png', imageAlt: 'A vegan cauliflower dish from Wagamama', url: 'https://www.wagamama.ae/vegan', detail: 'Japanese-inspired dishes with a dedicated vegan menu.' },
+  { name: 'Comptoir 102', area: 'Jumeirah 1', type: 'Vegan friendly', moods: ['Healthy & fresh'], cuisines: ['International'], image: 'places/comptoir.jpg', imageAlt: 'Sunlit seating inside Comptoir 102', url: 'https://comptoir102.com/pages/healthy-cafe-jumeirah-dubai', detail: 'An organic café with vegan-friendly choices alongside its wider menu.' },
+]
+
+export const products = [
+  { name: 'Alpro unsweetened oat drink', detail: 'Oat drink · 1 L', category: 'Everyday', retailer: 'Carrefour UAE', image: 'products/alpro-oat.jpg', url: 'https://www.carrefouruae.com/mafuae/en/root-maf-category/food-navigation-category/bio-organic-more/organic-dairy-products/organic-milk/alpro-oat-unsweetened-1l/p/1629611' },
+  { name: 'Saba plant based yoghurt', detail: 'Made in Dubai · Coconut yoghurt', category: 'Chilled', retailer: 'Waitrose UAE', image: 'products/saba-yoghurt.jpg', url: 'https://www.waitrose.ae/en/products/saba-plant-based-yoghurt-natural-115g_37040/' },
+  { name: 'Switch plant based burger patties', detail: 'Made in the UAE · Pea protein', category: 'Meals', retailer: 'Carrefour UAE', image: 'products/switch-burger.jpg', url: 'https://www.carrefouruae.com/mafuae/en/vegan/switch-p-based-burger-p230g-2x115g-/p/1974713' },
+  { name: 'Violife mozzarella block', detail: 'Cheese alternative · 200 g', category: 'Chilled', retailer: 'Carrefour UAE', image: 'products/violife-mozzarella.jpg', url: 'https://www.carrefouruae.com/mafuae/en/vegan-cheese/violife-blk-mozflavour-200g/p/1879867' },
+  { name: 'Raw Halo salted almond chocolate', detail: 'Vegan dark chocolate · 90 g', category: 'Treats', retailer: 'Waitrose UAE', image: 'products/raw-halo-chocolate.jpg', url: 'https://www.waitrose.ae/en/products/raw-halo-dark-and-salted-almond-truffle-centre-organic-vegan-chocolate-90g_63855/' },
+  { name: 'Cocos Organic yoghurt', detail: 'Coconut yoghurt · 400 g', category: 'Chilled', retailer: 'Waitrose UAE', image: 'products/cocos-yoghurt.jpg', url: 'https://www.waitrose.ae/en/products/cocos-organic-natural-coconut-yoghurt-alternative-400g_42000/' },
+]
+
+export const promotions = [
+  { id: 'yoga', title: 'Yoga teacher', partner: 'Community partner to be confirmed', offer: 'An introductory class offer', code: 'SAMPLE-YOGA', terms: 'Example listing only · code is not active', search: 'yoga teacher wellness class movement' },
+  { id: 'protein', title: 'Plant protein powder', partner: 'Community partner to be confirmed', offer: 'A first order product offer', code: 'SAMPLE-PLANT', terms: 'Example listing only · code is not active', search: 'protein powder supplements fitness plant based' },
+  { id: 'trainer', title: 'Fitness trainer', partner: 'Community partner to be confirmed', offer: 'An introductory session offer', code: 'SAMPLE-FIT', terms: 'Example listing only · code is not active', search: 'fitness trainer coach personal training exercise' },
+]

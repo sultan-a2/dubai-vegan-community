@@ -1,0 +1,12 @@
+.21st/
+.review-video/
+preview-*.png
+GATES.md
+REQUEST_AUDIT.md
+PRODUCT.md
+research-seed-content.md
+.git/
+.github/
+.env*
+node_modules/
+dist/

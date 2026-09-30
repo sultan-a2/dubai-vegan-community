@@ -9,7 +9,14 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(import.meta.dirname, 'index.html'),
-        edition: resolve(import.meta.dirname, 'edition.html')
+        edition: resolve(import.meta.dirname, 'edition.html'),
+        about: resolve(import.meta.dirname, 'about.html'),
+        events: resolve(import.meta.dirname, 'events.html'),
+        recipes: resolve(import.meta.dirname, 'recipes.html'),
+        places: resolve(import.meta.dirname, 'places.html'),
+        products: resolve(import.meta.dirname, 'products.html'),
+        offers: resolve(import.meta.dirname, 'offers.html'),
+        guide: resolve(import.meta.dirname, 'guide.html')
       }
     }
   }

@@ -1,0 +1,48 @@
+[
+  {
+    "slug": "blueberry-crumble",
+    "name": "Blueberry crumble",
+    "summary": "Warm blueberries under a coconut, almond and pecan crumble.",
+    "time": "40–45 min bake",
+    "category": "Dessert",
+    "image": "recipes/blueberry-crumble.jpg",
+    "imageAlt": "Blueberry crumble in a green baking dish, with a serving in a bowl",
+    "ingredients": ["¼ cup coconut oil", "3 cups frozen blueberries", "1½ cups almond flour", "¼ cup pecans", "¼ cup maple syrup", "⅓ tsp sea salt", "Cinnamon (check amount below)"],
+    "method": ["Preheat the oven to 177°C. Grease a pie pan with a little coconut oil and add the blueberries.", "Mix the remaining ingredients in a bowl, then crumble over the blueberries.", "Bake for 40–45 minutes until golden brown. Let cool before serving with dairy-free vanilla ice cream or vanilla yoghurt."],
+    "note": "The original lists ‘¼ cinnamon’ without a unit. Check the amount before baking."
+  },
+  {
+    "slug": "banana-bread",
+    "name": "Banana bread",
+    "summary": "A soft banana loaf for breakfast, tea time or any time.",
+    "time": "45–50 min bake",
+    "category": "Baking",
+    "image": "recipes/banana-bread.jpg",
+    "imageAlt": "Slices of banana bread topped with banana halves",
+    "ingredients": ["3 ripe bananas", "½ cup unsweetened plant-based milk", "⅓ cup extra virgin olive oil", "¼ cup maple syrup or agave", "2 tbsp ground flax seed", "2 cups all-purpose flour (or oat flour for gluten-free)", "1 tbsp baking powder", "1 tsp vanilla extract", "¼ tsp sea salt", "¼ tsp cinnamon powder"],
+    "method": ["Preheat the oven to 177°C and grease a loaf pan with oil or plant-based butter.", "Mash two bananas in a large bowl. Stir in the olive oil, maple syrup, vanilla and plant milk. Add the ground flax seed and let stand for five minutes.", "In another bowl, mix the flour, baking powder, salt and cinnamon.", "Mix the dry ingredients into the wet ingredients. Optionally fold in walnuts, pecans or chocolate chips.", "Pour into the loaf pan. Slice the third banana lengthwise and place both halves on top.", "Bake for 45–50 minutes until golden brown. Cool for ten minutes before slicing. Serve as is, or with jam or Lotus Biscoff spread."],
+    "note": "The original method also mentions nutmeg, but gives no amount. Add it only after checking with the author."
+  },
+  {
+    "slug": "vegetable-minestrone",
+    "name": "Vegetable minestrone",
+    "summary": "Taline’s hearty soup with vegetables, beans, chickpeas and orzo.",
+    "time": "25–30 min simmer",
+    "category": "Soup",
+    "image": "recipes/vegetable-minestrone.jpg",
+    "imageAlt": "Vegetable minestrone with beans, chickpeas and orzo in a white bowl",
+    "ingredients": ["1 onion, chopped", "2–3 celery stalks, chopped", "2 carrots, chopped", "1–2 tbsp olive oil", "Salt, to taste", "2–3 garlic cloves, minced", "Fresh basil and parsley, chopped", "A few sun-dried tomatoes, chopped", "3–4 tomatoes, chopped", "2–3 potatoes, peeled and cubed", "Water or vegetable stock, enough to cover the vegetables", "1 cup cooked beans", "1 cup cooked chickpeas", "½–1 cup orzo"],
+    "method": ["Heat the olive oil in a large pot and sauté the onion until softened.", "Add the celery, carrots and a little salt. Cook for a few minutes.", "Add the garlic, basil, parsley and sun-dried tomatoes. Stir until fragrant.", "Add the chopped tomatoes and potatoes and mix well.", "Pour in enough water or vegetable stock to cover everything. Cover and simmer until the potatoes are tender, about 15–20 minutes.", "Add the cooked beans, chickpeas and orzo. Simmer uncovered until the orzo is cooked, usually 8–10 minutes, stirring occasionally.", "Taste, adjust the seasoning and serve warm."]
+  },
+  {
+    "slug": "armenian-itch",
+    "name": "Armenian itch",
+    "summary": "Taline’s cooked take on the traditional Armenian bulgur salad, good warm or cold.",
+    "time": "15 min simmer",
+    "category": "Savoury",
+    "image": "recipes/armenian-itch.jpg",
+    "imageAlt": "Armenian bulgur itch with herbs and spring onion in a white bowl",
+    "ingredients": ["2 large onions, diced", "2 garlic cloves, crushed", "6–7 fresh tomatoes, peeled and blended or diced", "1 tbsp tomato paste", "1–2 bell peppers, diced", "Salt, to taste", "1 full tsp (or more) Armenian chilli paste", "1 cup fine bulgur", "2 tbsp olive oil", "Juice of ½–1 lemon", "2 spring onions, chopped", "Fresh parsley, chopped"],
+    "method": ["Sauté the onions and garlic in olive oil until soft and fragrant.", "Add the bell peppers, tomatoes, tomato paste, chilli paste and salt. Cover and simmer for about 15 minutes.", "Add the fine bulgur, turn off the heat and cover. Let sit until the liquid is absorbed and the bulgur is tender.", "Taste, adjust the seasoning and add the lemon juice.", "Finish with a drizzle of olive oil, spring onions and plenty of parsley. Serve warm or cold."]
+  }
+]

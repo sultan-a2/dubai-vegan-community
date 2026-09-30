@@ -1,329 +1,63 @@
 import { useEffect, useMemo, useState } from 'react'
-import AccordionGallery from './components/AccordionGallery.jsx'
-import GlassSurface from './components/GlassSurface.jsx'
+import { GradientWaveText } from './components/MotionBits.jsx'
+import ImpactQuiz from './components/ImpactQuiz.tsx'
+import { PlantCursor, RevealFrame } from './components/EditorialMotion.jsx'
+import ArrowLink from './components/ArrowLink.jsx'
+import SiteHeader from './components/SiteHeader.jsx'
+import SiteFooter from './components/SiteFooter.jsx'
+import { recipes, recipeUrl } from './data/recipes.js'
+import { places, products, promotions } from './data/directory.js'
+import { events } from './data/events.js'
 
-const asset = (file) => `${import.meta.env.BASE_URL}assets/${file}`
+const asset = (name) => import.meta.env.BASE_URL + 'assets/' + name
 
-const places = [
-  {
-    diet: 'vegan',
-    label: 'Dobro Top Vegan',
-    detail: 'JLT · Fully vegan',
-    alt: 'A vegetable salad at Dobro Top Vegan',
-    image: asset('dobro.jpg'),
-    link: 'https://www.google.com/maps/search/?api=1&query=Dobro+Top+Vegan+JLT+Dubai'
-  },
-  {
-    diet: 'vegan',
-    label: 'Planet Terra',
-    detail: 'The Greens · Fully vegan',
-    alt: 'Hands raising glasses at Planet Terra',
-    image: asset('terra.jpg'),
-    link: 'https://www.google.com/maps/search/?api=1&query=Planet+Terra+The+Greens+Dubai'
-  },
-  {
-    diet: 'friendly',
-    label: 'Moreish',
-    detail: 'Mankhool · Vegan options',
-    alt: 'A vegetable plate at Moreish',
-    image: asset('moreish.jpg'),
-    link: 'https://www.google.com/maps/search/?api=1&query=Moreish+Mankhool+Dubai'
-  }
+const searchItems = [
+  ...places.map((place) => ({ title: place.name, label: 'Place', detail: `${place.area} · ${place.type} · ${place.cuisines.join(', ')}`, href: place.url, external: true, searchable: `${place.name} ${place.area} ${place.type} ${place.moods.join(' ')} ${place.cuisines.join(' ')} ${place.detail} food restaurant` })),
+  ...products.map((product) => ({ title: product.name, label: 'Product', detail: product.detail, href: product.url, external: true, searchable: `${product.name} ${product.detail} product vegan` })),
+  ...promotions.map((promotion) => ({ title: promotion.title, label: 'Sample offer', detail: promotion.offer, href: `${import.meta.env.BASE_URL}offers.html?search=${encodeURIComponent(promotion.title)}`, external: false, searchable: `${promotion.title} ${promotion.search} promotion offer promo code` })),
 ]
-
-const filters = [
-  ['all', 'All places'],
-  ['vegan', 'Fully vegan'],
-  ['friendly', 'Vegan options']
-]
-
-function Plant() {
-  return (
-    <svg viewBox="0 0 148 210" width="148" height="210">
-      <path d="M78 202C74 174 68 152 76 124C84 96 74 74 82 46C86 32 80 22 84 12" fill="none" stroke="#432F2A" strokeWidth="1.6" strokeLinecap="round" />
-      <path d="M76 158C58 154 36 164 26 148C24 134 42 122 62 132C70 136 74 146 76 158Z" fill="#FBF6EC" stroke="#432F2A" strokeWidth="1.45" />
-      <path d="M74 154C62 146 46 144 34 148" fill="none" stroke="#432F2A" strokeLinecap="round" />
-      <path d="M80 122C102 110 128 116 136 98C138 84 120 72 102 82C92 88 82 104 80 122Z" fill="#F4E7C8" stroke="#432F2A" strokeWidth="1.45" />
-      <path d="M82 118C98 110 116 108 126 100" fill="none" stroke="#432F2A" strokeLinecap="round" />
-      <path d="M74 96C52 82 34 64 44 44C58 36 76 58 80 80C82 88 78 92 74 96Z" fill="#E4F0C2" stroke="#432F2A" strokeWidth="1.45" />
-      <path d="M72 90C60 78 50 66 52 54" fill="none" stroke="#432F2A" strokeLinecap="round" />
-      <path d="M84 62C100 42 122 36 130 22C116 18 98 34 90 52C88 58 86 62 84 62Z" fill="#FBF6EC" stroke="#432F2A" strokeWidth="1.45" />
-      <circle cx="86" cy="14" r="4" fill="#88A33B" stroke="#432F2A" strokeWidth="1.2" />
-    </svg>
-  )
-}
-
 export default function App() {
-  const [diet, setDiet] = useState('all')
-  const [query, setQuery] = useState('')
-
-  const visiblePlaces = useMemo(() => {
-    const needle = query.trim().toLowerCase()
-    return places.filter((place) => {
-      const kind = diet === 'all' || place.diet === diet
-      const text = `${place.label} ${place.detail}`.toLowerCase().includes(needle)
-      return kind && text
-    })
-  }, [diet, query])
-
   useEffect(() => {
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (reduce) return undefined
-
-    const layers = [...document.querySelectorAll('[data-speed]')]
-    let frame = 0
-
-    const update = () => {
-      frame = 0
-      const mid = window.innerHeight / 2
-      for (const el of layers) {
-        const slot = el.closest('[data-slot]')
-        if (!slot) continue
-        const rect = slot.getBoundingClientRect()
-        if (rect.bottom < -120 || rect.top > window.innerHeight + 120) continue
-        const fromCenter = (rect.top + rect.height / 2 - mid) / window.innerHeight
-        const speed = Number(el.dataset.speed)
-        const compact = window.innerWidth < 800 ? 0.4 : 1
-        const max = Number(el.dataset.max || 24) * compact
-        const shift = Math.max(-max, Math.min(max, fromCenter * speed))
-        el.style.transform = `translate3d(0, ${shift.toFixed(2)}px, 0)`
-      }
-    }
-
-    const request = () => {
-      if (frame) return
-      frame = requestAnimationFrame(update)
-    }
-
-    update()
-    window.addEventListener('scroll', request, { passive: true })
-    window.addEventListener('resize', request)
-    return () => {
-      window.removeEventListener('scroll', request)
-      window.removeEventListener('resize', request)
-      if (frame) cancelAnimationFrame(frame)
-    }
+    // Vite mounts the anchor target after the browser's initial hash jump.
+    const id = decodeURIComponent(window.location.hash.slice(1))
+    if (!id) return
+    requestAnimationFrame(() => document.getElementById(id)?.scrollIntoView())
   }, [])
+  const [search, setSearch] = useState('')
+  const searchResults = useMemo(() => {
+    const words = search.trim().toLowerCase().split(/\s+/).filter(Boolean)
+    return words.length ? searchItems.filter((item) => words.every((word) => item.searchable.toLowerCase().includes(word))) : []
+  }, [search])
+  return <>
+    <PlantCursor />
+    <a className="skip-link" href="#main">Skip to content</a>
+    <div id="top" aria-hidden="true" />
+    <SiteHeader />
 
-  return (
-    <>
-      <a className="skip" href="#places">Skip to the guide</a>
+    <main id="main">
+      <section className="hero wrap" aria-labelledby="hero-title">
+        <div className="hero-composition"><div className="hero-copy"><h1 id="hero-title">Your guide to vegan Dubai.</h1><p>Find places to eat, events to attend, recipes to make, and products sold in the UAE.</p><ArrowLink href="#explore">Explore the site</ArrowLink></div><div className="hero-photo"><img src={asset('community/kind-wide.jpg')} alt="Dubai Vegan Community members gathered indoors" fetchPriority="high" /></div></div>
+      </section>
 
-      <div className="site-nav">
-        <GlassSurface
-          width="100%"
-          height="auto"
-          borderRadius={0}
-          displace={0}
-          distortionScale={0}
-          blur={0}
-          backgroundOpacity={0.62}
-          saturation={1.15}
-          className="site-nav-glass"
-        >
-          <header className="header">
-            <a className="brand" href="#top">
-              <img src={asset('logo-mark.png')} alt="" width="52" height="52" />
-              <span>Dubai Vegan Community</span>
-            </a>
-            <nav className="nav" aria-label="Page">
-              <a href="#places">Places</a>
-              <a href="#events">Events</a>
-              <a href={`${import.meta.env.BASE_URL}edition.html#recipes`}>Recipes</a>
-              <a href="#guides">Guides</a>
-            </nav>
-            <div className="header-action">
-              <a className="button" href="#list">For businesses</a>
-            </div>
-          </header>
-        </GlassSurface>
-      </div>
+      <section className="intro-band" id="explore"><div className="wrap"><div className="intro-grid"><div className="intro-content"><h2>Find your way in.</h2><p>Whatever brought you here, there’s a good place to start.</p><nav className="explore-shortcuts" aria-label="Explore the site"><a href={`${import.meta.env.BASE_URL}places.html`}><img src={asset(places[0].image)} alt="" loading="lazy" /><span><strong>Places</strong><small>Eat out in Dubai</small></span><span aria-hidden="true">↗</span></a><a href={`${import.meta.env.BASE_URL}events.html`}><img src={asset('community/gathering-hall.jpg')} alt="" loading="lazy" /><span><strong>Events</strong><small>Find dates and locations</small></span><span aria-hidden="true">↗</span></a><a href={`${import.meta.env.BASE_URL}recipes.html`}><img src={asset(recipes[0].image)} alt="" loading="lazy" /><span><strong>Recipes</strong><small>Cook something good</small></span><span aria-hidden="true">↗</span></a><a href={`${import.meta.env.BASE_URL}products.html`}><img src={asset(products[0].image)} alt="" loading="lazy" /><span><strong>Products</strong><small>Find it in the UAE</small></span><span aria-hidden="true">↗</span></a></nav></div><RevealFrame className="intro-photo"><img src={asset('community/kind-group.jpg')} alt="Dubai Vegan Community members together at a gathering" loading="lazy" /><span className="intro-photo-words"><GradientWaveText>Come as you are.</GradientWaveText></span></RevealFrame></div>
+        <div className="community-search"><label htmlFor="community-search">Looking for something specific?</label><div className="community-search-body"><div className="search-field"><input id="community-search" type="search" value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Try Indian food or oat drink…" autoComplete="off" /></div><div className="search-suggestions" aria-label="Suggested searches">{['Indian food', 'Oat drink', 'Yoga teacher'].map((term) => <button type="button" key={term} onClick={() => setSearch(term)}>{term}</button>)}</div></div>
+          {search.trim() && <div className="search-results" aria-live="polite"><p>{searchResults.length ? `${searchResults.length} ${searchResults.length === 1 ? 'result' : 'results'} for “${search.trim()}”` : `Nothing matched “${search.trim()}” yet. Try a broader term.`}</p>{searchResults.map((item) => <a key={item.label + item.title} href={item.href} {...(item.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}><span>{item.label}</span><strong>{item.title}</strong><small>{item.detail}</small></a>)}</div>}</div>
+      </div></section>
 
-      <main id="top">
-        <section className="hero" aria-labelledby="hero-title">
-          <h1 id="hero-title">Where good food &<br />good people meet.</h1>
-          <div className="rule" aria-hidden="true" />
-          <p className="dek">Find a vegan meal, see where people are meeting, and keep a useful Dubai guide on your phone.</p>
-          <nav className="mobile-shortcuts" aria-label="Start here">
-            <a href="#places">Find food <span aria-hidden="true">↗</span></a>
-            <a href="#events">Meet people <span aria-hidden="true">↗</span></a>
-            <a href={`${import.meta.env.BASE_URL}edition.html#recipes`}>Cook at home <span aria-hidden="true">↗</span></a>
-            <a href="#guides">Get the guide <span aria-hidden="true">↗</span></a>
-          </nav>
+      <section className="places-showcase" id="places" aria-labelledby="places-title"><div className="wrap"><div className="places-showcase-head"><h2 id="places-title">A good place<br />to begin is<br />around a table.</h2><p>From fully vegan kitchens to familiar places with thoughtful options. Find somewhere that fits tonight.</p></div><div className="places-showcase-body"><RevealFrame className="places-showcase-photo"><img src={asset(places[0].image)} alt={places[0].imageAlt} loading="lazy" /><span className="place-photo-words"><GradientWaveText>Find your table.</GradientWaveText></span></RevealFrame><div className="places-showcase-list">{places.slice(0, 3).map((place) => <a href={place.url} target="_blank" rel="noopener noreferrer" key={place.name}><img src={asset(place.image)} alt="" loading="lazy" /><span>{place.area} · {place.type}</span><strong>{place.name}</strong><small>{place.detail}</small></a>)}</div></div><div className="places-showcase-bottom"><p>Menus change. Check a place’s current vegan options before visiting.</p><ArrowLink href={`${import.meta.env.BASE_URL}places.html`}>Explore all places</ArrowLink></div></div></section>
 
-          <div className="collage">
-            <div className="slot slot-side" data-slot>
-              <div className="shot" data-speed="36" data-max="18">
-                <img src={asset('coffee.jpg')} alt="Coffee on a shared table" width="480" height="600" data-speed="18" data-max="22" />
-              </div>
-            </div>
-            <div className="slot slot-center" data-slot>
-              <div className="shot shot-center" data-speed="12" data-max="10">
-                <img src={asset('picnic.jpg')} alt="People gathered for a picnic" width="1360" height="840" data-speed="8" data-max="16" />
-              </div>
-              <div className="plant" data-speed="52" data-max="34" aria-hidden="true">
-                <Plant />
-              </div>
-            </div>
-            <div className="slot slot-side" data-slot>
-              <div className="shot" data-speed="-30" data-max="18">
-                <img src={asset('garden.jpg')} alt="A bowl of greens" width="480" height="600" data-speed="-16" data-max="22" />
-              </div>
-            </div>
-          </div>
+      <section className="recipe-section recipe-teaser" id="recipes" aria-labelledby="recipes-title"><div className="wrap"><div className="recipe-teaser-head"><div><h2 id="recipes-title">Good things<br />start at home.</h2><p>Simple meals for ordinary days. Open the recipe book when you want to make something.</p></div><ArrowLink href={`${import.meta.env.BASE_URL}recipes.html`}>Browse all recipes</ArrowLink></div><div className="recipe-teaser-grid">{recipes.slice(0, 3).map((item) => <RevealFrame className="recipe-teaser-card" key={item.slug}><a href={recipeUrl(item.slug)}><img loading="lazy" src={asset(item.image)} alt={item.imageAlt} /><h3>{item.name}</h3><p>{item.summary}</p><span>{item.time} · {item.category}</span></a></RevealFrame>)}</div></div></section>
 
-          <div className="hero-links">
-            <p className="mark"><span className="dot" aria-hidden="true" />Independent. Inclusive. Always hungry.</p>
-            <a className="text-link" href="#places">Explore the directory →</a>
-          </div>
-        </section>
+      <section className="products-showcase" id="products" aria-labelledby="products-title"><div className="wrap"><div className="products-showcase-head"><div><h2 id="products-title">Vegan products in the UAE</h2><p>Find plant-based groceries listed by UAE retailers, from oat drinks and yoghurt to easy dinners.</p></div><RevealFrame className="products-showcase-image"><img src={asset('community/shared-meal.jpg')} alt="A shared plant-based meal with community members" loading="lazy" /></RevealFrame></div><div className="products-showcase-grid">{products.slice(0, 3).map((product) => <a href={product.url} target="_blank" rel="noopener noreferrer" key={product.name}><span className="product-photo"><img src={asset(product.image)} alt="" loading="lazy" /></span><span className="product-card-copy"><span>{product.category} · {product.retailer}</span><strong>{product.name}</strong><small>{product.detail}</small></span></a>)}</div><div className="products-showcase-bottom"><p>Stock and ingredients can change. Check the retailer’s current listing.</p><ArrowLink href={`${import.meta.env.BASE_URL}products.html`}>Browse all products</ArrowLink></div></div></section>
 
-        <section className="directory" id="places" aria-labelledby="places-title">
-          <div className="split intro">
-            <h2 id="places-title">Eat well,<br />all over Dubai.</h2>
-            <p>A short starting list of vegan places and places with vegan options. Check details before visiting.</p>
-          </div>
+      <section className="events-section" id="events" aria-labelledby="events-title"><div className="wrap"><div className="events-compact"><div className="events-intro"><h2 id="events-title">Events in Dubai</h2><p>Markets and expos with vegan or plant-based options. See the dates, locations and how to attend.</p><ArrowLink href={`${import.meta.env.BASE_URL}events.html`}>View all events</ArrowLink></div><div className="event-list">{events.map((event) => <a className="event-spotlight" href={`${import.meta.env.BASE_URL}events.html#${event.id}`} key={event.id}><span className="event-date">{event.day} {event.month.slice(0, 3)} <small>2026</small></span><span><strong>{event.title}</strong><small>{event.venue}</small><small>{event.note}</small></span><span aria-hidden="true">→</span></a>)}</div></div></div></section>
 
-          <div className="tools">
-            <label className="search">
-              <span className="search-field">
-                <svg viewBox="0 0 20 20" width="20" height="20" aria-hidden="true">
-                  <circle cx="9" cy="9" r="5.25" fill="none" stroke="currentColor" strokeWidth="1.5" />
-                  <path d="M13 13.5L16.5 17" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                </svg>
-                <input
-                  id="search"
-                  type="search"
-                  placeholder="Search by place, area or craving"
-                  autoComplete="off"
-                  value={query}
-                  onChange={(event) => setQuery(event.target.value)}
-                />
-              </span>
-              <span className="search-label">Search</span>
-            </label>
-            <div className="filters scroll-fade-x" role="group" aria-label="Filter places">
-              {filters.map(([id, label]) => (
-                <button
-                  key={id}
-                  type="button"
-                  className={diet === id ? 'pill is-on' : 'pill'}
-                  aria-pressed={diet === id}
-                  onClick={() => setDiet(id)}
-                >
-                  {label}
-                </button>
-              ))}
-            </div>
-          </div>
+      <section className="living-section" id="begin" aria-labelledby="begin-title"><div className="wrap living-home"><div className="living-home-copy"><h2 id="begin-title">Living vegan,<br />your way.</h2><p>Food, labels, eating out and the questions that come after. Take what helps.</p><ArrowLink href={`${import.meta.env.BASE_URL}guide.html`}>Explore the guide</ArrowLink></div><a href={`${import.meta.env.BASE_URL}guide.html`} className="living-banner"><img src={asset('community/cafe-room.jpg')} alt="Community members enjoying a meal together" loading="lazy" /><span className="living-banner-words"><GradientWaveText>Good questions deserve useful answers.</GradientWaveText></span></a></div></section>
 
-          {visiblePlaces.length ? (
-            <>
-              <AccordionGallery
-                key={`${diet}:${query}`}
-                className="places"
-                items={visiblePlaces}
-                defaultIndex={Math.min(1, visiblePlaces.length - 1)}
-                accentColor="#88A33B"
-                overlayColor="#1B4436"
-                textColor="#F9E4C5"
-                grayscale
-                showLabels
-                height={460}
-                gap={16}
-                radius={12}
-                expandRatio={0.52}
-                trigger="hover"
-              />
-              <div className="mobile-places">
-                {visiblePlaces.map((place) => <a href={place.link} target="_blank" rel="noopener noreferrer" key={place.label}>
-                  <img src={place.image} alt="" loading="lazy" />
-                  <span><strong>{place.label}</strong><small>{place.detail}</small></span>
-                  <span aria-hidden="true">↗</span>
-                </a>)}
-              </div>
-            </>
-          ) : (
-            <p className="empty">Nothing in the guide matches that yet.</p>
-          )}
+      <section className="impact-section" id="impact" aria-label="Vegan impact estimates"><ImpactQuiz /></section>
 
-        </section>
-
-        <section className="events" id="events" aria-labelledby="events-title">
-          <div className="split intro">
-            <h2 id="events-title">Find a vegan gathering.</h2>
-            <p>Our own calendar is still in the works. These live searches show what is happening nearby now.</p>
-          </div>
-          <div className="event-discovery">
-            <div className="event-image shot" data-slot><img src={asset('lunch.jpg')} alt="People sharing a meal outdoors" width="800" height="600" data-speed="16" data-max="18" /></div>
-            <div className="event-links">
-              <a href="https://www.eventbrite.com/d/united-arab-emirates--dubai/vegan/" target="_blank" rel="noopener noreferrer"><span>Vegan events on Eventbrite</span><span aria-hidden="true">↗</span></a>
-              <a href="https://www.meetup.com/find/?keywords=vegan&location=ae--Dubai" target="_blank" rel="noopener noreferrer"><span>Vegan groups on Meetup</span><span aria-hidden="true">↗</span></a>
-            </div>
-          </div>
-        </section>
-
-        <section className="starter" id="guides" aria-labelledby="guides-title">
-          <div className="shot starter-photo" data-slot>
-            <img src={asset('vegan-guide-still-life.png')} alt="Chickpeas, lemon, herbs and dates on a stone table" width="1086" height="1448" data-speed="18" data-max="22" />
-          </div>
-          <div className="starter-copy">
-            <h2 id="guides-title">A vegan Dubai guide for your phone.</h2>
-            <p>Eating out, a first shopping list and a few easy meals, in a short PDF you can save.</p>
-            <a className="text-link" href={`${import.meta.env.BASE_URL}guides/vegan-dubai-starter-guide.pdf`} download>Download the free PDF ↗</a>
-          </div>
-        </section>
-
-        <section className="stories" id="stories" aria-labelledby="stories-title">
-          <div className="stories-intro">
-            <h2 id="stories-title">The people behind the meals.</h2>
-            <p>We want to share why people in Dubai went vegan, what helped them stay with it, and where they like to eat.</p>
-          </div>
-          <div className="story-invite"><p>We will publish local stories, reviews and meal photos once people can submit them and agree to sharing.</p><a className="text-link" href={`${import.meta.env.BASE_URL}edition.html#community`}>About community contributions ↗</a></div>
-        </section>
-
-        <section className="take-part" aria-labelledby="take-part-title">
-          <h2 id="take-part-title">Start somewhere.</h2>
-          <div className="take-part-links">
-            <a href="#places">Find a place to eat <span aria-hidden="true">↗</span></a>
-            <a href={`${import.meta.env.BASE_URL}edition.html#recipes`}>Cook a vegan meal <span aria-hidden="true">↗</span></a>
-            <a href="#events">See where people meet <span aria-hidden="true">↗</span></a>
-          </div>
-        </section>
-
-        <section className="business" id="list" aria-labelledby="list-title">
-          <h2 id="list-title">For vegan businesses in Dubai.</h2>
-          <div>
-            <p>Listing applications and collaboration enquiries are opening soon. We will check business details before adding them.</p>
-            <a className="button button-line" href={`${import.meta.env.BASE_URL}edition.html#businesses`}>How listings will work ↗</a>
-          </div>
-        </section>
-      </main>
-
-      <footer className="footer" id="footer">
-        <div className="footer-links">
-          <a className="brand brand-light" href="#top">
-            <img src={asset('logo-mark.png')} alt="" width="52" height="52" />
-            <span>Dubai Vegan Community</span>
-          </a>
-          <div className="footer-cols">
-            <nav aria-label="Footer">
-              <a href="#places">Places</a>
-              <a href="#events">Events</a>
-              <a href="#stories">Stories</a>
-              <a href="#guides">Guides</a>
-            </nav>
-            <nav aria-label="Community">
-              <a href={`${import.meta.env.BASE_URL}edition.html`}>Community guide</a>
-              <a href="#list">For businesses</a>
-              <a href={`${import.meta.env.BASE_URL}guides/vegan-dubai-starter-guide.pdf`} download>Download the guide</a>
-            </nav>
-          </div>
-          <a className="to-top" href="#top">Back to top ↑</a>
-        </div>
-        <p className="wordmark">dubai vegan community</p>
-        <p className="legal">© 2026 Dubai Vegan Community</p>
-      </footer>
-    </>
-  )
+      <section className="join-section" id="join" aria-labelledby="join-title"><div className="wrap join-bento"><div className="join-bento-intro"><h2 id="join-title">Make this yours, too.</h2><p>A good guide grows through the people who use it. Soon, you’ll be able to share a recipe, recommend a find or list your business.</p><span>Submissions are opening soon.</span></div><div className="join-bento-image"><img src={asset('community/group-portrait.jpg')} alt="Dubai Vegan Community members together" loading="lazy" /><span><GradientWaveText>Care is something we share.</GradientWaveText></span></div><div className="join-bento-card"><h3>Share a recipe.</h3><p>The dish everyone asks you to make.</p></div><div className="join-bento-card"><h3>Recommend a find.</h3><p>A place or product more people should know.</p></div><div className="join-bento-card join-bento-business"><h3>Bring your business.</h3><p>Make it easier for the community to find you.</p></div></div></section>
+    </main>
+    <SiteFooter />
+  </>
 }
