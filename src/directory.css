@@ -222,5 +222,11 @@
 .places-directory-card h3{margin-top:13px}
 .places-directory-card p{margin-bottom:30px}
 .places-directory-card>div{margin-bottom:22px}
+.places-directory-tools .directory-filters{display:block;max-width:620px;margin-top:24px}
+.places-directory-card .places-directory-address{margin-top:0;margin-bottom:22px;color:#506455;font-size:12px}
+.places-directory-card .places-directory-actions{justify-content:flex-start;flex-wrap:wrap;gap:10px}
+.places-directory-actions a{display:inline-flex;min-height:44px;align-items:center;gap:18px;border:1px solid #8da38d;border-radius:99px;padding:10px 15px;color:var(--ink);font-size:12px;font-weight:600;transition:background .2s,color .2s}
+.places-directory-actions a:first-child,.places-directory-actions a:hover{border-color:var(--forest);background:var(--forest);color:var(--paper)}
+.places-directory-actions a:focus-visible{outline:2px solid var(--forest);outline-offset:3px}
 @media(max-width:540px){.places-directory-card-image{height:230px}}
-@media(prefers-reduced-motion:reduce){.places-directory-card-image{transition:none}.places-directory-card:hover .places-directory-card-image{transform:none}}
+@media(prefers-reduced-motion:reduce){.places-directory-card-image,.places-directory-actions a{transition:none}.places-directory-card:hover .places-directory-card-image{transform:none}}

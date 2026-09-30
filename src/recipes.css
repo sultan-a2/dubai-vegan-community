@@ -60,7 +60,9 @@
 .recipe-detail-heading{display:flex;align-items:end;justify-content:space-between;gap:45px;padding:50px 0 37px}
 .recipe-detail-heading h1{max-width:900px;font-size:clamp(70px,8vw,130px);line-height:.92;letter-spacing:-.075em}
 .recipe-detail-heading p{max-width:470px;margin-top:24px;font-size:17px;line-height:1.55}
-.recipe-detail-meta{display:grid;gap:7px;min-width:135px;border-top:1px solid var(--ink);padding-top:14px;font-size:12px}
+.recipe-detail-meta{display:grid;gap:7px;min-width:175px;border-top:1px solid var(--ink);padding-top:14px;font-size:12px}
+.recipe-detail-meta span:nth-child(3){font-weight:700}
+.recipe-detail-meta small{max-width:190px;color:#617463;font-size:10px;line-height:1.35}
 .recipe-detail-main{display:grid;grid-template-columns:1.13fr .87fr;gap:7%;align-items:start;border-top:1px solid var(--line);padding-top:35px}
 .recipe-detail-photo{height:clamp(400px,50vw,660px);background:#e5e9df}
 .recipe-detail-photo img{width:100%;height:100%;object-fit:cover}
@@ -148,4 +150,4 @@
 .recipe-source-note{margin-top:23px;padding:17px 18px;background:#f1eadc;color:#563f30}
 .recipe-source-note h3{font-family:Switzer,Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:0}
 .recipe-source-note p{margin-top:7px;font-size:12px;line-height:1.5}
-@media(max-width:760px){.recipe-detail-main,.recipe-style-notes .recipe-detail-main,.recipe-style-shelf .recipe-detail-main{grid-template-columns:1fr;gap:0}.recipe-detail-photo,.recipe-style-notes .recipe-detail-photo,.recipe-style-shelf .recipe-detail-photo{height:clamp(300px,65vw,490px)}.recipe-sheet{padding:clamp(23px,5vw,36px)}.recipe-detail-meta{flex-wrap:wrap}.recipe-sheet .recipe-method{margin-top:30px}}
+@media(max-width:760px){.recipe-detail-main,.recipe-style-notes .recipe-detail-main,.recipe-style-shelf .recipe-detail-main{grid-template-columns:1fr;gap:0}.recipe-detail-photo,.recipe-style-notes .recipe-detail-photo,.recipe-style-shelf .recipe-detail-photo{height:clamp(300px,65vw,490px)}.recipe-sheet{padding:clamp(23px,5vw,36px)}.recipe-detail-meta{flex-wrap:wrap}.recipe-detail-meta small{flex-basis:100%;max-width:none}.recipe-sheet .recipe-method{margin-top:30px}}
