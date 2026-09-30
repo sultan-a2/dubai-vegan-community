@@ -1,11 +1,11 @@
 /**
  * Models for an editorial explainer, not live observations or individual outcomes.
- * ACE estimates ~772 billion vertebrates killed for food worldwide in 2018.
- * https://animalcharityevaluators.org/research/reports/dietary-impacts/effects-of-diet-choices/
+ * FAO-derived 2024 data: about 87.9 billion land animals slaughtered for meat worldwide.
+ * https://ourworldindata.org/grapher/land-animals-slaughtered-for-meat
  */
-export const GLOBAL_VERTEBRATES_PER_YEAR = 772_000_000_000
+export const GLOBAL_LAND_ANIMALS_PER_YEAR = 87_900_000_000
 export const SECONDS_PER_YEAR = 365.25 * 24 * 60 * 60
-export const GLOBAL_VERTEBRATES_PER_SECOND = GLOBAL_VERTEBRATES_PER_YEAR / SECONDS_PER_YEAR
+export const GLOBAL_LAND_ANIMALS_PER_SECOND = GLOBAL_LAND_ANIMALS_PER_YEAR / SECONDS_PER_YEAR
 
 /** ACE's 2018 global production model: rough vertebrates spared per plant-based person-year. */
 export const ANIMALS_PER_YEAR = 105

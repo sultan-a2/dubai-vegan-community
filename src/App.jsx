@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { GradientWaveText } from './components/MotionBits.jsx'
 import ImpactQuiz from './components/ImpactQuiz.tsx'
+import ImpactStrip from './components/ImpactStrip.tsx'
 import { PlantCursor, RevealFrame } from './components/EditorialMotion.jsx'
 import ArrowLink from './components/ArrowLink.jsx'
 import SiteHeader from './components/SiteHeader.jsx'
@@ -54,7 +55,7 @@ export default function App() {
 
       <section className="living-section" id="begin" aria-labelledby="begin-title"><div className="wrap living-home"><div className="living-home-copy"><h2 id="begin-title">Living vegan,<br />your way.</h2><p>Food, labels, eating out and the questions that come after. Take what helps.</p><ArrowLink href={`${import.meta.env.BASE_URL}guide.html`}>Explore the guide</ArrowLink></div><a href={`${import.meta.env.BASE_URL}guide.html`} className="living-banner"><img src={asset('community/cafe-room.jpg')} alt="Community members enjoying a meal together" loading="lazy" /><span className="living-banner-words"><GradientWaveText>Good questions deserve useful answers.</GradientWaveText></span></a></div></section>
 
-      <section className="impact-section" id="impact" aria-label="Vegan impact estimates"><ImpactQuiz /></section>
+      <section className="impact-section" id="impact" aria-label="Vegan impact estimates"><ImpactStrip /><ImpactQuiz /></section>
 
       <section className="join-section" id="join" aria-labelledby="join-title"><div className="wrap join-bento"><div className="join-bento-intro"><h2 id="join-title">Make this yours, too.</h2><p>A good guide grows through the people who use it. Soon, you’ll be able to share a recipe, recommend a find or list your business.</p><span>Submissions are opening soon.</span></div><div className="join-bento-image"><img src={asset('community/group-portrait.jpg')} alt="Dubai Vegan Community members together" loading="lazy" /><span><GradientWaveText>Care is something we share.</GradientWaveText></span></div><div className="join-bento-card"><h3>Share a recipe.</h3><p>The dish everyone asks you to make.</p></div><div className="join-bento-card"><h3>Recommend a find.</h3><p>A place or product more people should know.</p></div><div className="join-bento-card join-bento-business"><h3>Bring your business.</h3><p>Make it easier for the community to find you.</p></div></div></section>
     </main>

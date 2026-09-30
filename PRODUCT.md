@@ -26,7 +26,7 @@ The events preview includes a broad community market and a trade expo alongside 
 
 ## Impact explainer
 
-The global counter was removed from the homepage. Its archived component uses Animal Charity Evaluators' 2018 production model: about 772 billion vertebrates killed for food in that year. ACE says this archive report may not meet its current quality standards. Do not restore the counter without refreshing the evidence.
+The homepage counter uses FAO-derived 2024 data published by Our World in Data: about 87.9 billion land animals slaughtered for meat worldwide that year. It projects that annual average across each UTC day, so the changing figure is a model, not a live count. It excludes fish and other uncounted deaths. Source: https://ourworldindata.org/grapher/land-animals-slaughtered-for-meat.
 
 The two-choice quiz combines ACE's rough global 105 vertebrates per plant-based person-year with a UK high-meat versus vegan diet comparison from Scarborough et al., Nature Food (2023): https://www.nature.com/articles/s43016-023-00795-w. The comparison is about 2.8 tonnes CO₂e and 175,000 litres of water per year. The part-time and multi-year multipliers are a deliberately simple linear model. These numbers are not a personalized UAE impact assessment or a count of specific animals saved. Keep a concise, visible source note adjacent to the quiz and the modelled-estimate label on results.
 

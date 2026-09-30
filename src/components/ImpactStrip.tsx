@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 import NumberFlow from '@number-flow/react'
-import { GLOBAL_VERTEBRATES_PER_SECOND } from './impactConstants'
+import { GLOBAL_LAND_ANIMALS_PER_SECOND } from './impactConstants'
 
 function estimatedToday(now: number) {
   const date = new Date(now)
   const midnightUtc = Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate())
-  return Math.floor(((now - midnightUtc) / 1000) * GLOBAL_VERTEBRATES_PER_SECOND)
+  return Math.floor(((now - midnightUtc) / 1000) * GLOBAL_LAND_ANIMALS_PER_SECOND)
 }
 
 export default function ImpactStrip() {
@@ -20,9 +20,9 @@ export default function ImpactStrip() {
 
   return <div className="impact-strip">
     <div className="wrap impact-strip-inner">
-      <div className="impact-strip-copy"><h2>The number<br />that keeps<br />moving.</h2><p>Behind every choice is a world that does not pause.</p></div>
-      <div className="impact-strip-measure"><NumberFlow className="impact-strip-number" value={estimate} format={{ useGrouping: true }} animated={false} aria-label={`${estimate.toLocaleString()} estimated vertebrates killed for food worldwide since midnight UTC`} /><p>Estimated vertebrates killed for food worldwide since midnight UTC.</p></div>
+      <div className="impact-strip-copy"><h2>The number<br />that keeps<br />moving.</h2><p>A worldwide estimate based on the 2024 annual average.</p></div>
+      <div className="impact-strip-measure"><NumberFlow className="impact-strip-number" value={estimate} format={{ useGrouping: true }} animated={false} aria-label={`${estimate.toLocaleString()} estimated land animals slaughtered for meat worldwide since midnight UTC`} /><p>Estimated land animals slaughtered for meat worldwide since midnight UTC.</p></div>
     </div>
-    <p className="wrap impact-strip-note">Modelled from a 2018 global production average. This is not a live observation or a count of animals saved by our community. <a href="https://animalcharityevaluators.org/research/reports/dietary-impacts/effects-of-diet-choices/" target="_blank" rel="noopener noreferrer">Source: Animal Charity Evaluators</a></p>
+    <p className="wrap impact-strip-note">Modelled from 2024 global land-animal slaughter data; it is not a live count. Fish and other uncounted deaths are excluded. <a href="https://ourworldindata.org/grapher/land-animals-slaughtered-for-meat" target="_blank" rel="noopener noreferrer">Source: FAO via Our World in Data</a></p>
   </div>
 }
