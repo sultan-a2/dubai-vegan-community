@@ -53,15 +53,15 @@
 @media(max-width:540px){.places-showcase .places-showcase-list a{grid-template-columns:68px minmax(0,1fr);min-height:130px;padding-right:0}}
 
 /* The route list reads as a guide instead of four unrelated tiles. */
-.intro-band .explore-shortcuts{display:grid;grid-template-columns:1fr;gap:0;border-top:1px solid #715a45;margin-top:30px}
-.intro-band .explore-shortcuts a,.intro-band .explore-shortcuts a:not(:first-child),.intro-band .explore-shortcuts a:nth-child(n){display:grid;grid-template-columns:58px minmax(0,1fr) auto;align-items:center;min-height:83px;gap:17px;border:0;border-bottom:1px solid #715a45;padding:10px 4px;background:transparent;transform:none}
+.intro-band .explore-shortcuts{display:grid;grid-template-columns:1fr;gap:0;border-top:1px solid #7d9077;margin-top:30px}
+.intro-band .explore-shortcuts a,.intro-band .explore-shortcuts a:not(:first-child),.intro-band .explore-shortcuts a:nth-child(n){display:grid;grid-template-columns:58px minmax(0,1fr) auto;align-items:center;min-height:83px;gap:17px;border:0;border-bottom:1px solid #7d9077;padding:10px 4px;background:transparent;transform:none}
 .intro-band .explore-shortcuts a img{width:58px;height:58px;object-fit:cover}
 .intro-band .explore-shortcuts a:nth-child(4) img{object-fit:contain;background:#f5efe2;padding:5px}
 .intro-band .explore-shortcuts a>span:nth-child(2){display:grid;gap:5px}
 .intro-band .explore-shortcuts a strong{font-family:"Playfair Display",Georgia,serif;font-size:clamp(28px,3vw,37px);font-weight:400;line-height:1;letter-spacing:-.05em}
 .intro-band .explore-shortcuts a small{font-size:12px}
 .intro-band .explore-shortcuts a>span:last-child{font-family:Switzer,Arial,sans-serif;font-size:19px;transition:transform .2s}
-.intro-band .explore-shortcuts a:hover,.intro-band .explore-shortcuts a:focus-visible{background:#f4dbbc}
+.intro-band .explore-shortcuts a:hover,.intro-band .explore-shortcuts a:focus-visible{background:#cbd8bf}
 .intro-band .explore-shortcuts a:hover>span:last-child,.intro-band .explore-shortcuts a:focus-visible>span:last-child{transform:translate(3px,-3px)}
 
 .site-footer{background:#173a28;color:#f8f3e7}
@@ -152,12 +152,14 @@
 }
 
 .products-showcase h2{max-width:760px;font-size:clamp(67px,6.4vw,96px);line-height:.97}
+@media(max-width:900px){
 #impact{display:block;background:#e8ede2}
 #impact .impact-quiz{display:grid;grid-template-columns:.85fr 1.15fr;column-gap:8%;width:min(100% - 96px,1330px);max-width:1330px;margin-inline:auto;padding:100px 0 110px}
 #impact .impact-quiz-intro h2{font-size:clamp(54px,5.4vw,78px);line-height:1.02}
 #impact .impact-quiz-intro p{max-width:420px;font-size:16px;line-height:1.6}
 #impact .impact-quiz-panel{min-height:0;margin-top:0}
 #impact .impact-source-note{grid-column:2}
+}
 @media(max-width:760px){
   .products-showcase h2{font-size:clamp(54px,10vw,72px)}
   #impact .impact-quiz{display:block;width:min(100% - 36px,1330px);padding:70px 0 78px}
@@ -165,3 +167,6 @@
   #impact .impact-quiz-panel{margin-top:34px}
 }
 @media(prefers-reduced-motion:reduce){.intro-band .explore-shortcuts a>span:last-child{transition:none}}
+
+.places-showcase .places-showcase-list a.place-without-photo{grid-template-columns:minmax(0,1fr)}
+.places-showcase-list a.place-without-photo>span,.places-showcase-list a.place-without-photo strong,.places-showcase-list a.place-without-photo small{grid-column:1}

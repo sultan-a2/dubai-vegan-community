@@ -6,8 +6,9 @@ import { PlantCursor, RevealFrame } from './components/EditorialMotion.jsx'
 import ArrowLink from './components/ArrowLink.jsx'
 import SiteHeader from './components/SiteHeader.jsx'
 import SiteFooter from './components/SiteFooter.jsx'
+import SubmissionPanel from './components/SubmissionPanel.jsx'
 import { recipes, recipeUrl } from './data/recipes.js'
-import { places, products, promotions } from './data/directory.js'
+import { places, homepagePlaces, products, promotions } from './data/directory.js'
 import { events } from './data/events.js'
 
 const asset = (name) => import.meta.env.BASE_URL + 'assets/' + name
@@ -45,7 +46,7 @@ export default function App() {
           {search.trim() && <div className="search-results" aria-live="polite"><p>{searchResults.length ? `${searchResults.length} ${searchResults.length === 1 ? 'result' : 'results'} for “${search.trim()}”` : `Nothing matched “${search.trim()}” yet. Try a broader term.`}</p>{searchResults.map((item) => <a key={item.label + item.title} href={item.href} {...(item.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}><span>{item.label}</span><strong>{item.title}</strong><small>{item.detail}</small></a>)}</div>}</div>
       </div></section>
 
-      <section className="places-showcase" id="places" aria-labelledby="places-title"><div className="wrap"><div className="places-showcase-head"><h2 id="places-title">A good place<br />to begin is<br />around a table.</h2><p>From fully vegan kitchens to familiar places with thoughtful options. Find somewhere that fits tonight.</p></div><div className="places-showcase-body"><RevealFrame className="places-showcase-photo"><img src={asset(places[0].image)} alt={places[0].imageAlt} loading="lazy" /><span className="place-photo-words"><GradientWaveText>Find your table.</GradientWaveText></span></RevealFrame><div className="places-showcase-list">{places.slice(0, 3).map((place) => <a href={place.url} target="_blank" rel="noopener noreferrer" key={place.name}><img src={asset(place.image)} alt="" loading="lazy" /><span>{place.area} · {place.type}</span><strong>{place.name}</strong><small>{place.detail}</small></a>)}</div></div><div className="places-showcase-bottom"><p>Menus change. Check a place’s current vegan options before visiting.</p><ArrowLink href={`${import.meta.env.BASE_URL}places.html`}>Explore all places</ArrowLink></div></div></section>
+      <section className="places-showcase" id="places" aria-labelledby="places-title"><div className="wrap"><div className="places-showcase-head"><h2 id="places-title">A good place<br />to begin is<br />around a table.</h2><p>From fully vegan kitchens to familiar places with thoughtful options. Find somewhere that fits tonight.</p></div><div className="places-showcase-body"><RevealFrame className="places-showcase-photo"><img src={asset(places[0].image)} alt={places[0].imageAlt} loading="lazy" /><span className="place-photo-words"><GradientWaveText>Find your table.</GradientWaveText></span></RevealFrame><div className="places-showcase-list">{homepagePlaces.map((place) => <a href={place.url} target="_blank" rel="noopener noreferrer" key={place.name} className={place.image ? undefined : "place-without-photo"}>{place.image && <img src={asset(place.image)} alt="" loading="lazy" />}<span>{place.area} · {place.type}</span><strong>{place.name}</strong><small>{place.detail}</small></a>)}</div></div><div className="places-showcase-bottom"><p>Menus change. Check a place’s current vegan options before visiting.</p><ArrowLink href={`${import.meta.env.BASE_URL}places.html`}>Explore all places</ArrowLink></div></div></section>
 
       <section className="recipe-section recipe-teaser" id="recipes" aria-labelledby="recipes-title"><div className="wrap"><div className="recipe-teaser-head"><div><h2 id="recipes-title">Good things<br />start at home.</h2><p>Simple meals for ordinary days. Open the recipe book when you want to make something.</p></div><ArrowLink href={`${import.meta.env.BASE_URL}recipes.html`}>Browse all recipes</ArrowLink></div><div className="recipe-teaser-grid">{recipes.slice(0, 3).map((item) => <RevealFrame className="recipe-teaser-card" key={item.slug}><a href={recipeUrl(item.slug)}><img loading="lazy" src={asset(item.image)} alt={item.imageAlt} /><h3>{item.name}</h3><p>{item.summary}</p><span>{item.total} total · {item.category}</span></a></RevealFrame>)}</div></div></section>
 
@@ -57,7 +58,7 @@ export default function App() {
 
       <section className="impact-section" id="impact" aria-label="Vegan impact estimates"><ImpactStrip /><ImpactQuiz /></section>
 
-      <section className="join-section" id="join" aria-labelledby="join-title"><div className="wrap join-bento"><div className="join-bento-intro"><h2 id="join-title">Make this yours, too.</h2><p>A good guide grows through the people who use it. Soon, you’ll be able to share a recipe, recommend a find or list your business.</p><span>Submissions are opening soon.</span></div><div className="join-bento-image"><img src={asset('community/group-portrait.jpg')} alt="Dubai Vegan Community members together" loading="lazy" /><span><GradientWaveText>Care is something we share.</GradientWaveText></span></div><div className="join-bento-card"><h3>Share a recipe.</h3><p>The dish everyone asks you to make.</p></div><div className="join-bento-card"><h3>Recommend a find.</h3><p>A place or product more people should know.</p></div><div className="join-bento-card join-bento-business"><h3>Bring your business.</h3><p>Make it easier for the community to find you.</p></div></div></section>
+      <div id="join"><SubmissionPanel kind="Community" /></div>
     </main>
     <SiteFooter />
   </>

@@ -6,9 +6,11 @@ This project is a welcoming guide and editorial community hub for vegans and peo
 
 Sultan selected reference images #3 and #5 from the 24 September 2026 conversation as the main direction: homely warmth, tidy editorial composition, generous spacing, restrained serif type and grounded photography. Reference #4 informs the brown, ruled event calendar. Reference #1 informs spacing and #6 informs occasional friendly green. Keep the supplied bright green circular logo.
 
-Use warm cream, deep green, earthy brown, photography and a clear serif/sans pairing. The page should feel like a guide made by a real community. Current user instructions take priority over previous Paper concepts and site editions. Do not use Sultan's Notion Design Brain for this project; he explicitly requested that.
+Use warm cream, deep green, earthy brown, photography and a clear serif/sans pairing. The page should feel like a guide made by a real community. Current user instructions take priority over previous Paper concepts and site editions. The current AGENTS instructions require reading Sultan's Design Brain; project-specific direction and current feedback take priority.
 
 The September 2026 follow-up references favor Playfair Display for editorial headings and Switzer for body and navigation, with rounded gold and dark outlined buttons like the Mont Rural reference. Both fonts are self-hosted under `public/fonts/`.
+
+October 2026 feedback: the homepage explore section uses muted sage instead of peach. Recipe and product collections open directly into image grids, inspired by the supplied detox catalogue screenshot: left category navigation on desktop and horizontal filters on mobile. Products are grouped into Meat alternatives, Dairy alternatives, Tofu & tempeh, and Treats. The recipe page style picker has been removed. Shared navigation uses colour/background hover and focus states. A muted-green split submission form, inspired by the supplied inquiry screenshot, appears on the homepage and both collections. It is explicitly a preview with a disabled submit button; nothing is sent or stored. The homepage headline is awaiting Sultan's selection.
 
 ## Content and navigation
 
@@ -35,3 +37,7 @@ Scroll motion, handwriting, custom cursor and text reveal are editorial accents 
 ## Build
 
 React/Vite with TypeScript components for the impact explainer. The main experience is at `/`, with an illustrated story page at `/about.html`, a recipe book at `/recipes.html`, a practical guide at `/guide.html`, an Events page at `/events.html`, and directories at `/places.html`, `/products.html`, and `/offers.html`. The older edition at `/edition.html` is retained as an archival direction, not the current design source. The main page provides responsive navigation, homepage search, compact event rows and collection previews. The guide page offers the PDF download. Submission forms, live partner offers and payment remain unconnected preview features. Test mobile and desktop before publishing.
+
+## Community list import - 2 October 2026
+
+Imported community Google Doc 1SjW0AD_Esp_mZxOofXUbYwdyURU8pVfU_6WichZ4mf4: 10 additional product finds, 8 venue/delivery listings, 7 supermarket links and 5 unconfirmed venue suggestions. Existing listings were reused. Products now include Pantry, Protein powders and Home care filters. Three Amazon listings retain community links with unverified pack details and no invented photos. Dip Dash and MyGovindas are classified vegetarian. Brand catalogue images are documented in public/credits/product-images.md.

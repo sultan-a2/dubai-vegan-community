@@ -1,22 +1,31 @@
 a.arrow-link{display:inline-flex;align-items:center;justify-content:flex-start;flex:none;gap:15px;width:max-content;max-width:100%;min-height:46px;margin-top:18px;border:0;border-bottom:2px solid currentColor;border-radius:0;background:transparent;color:inherit;padding:0 0 15px;font-family:Switzer,Arial,sans-serif;font-size:17px;font-weight:700;letter-spacing:0;line-height:1;text-align:left;text-decoration:none;white-space:normal;transform:none;transition:color .2s}
 a.arrow-link svg{flex:none}
-a.arrow-link:hover,a.arrow-link:focus-visible{background:transparent;color:inherit;transform:none}
+a.arrow-link:hover,a.arrow-link:focus-visible{background:transparent;color:#587335;transform:none}
+a.arrow-link svg{transition:transform 150ms cubic-bezier(.2,0,0,1)}
+a.arrow-link:hover svg,a.arrow-link:focus-visible svg{transform:translateX(5px)}
 
 .site-header .header-inner{grid-template-columns:auto minmax(0,1fr) auto;gap:clamp(18px,3vw,44px);min-height:88px}
 .site-header .brand{grid-column:1;justify-self:start}
 .site-header .main-nav{grid-column:2;grid-row:1;justify-self:center;gap:clamp(12px,1.8vw,27px)}
 .site-header .main-nav a{font-size:14px;font-weight:600;letter-spacing:0;text-transform:none}
+.site-header .main-nav a{padding:10px 12px;border-radius:3px;transition:background 150ms,color 150ms}
+.site-header .main-nav a::after{display:none}
+.site-header .main-nav a[aria-current="page"]{background:#e0e7d7;color:var(--forest);text-decoration:none}
+.site-header .main-nav a:hover,.site-header .main-nav a:focus-visible{background:var(--forest);color:var(--paper);text-decoration:none}
+.site-header .menu-button:hover,.site-header .menu-button:focus-visible{background:#e0e7d7}
 .site-header .header-cta{grid-column:3;grid-row:1}
 @media(max-width:1050px){.site-header .main-nav{gap:12px}.site-header .main-nav a{font-size:12px}}
 @media(max-width:760px){
   .site-header .header-inner{grid-template-columns:1fr auto;min-height:68px}
   .site-header .main-nav{grid-column:auto;grid-row:auto;justify-self:stretch;gap:0}
   .site-header .main-nav a{font-family:"Playfair Display",Georgia,serif;font-size:clamp(28px,7vw,38px);font-weight:400;letter-spacing:-.04em}
+  .site-header .main-nav a{padding:12px;border-bottom:0}
 }
 
 .site-footer{background:#173a28;color:#f8f3e7}
 .site-footer .footer-main nav a{color:#f8f3e7}
 .site-footer .footer-main nav a:hover,.site-footer .footer-main nav a:focus-visible{color:#e8c484}
+.site-footer .footer-main nav a:hover,.site-footer .footer-main nav a:focus-visible{text-decoration:none}
 .site-footer .footer-bottom{border-color:#67826d;color:#d5e0d1}
 .site-footer .footer-note .arrow-link{display:inline-flex;margin-top:22px;border-bottom:1px solid #bacdb5;padding-bottom:8px;color:#f8f3e7;font-size:14px}
 .site-footer .footer-note .arrow-link:hover,.site-footer .footer-note .arrow-link:focus-visible{color:#e8c484}
@@ -31,3 +40,6 @@ a.arrow-link:hover,a.arrow-link:focus-visible{background:transparent;color:inher
   .site-footer .footer-note .arrow-link{margin-top:8px}
   .site-footer .footer-wordmark{margin-top:49px}
 }
+.recipe-breadcrumb a:hover,.recipe-breadcrumb a:focus-visible,.recipe-detail-meta a:hover,.recipe-detail-meta a:focus-visible{color:#587335;text-decoration:none}
+.recipe-teaser-card a:hover h3,.recipe-teaser-card a:focus-visible h3,.products-showcase-grid a:hover strong,.products-showcase-grid a:focus-visible strong,.places-showcase-list a:hover strong,.places-showcase-list a:focus-visible strong,.event-list .event-spotlight:hover strong,.event-list .event-spotlight:focus-visible strong{color:#587335;text-decoration:none}
+@media(prefers-reduced-motion:reduce){a.arrow-link svg,.site-header .main-nav a{transition:none}a.arrow-link:hover svg,a.arrow-link:focus-visible svg{transform:none}}

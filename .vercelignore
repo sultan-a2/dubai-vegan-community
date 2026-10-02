@@ -12,3 +12,6 @@ research-seed-content.md
 .env*
 node_modules/
 dist/
+outputs/
+tmp/
+scripts/
