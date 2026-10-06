@@ -29,7 +29,7 @@ a.arrow-link:hover svg[data-direction="up"],a.arrow-link:focus-visible svg[data-
 .site-footer .footer-main nav a:hover,.site-footer .footer-main nav a:focus-visible{text-decoration:none}
 .site-footer .footer-bottom{border-color:#67826d;color:#d5e0d1}
 .site-footer .footer-note .arrow-link{display:inline-flex;margin-top:22px;border-bottom:1px solid #bacdb5;padding-bottom:8px;color:#f8f3e7;font-size:14px}
-.site-footer .footer-note .arrow-link:hover,.site-footer .footer-note .arrow-link:focus-visible{color:#e8c484}
+.site-footer .footer-note .arrow-link:hover,.site-footer .footer-note .arrow-link:focus-visible{color:#355429}
 @media(max-width:760px){
   .site-footer{padding-top:51px}
   .site-footer .footer-main{display:grid;grid-template-columns:1fr;gap:31px}
