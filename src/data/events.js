@@ -7,6 +7,8 @@ export const events = [
     title: 'The Ripe Market reopens',
     venue: 'Academy Park · Dubai',
     note: 'Community market · check individual food stalls for vegan options',
+    paymentEnabled: false,
+    ziinaUrl: '',
     url: 'https://ripeevents.com/all/the-ripe-market-reopens-in-partnership-with-dubai-police-at-academy-park-this-october-celebrating-15-years-of-community/',
   },
   {
@@ -17,6 +19,8 @@ export const events = [
     title: 'Not Just For Vegans Market',
     venue: 'Rove Hotel Trade Centre · Dubai',
     note: 'Vegan market · 11 October is tentative; check the organiser',
+    paymentEnabled: false,
+    ziinaUrl: '',
     url: 'https://notjustforvegans.com/products/rove-hotel-trade-centre-oct26-1',
   },
   {
@@ -28,6 +32,8 @@ export const events = [
     title: 'Organic & Natural Expo',
     venue: 'Dubai World Trade Centre',
     note: 'Trade expo · includes plant based and vegan exhibitors',
+    paymentEnabled: false,
+    ziinaUrl: '',
     url: 'https://organicandnatural.com/organic-natural-food-beverage/',
   },
 ]

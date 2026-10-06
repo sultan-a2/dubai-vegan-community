@@ -40,41 +40,11 @@
 .events-page-items article p{margin-top:7px;font-size:13px;line-height:1.4}
 .events-page-items article a{margin-top:18px}
 .events-page-caveat{max-width:760px;margin-top:25px;font-size:12px;line-height:1.55;color:#5a6a5c}
-.booking-preview{background:#dce8d2;padding-block:90px 105px}
-.booking-preview-inner{display:grid;grid-template-columns:.75fr 1.25fr;gap:9%;align-items:start}
-.booking-preview-intro h2{font-size:clamp(57px,6vw,88px);line-height:.98}
-.booking-preview-intro>p{max-width:380px;margin-top:24px;font-size:16px;line-height:1.5}
-.booking-preview-intro .booking-demo-warning{border-top:1px solid #91a38d;padding-top:17px;font-size:12px;font-weight:600;line-height:1.55}
-.booking-card{background:#faf7ed}
-.booking-card-image img{width:100%;height:255px;object-fit:cover;object-position:center 55%}
-.booking-card-body{padding:30px 35px 37px}
-.booking-card-body h3{font-size:clamp(38px,4vw,57px);line-height:1}
-.booking-card-meta{margin-top:14px;font-size:13px;font-weight:600}
-.booking-card-body>p:not(.booking-card-meta){max-width:540px;margin-top:20px;font-size:14px;line-height:1.55}
-.booking-card form{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:25px}
-.booking-card label{display:grid;gap:8px;font-size:12px;font-weight:600}
-.booking-card input,.booking-card select{width:100%;min-height:46px;border:1px solid #9aaa98;border-radius:0;background:#fffdf7;color:var(--ink);padding:10px 12px;font-size:14px}
-.booking-card label:nth-child(3){grid-column:1/-1;max-width:180px}
-.booking-total{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;border-top:1px solid #a7b8a2;padding-top:17px;font-size:14px}
-.booking-total strong{font-size:20px}
-.booking-primary{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:48px;border:0;border-radius:99px;background:#173a28;color:#fffaf0;padding:12px 19px;font-size:13px;font-weight:600}
-.booking-primary:hover{background:#2a6042}
-.booking-card form .booking-primary{grid-column:1/-1;justify-self:start}
-.booking-card-body .booking-availability{margin-top:12px;font-size:11px;color:#4c6954}
-.booking-checkout,.booking-confirmation{margin-top:26px;border-top:1px solid #a7b8a2;padding-top:22px}
-.booking-checkout-title,.booking-confirmation strong{font-family:"Playfair Display",Georgia,serif;font-size:30px;font-weight:400}
-.booking-checkout>p,.booking-confirmation p{margin-top:11px;font-size:14px;line-height:1.5}
-.booking-pay-panel{display:flex;justify-content:space-between;gap:15px;margin-top:20px;border:1px solid #9aaa98;padding:22px 20px;background:#f4f1e7}
-.booking-pay-panel strong{font-size:16px}
-.booking-pay-panel span{font-size:12px}
-.booking-checkout .booking-primary{margin-top:23px}
-.booking-back{display:block;margin-top:17px;border:0;border-bottom:1px solid currentColor;background:transparent;color:var(--ink);padding:0 0 4px;font-size:12px}
 @media(max-width:900px){
   .events-page-hero{gap:5%}
   .events-page-hero h1{font-size:70px}
   .events-page-items article{grid-template-columns:135px 135px minmax(0,1fr);gap:20px}
   .events-page-thumb{width:135px;height:135px}
-  .booking-preview-inner{gap:5%}
 }
 @media(max-width:760px){
   .events-page-hero{grid-template-columns:1fr;gap:22px;padding-block:42px 40px}
@@ -105,12 +75,6 @@
   .events-page-thumb{grid-column:2;width:100%;height:130px}
   .events-page-detail{grid-column:1/-1}
   .events-page-items h3{font-size:31px}
-  .booking-preview{padding-block:61px 75px}
-  .booking-preview-inner{grid-template-columns:1fr;gap:26px}
-  .booking-preview-intro h2{font-size:55px}
-  .booking-preview-intro>p{margin-top:15px;font-size:15px}
-  .booking-card-image img{height:220px}
-  .booking-card-body{padding:25px 22px 30px}
 }
 @media(max-width:430px){
   .directory-footer-main{display:grid;grid-template-columns:1fr}
@@ -121,8 +85,4 @@
   .events-page-items article{grid-template-columns:100px minmax(0,1fr);gap:8px 12px}
   .events-page-date strong{font-size:45px}
   .events-page-thumb{height:106px}
-  .booking-card form{grid-template-columns:1fr}
-  .booking-card label:nth-child(3),.booking-total,.booking-card form .booking-primary{grid-column:1}
-  .booking-pay-panel{display:block}
-  .booking-pay-panel span{display:block;margin-top:7px}
 }

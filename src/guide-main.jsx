@@ -7,6 +7,7 @@ import './directory.css'
 import './guide.css'
 import { finishPageLoading } from './utils/pageLoader.js'
 import './arrow-link.css'
+import './reference.css'
 
 createRoot(document.getElementById('root')).render(<StrictMode><Guide /></StrictMode>)
 finishPageLoading()

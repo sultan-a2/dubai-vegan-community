@@ -1,5 +1,4 @@
-import { ParallaxImage, Signature } from './components/MotionBits.jsx'
-import { PlantCursor, ScrollFillText, RevealFrame } from './components/EditorialMotion.jsx'
+import { PlantCursor } from './components/EditorialMotion.jsx'
 import ArrowLink from './components/ArrowLink.jsx'
 import SiteHeader from './components/SiteHeader.jsx'
 import SiteFooter from './components/SiteFooter.jsx'
@@ -20,9 +19,9 @@ export default function About() {
     <div id="top" aria-hidden="true" />
     <SiteHeader active="Our story" />
     <main id="main">
-      <section className="about-hero wrap"><h1>It starts with<br /><span>a question.</span></h1><div className="about-hero-side"><p>What if we made a little more room for animals, the planet and each other in everyday life?</p><Signature text="come as you are" /></div><ParallaxImage className="about-hero-image" src={asset('community/dinner-table.jpg')} alt="Community members sharing dinner around a table" /></section>
-      <section className="about-statement wrap"><ScrollFillText>Being vegan is a way to practise care, one ordinary decision at a time.</ScrollFillText></section>
-      <section className="about-timeline wrap" aria-label="What vegan living means"><div className="about-path" aria-hidden="true"><svg viewBox="0 0 80 1240" preserveAspectRatio="none"><path d="M40 0C80 115 4 182 40 310S77 483 40 620 4 791 40 930 78 1080 40 1240" /></svg></div>{chapters.map((chapter, index) => <article className={`about-chapter about-chapter-${index + 1}`} key={chapter.title}><RevealFrame className="about-chapter-image"><ParallaxImage src={asset(chapter.image)} alt={chapter.alt} /></RevealFrame><div className="about-chapter-copy"><h2>{chapter.title}</h2><p>{chapter.text}</p>{chapter.source && <ArrowLink href={chapter.url} target="_blank" rel="noopener noreferrer">Read: {chapter.source}</ArrowLink>}</div></article>)}</section>
+      <section className="about-hero wrap"><div className="about-hero-copy"><h1>It starts with<br />a question.</h1><p>What if we made a little more room for animals, the planet and each other in everyday life?</p></div><img className="about-hero-image" src={asset('community/dinner-table.jpg')} alt="Community members sharing dinner around a table" /></section>
+      <section className="about-statement wrap"><h2>Being vegan is a way to practise care, one ordinary decision at a time.</h2></section>
+      <section className="about-timeline wrap" aria-label="What vegan living means">{chapters.map((chapter) => <article className="about-chapter" key={chapter.title}><img className="about-chapter-image" src={asset(chapter.image)} alt={chapter.alt} loading="lazy" /><div className="about-chapter-copy"><h2>{chapter.title}</h2><p>{chapter.text}</p>{chapter.source && <ArrowLink href={chapter.url} target="_blank" rel="noopener noreferrer">Read: {chapter.source}</ArrowLink>}</div></article>)}</section>
       <section className="about-pause"><div className="wrap"><img className="about-garden-art" src={asset('community/friends-three.jpg')} alt="Three friends sitting together at a café" loading="lazy" /><div className="about-pause-copy"><h2>There is no perfect starting point.</h2><p>Try one meal. Ask one question. Find one person to share a table with.</p></div></div></section>
       <section className="about-close wrap"><h2>We’ll meet you<br />where you are.</h2><div className="about-close-copy"><p>Start with a meal, find a place you like, or come along to a gathering. Take what helps and go at your own pace.</p><ArrowLink href={`${import.meta.env.BASE_URL}guide.html`}>Explore the guide</ArrowLink></div></section>
     </main>

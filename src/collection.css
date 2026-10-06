@@ -57,6 +57,15 @@
 .submission-form textarea{resize:vertical}.submission-form input::placeholder{color:#d1dace}.submission-form select option{background:#4c5b50;color:#faf7ed}
 .submission-form :focus-visible{outline-color:#e8c484}
 .submission-form button{display:flex;justify-content:space-between;gap:16px;min-height:44px;border:0;padding:10px 0;background:transparent;color:#d1dace;font-size:14px;text-align:left;cursor:not-allowed}
+.submission-form .submission-type{min-width:0;margin:0;padding:0;border:0}
+.submission-type legend{padding:0;font-size:12px;font-weight:600;line-height:1.5}
+.submission-type>div{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:12px}
+.submission-form .submission-type label{position:relative;display:flex;align-items:center;justify-content:center;min-height:44px;padding:10px 12px;border:1px solid #a6b6a0;border-radius:12px;background:transparent;color:var(--ink);font-size:14px;cursor:pointer}
+.submission-form .submission-type input{position:absolute;width:1px;height:1px;min-height:0;padding:0;margin:0;border:0;opacity:0}
+.submission-form .submission-type label:has(input:checked){border-color:var(--ink);background:var(--ink);color:white}
+.submission-form .submission-type label:has(input:focus-visible){outline:3px solid #39754f;outline-offset:3px}
+.submission-form .submission-type label:hover:not(:has(input:checked)){background:#e8eee1}
+.submission-form .submission-type label>span{font-weight:600}
 @media(max-width:1050px){.collection-layout{grid-template-columns:165px minmax(0,1fr);gap:24px}.collection-grid{gap:34px 16px}.collection-packshot{padding:20px}}
 @media(max-width:760px){.collection{padding-block:24px 55px}.collection-heading{margin-bottom:18px}.collection-heading h1{font-size:34px}.collection-contribute{font-size:12px;gap:8px}.collection-layout{grid-template-columns:minmax(0,1fr);gap:20px}.collection-sidebar{position:static;padding:0}.collection-categories{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:4px 2px 8px}.collection-categories button{flex:none;gap:14px;min-height:44px;padding-inline:13px;font-size:13px}.collection-tools{gap:15px}.collection-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 16px}.collection-copy h2{font-size:25px}.submission-panel{padding-block:48px}.submission-layout{grid-template-columns:1fr;gap:35px}.submission-copy h2{font-size:44px}.submission-copy .submission-note{margin-top:23px}}
 @media(max-width:440px){.collection-grid{gap:28px 12px}.collection-copy h2{font-size:22px}.collection-copy h2>span{display:none}.collection-packshot{padding:16px}.collection-copy p,.collection-copy small{font-size:11px}.collection-tools>p{font-size:11px}.collection-search input{font-size:13px}.submission-row{grid-template-columns:1fr;gap:22px}.submission-copy h2{font-size:38px}}

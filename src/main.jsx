@@ -10,6 +10,8 @@ import './explore.css'
 import './feedback.css'
 import { finishPageLoading } from './utils/pageLoader.js'
 import './arrow-link.css'
+import './reference.css'
+import './home-restored.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

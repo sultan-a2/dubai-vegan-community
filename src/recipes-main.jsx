@@ -7,6 +7,7 @@ import './redesign.css'
 import './recipes.css'
 import { finishPageLoading } from './utils/pageLoader.js'
 import './arrow-link.css'
+import './reference.css'
 
 createRoot(document.getElementById('root')).render(<StrictMode><Recipes /></StrictMode>)
 finishPageLoading()

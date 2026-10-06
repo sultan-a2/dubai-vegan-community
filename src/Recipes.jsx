@@ -4,19 +4,22 @@ import SiteHeader from './components/SiteHeader.jsx'
 import SiteFooter from './components/SiteFooter.jsx'
 import SubmissionPanel from './components/SubmissionPanel.jsx'
 import { recipes, recipeCategories, recipeUrl } from './data/recipes.js'
+import CollectionFilters from './CollectionFilters.jsx'
+import './collection-refresh.css'
 
 const asset = (name) => import.meta.env.BASE_URL + 'assets/' + name
 function RecipeIndex() {
   const [query, setQuery] = useState('')
-  const [category, setCategory] = useState('All')
-  const filtered = useMemo(() => recipes.filter((recipe) => (category === 'All' || recipe.category === category) && `${recipe.name} ${recipe.summary} ${recipe.ingredients.join(' ')}`.toLowerCase().includes(query.trim().toLowerCase())), [query, category])
+  const [categories, setCategories] = useState([])
+  const toggleCategory = (category) => setCategories((current) => current.includes(category) ? current.filter((item) => item !== category) : [...current, category])
+  const filtered = useMemo(() => recipes.filter((recipe) => (!categories.length || categories.includes(recipe.category)) && `${recipe.name} ${recipe.summary} ${recipe.ingredients.join(' ')}`.toLowerCase().includes(query.trim().toLowerCase())), [query, categories])
   return <>
-    <section className="collection wrap" id="browse-recipes" aria-labelledby="browse-title">
-      <div className="collection-heading"><h1 id="browse-title">Recipes</h1><a className="collection-contribute" href="#submit">Share a recipe <span aria-hidden="true">↗</span></a></div>
-      <div className="collection-layout">
-        <aside className="collection-sidebar"><div className="collection-categories" role="group" aria-label="Filter recipes by category">{recipeCategories.map((item) => <button type="button" key={item} aria-pressed={category === item} onClick={() => setCategory(item)}><span>{item}</span><span>{item === 'All' ? recipes.length : recipes.filter((recipe) => recipe.category === item).length}</span></button>)}</div></aside>
-        <div className="collection-results"><div className="collection-tools"><label className="collection-search" htmlFor="recipe-search"><span className="sr-only">Search recipes</span><input id="recipe-search" type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search recipes or ingredients…" /></label><p aria-live="polite">{filtered.length} {filtered.length === 1 ? 'recipe' : 'recipes'}</p></div>
-          {filtered.length ? <div className="collection-grid">{filtered.map((recipe) => <article key={recipe.slug}><a className="collection-card" href={recipeUrl(recipe.slug)}><div className="collection-image"><img loading="lazy" src={asset(recipe.image)} alt="" /></div><div className="collection-copy"><h2>{recipe.name} <span aria-hidden="true">↗</span></h2><p>{recipe.summary}</p><small>{recipe.total} total · {recipe.category}</small></div></a><a className="collection-pdf" href={`${import.meta.env.BASE_URL}recipes/${recipe.slug}.pdf`} download>Download PDF ↓</a></article>)}</div> : <div className="collection-empty"><p>No recipes match that search.</p><button type="button" onClick={() => { setQuery(''); setCategory('All') }}>Show all recipes</button></div>}
+    <section className="browse-collection wrap" id="browse-recipes" aria-labelledby="browse-title">
+      <div className="browse-heading"><div><h1 id="browse-title">Recipes</h1><p>Plant-based things to make, bake and share.</p></div><a className="browse-contribute" href="#submit">Share a recipe <span aria-hidden="true">↗</span></a></div>
+      <div className="browse-layout">
+        <CollectionFilters id="recipe" query={query} onQueryChange={setQuery} placeholder="Search recipes or ingredients…" categories={recipeCategories} selected={categories} onToggle={toggleCategory} onClear={() => setCategories([])} items={recipes} visibleCount={filtered.length} noun="recipes" />
+        <div className="browse-results">
+          {filtered.length ? <div className="browse-grid">{filtered.map((recipe) => <article className="browse-card" key={recipe.slug}><a className="browse-card-link" href={recipeUrl(recipe.slug)}><div className="browse-card-photo"><img loading="lazy" src={asset(recipe.image)} alt="" /></div><div className="browse-card-copy"><h2>{recipe.name} <span aria-hidden="true">↗</span></h2><p>{recipe.summary}</p><small>{recipe.total} total (estimate) · {recipe.category}</small></div></a><a className="browse-card-pdf" href={`${import.meta.env.BASE_URL}recipes/${recipe.slug}.pdf`} download>Download PDF <span aria-hidden="true">↓</span></a></article>)}</div> : <div className="browse-empty"><p>No recipes match that search.</p><button type="button" onClick={() => { setQuery(''); setCategories([]) }}>Show all recipes</button></div>}
         </div>
       </div>
     </section>

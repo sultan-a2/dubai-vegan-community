@@ -5,14 +5,14 @@ export const places = [
   { name: "MyGovinda's", area: 'Multiple locations', address: 'JLT · Karama · Silicon Oasis · Al Arjan', type: 'Vegetarian', moods: ['Comfort food'], cuisines: ['Indian'], image: 'places/govindas.jpg', imageAlt: 'Indian vegetarian dishes from MyGovinda’s', url: 'https://www.mygovindas.com/', menuUrl: 'https://www.mygovindas.com/menu', locationUrl: 'https://www.mygovindas.com/contact', detail: 'Vegetarian Indian cooking with some vegan-marked dishes. Check dairy and ghee before ordering.' },
   { name: 'Wagamama', area: 'Across Dubai', address: 'Find your nearest Dubai branch', type: 'Vegan friendly', moods: ['Comfort food'], cuisines: ['Asian'], image: 'places/wagamama.png', imageAlt: 'A vegan cauliflower dish from Wagamama', url: 'https://www.wagamama.ae/vegan', menuUrl: 'https://www.wagamama.ae/vegan', locationUrl: 'https://www.wagamama.ae/restaurants/dubai', detail: 'Japanese-inspired dishes with a dedicated vegan menu.' },
   { name: 'Comptoir 102', area: 'Jumeirah 1', address: '102 Beach Road, Jumeirah 1', type: 'Vegan friendly', moods: ['Healthy & fresh'], cuisines: ['International'], image: 'places/comptoir.jpg', imageAlt: 'Sunlit seating inside Comptoir 102', url: 'https://comptoir102.com/pages/healthy-cafe-jumeirah-dubai', menuUrl: 'https://cdn.shopify.com/s/files/1/0680/4498/0444/files/Comptoir-102-Menu-Nov-2025.pdf?v=1762261104', locationUrl: 'https://www.google.com/maps/search/?api=1&query=Comptoir+102%2C+102+Beach+Road%2C+Jumeirah+1%2C+Dubai', detail: 'Vegan breakfasts and mains alongside non-vegan dishes. Check each dish’s ingredients.' },
-  {"name":"Nuttino Bakehouse","area":"Online delivery","address":"Silicon Oasis · check delivery coverage","type":"Vegan friendly","moods":["Bakery & desserts"],"cuisines":["Bakery"],"image":null,"url":"https://deliveroo.ae/en/menu/dubai/silicon-oasis/nuttino","menuUrl":"https://deliveroo.ae/en/menu/dubai/silicon-oasis/nuttino","menuLabel":"Browse delivery menu","locationUrl":null,"detail":"Vegan-marked bakes, cakes and sandwiches on the delivery menu. Check the label on each item."},
-  {"name":"Dip Dash","area":"Downtown Dubai","address":"Social Distrikt · Dubai Mall · Ground floor","type":"Vegetarian","moods":["Comfort food"],"cuisines":["Asian"],"image":null,"url":"https://thedubaimall.com/en/shop/social-distrikt-7","menuUrl":"https://thedubaimall.com/en/shop/social-distrikt-7","menuLabel":"View venue details","locationUrl":"https://www.google.com/maps/search/?api=1&query=Dip+Dash+Social+Distrikt+Dubai+Mall","detail":"Pan-Asian vegetarian and vegan food, including sushi, dim sum, noodles and curries. Confirm the vegan dishes when ordering."},
-  {"name":"Menagerie","area":"Dubai","address":"Check the venue’s current location and menu","type":"Vegan friendly","moods":["Healthy & fresh"],"cuisines":["International"],"image":null,"url":"https://menagerieeatery.com/","menuUrl":"https://menagerieeatery.com/","menuLabel":"Visit website","locationUrl":null,"detail":"An eatery with vegan alternatives alongside non-vegan dishes. Ask about ingredients before ordering."},
-  {"name":"The Unbakery","area":"Online delivery","address":"Dubai · check delivery coverage","type":"Vegan friendly","moods":["Bakery & desserts"],"cuisines":["Bakery"],"image":null,"url":"https://deliveroo.ae/en/menu/Dubai/umm-suqeim-3/theunbarkey","menuUrl":"https://deliveroo.ae/en/menu/Dubai/umm-suqeim-3/theunbarkey","menuLabel":"Browse delivery menu","locationUrl":null,"detail":"Raw cakes and desserts with vegan-marked options on the delivery menu. Check the ingredients of your chosen item."},
-  {"name":"Sugaholic","area":"Karama · Meadows","address":"Dubai · online cake orders","type":"Vegan friendly","moods":["Bakery & desserts"],"cuisines":["Bakery"],"image":null,"url":"https://sugaholic.com/vegan-or-gluten-free","menuUrl":"https://sugaholic.com/vegan-or-gluten-free","menuLabel":"Browse vegan cakes","locationUrl":null,"detail":"Vegan cakes within a wider bakery range. Select a vegan-labelled cake; gluten-free alone does not mean vegan."},
-  {"name":"Cinnamore","area":"Boxpark","address":"Boxpark · Dubai","type":"Vegan friendly","moods":["Bakery & desserts"],"cuisines":["Bakery"],"image":null,"url":"https://cinnamore.com/pages/about","menuUrl":"https://cinnamore.com/","menuLabel":"Explore cinnamon rolls","locationUrl":"https://www.google.com/maps/search/?api=1&query=Cinnamore+Boxpark+Dubai","detail":"Cinnamon rolls with a classic vegan option. Confirm toppings and current vegan choices before ordering."},
-  {"name":"The Gentle Oven","area":"Online ordering","address":"Check delivery coverage when ordering","type":"Vegan friendly","moods":["Bakery & desserts"],"cuisines":["Bakery"],"image":null,"url":"https://thegentleoven.com/product-category/cakes/","menuUrl":"https://thegentleoven.com/product-category/cakes/","menuLabel":"Browse vegan cakes","locationUrl":null,"detail":"Dairy-free and egg-free cakes, including vegan-labelled options. Check the specific cake’s ingredients."},
-  {"name":"Plant Power","area":"Dubai delivery","address":"Online meal plans · delivery coverage on the website","type":"Vegan","moods":["Meal plans"],"cuisines":["International"],"image":null,"url":"https://plantpowerdubai.com/","menuUrl":"https://plantpowerdubai.com/","menuLabel":"Explore meal plans","locationUrl":null,"detail":"A vegan meal-plan delivery service. Choose a plan and check the current menu and delivery coverage."},
+  {"name":"Nuttino Bakehouse","area":"Online delivery","address":"Silicon Oasis · check delivery coverage","type":"Vegan friendly","moods":["Bakery & desserts"],"cuisines":["Bakery"],"image":"places/nuttino-bakehouse.png","imageAlt":"Nuttino cashew cheeses and spreads","url":"https://deliveroo.ae/en/menu/dubai/silicon-oasis/nuttino","menuUrl":"https://deliveroo.ae/en/menu/dubai/silicon-oasis/nuttino","menuLabel":"Browse delivery menu","locationUrl":null,"detail":"Vegan-marked bakes, cakes and sandwiches on the delivery menu. Check the label on each item."},
+  {"name":"Dip Dash","area":"Downtown Dubai","address":"Social Distrikt · Dubai Mall · Ground floor","type":"Vegetarian","moods":["Comfort food"],"cuisines":["Asian"],"image":"places/dip-dash.jpg","imageAlt":"Dip Dash venue at Dubai Mall","url":"https://thedubaimall.com/en/shop/social-distrikt-7","menuUrl":"https://thedubaimall.com/en/shop/social-distrikt-7","menuLabel":"View venue details","locationUrl":"https://www.google.com/maps/search/?api=1&query=Dip+Dash+Social+Distrikt+Dubai+Mall","detail":"Pan-Asian vegetarian and vegan food, including sushi, dim sum, noodles and curries. Confirm the vegan dishes when ordering."},
+  {"name":"Menagerie","area":"Dubai","address":"Check the venue’s current location and menu","type":"Vegan friendly","moods":["Healthy & fresh"],"cuisines":["International"],"image":"places/menagerie.jpg","imageAlt":"Smoothie bowls served by Menagerie","url":"https://menagerieeatery.com/","menuUrl":"https://menagerieeatery.com/","menuLabel":"Visit website","locationUrl":null,"detail":"An eatery with vegan alternatives alongside non-vegan dishes. Ask about ingredients before ordering."},
+  {"name":"The Unbakery","area":"Online delivery","address":"Dubai · check delivery coverage","type":"Vegan friendly","moods":["Bakery & desserts"],"cuisines":["Bakery"],"image":"places/unbakery.jpeg","imageAlt":"Raw vegan dessert from The Unbakery Dubai","url":"https://deliveroo.ae/en/menu/Dubai/umm-suqeim-3/theunbarkey","menuUrl":"https://deliveroo.ae/en/menu/Dubai/umm-suqeim-3/theunbarkey","menuLabel":"Browse delivery menu","locationUrl":null,"detail":"Raw cakes and desserts with vegan-marked options on the delivery menu. Check the ingredients of your chosen item."},
+  {"name":"Sugaholic","area":"Karama · Meadows","address":"Dubai · online cake orders","type":"Vegan friendly","moods":["Bakery & desserts"],"cuisines":["Bakery"],"image":"places/sugaholic.jpg","imageAlt":"Sugaholic vegan lemon and blueberry cake","url":"https://sugaholic.com/vegan-or-gluten-free","menuUrl":"https://sugaholic.com/vegan-or-gluten-free","menuLabel":"Browse vegan cakes","locationUrl":null,"detail":"Vegan cakes within a wider bakery range. Select a vegan-labelled cake; gluten-free alone does not mean vegan."},
+  {"name":"Cinnamore","area":"Boxpark","address":"Boxpark · Dubai","type":"Vegan friendly","moods":["Bakery & desserts"],"cuisines":["Bakery"],"image":"places/cinnamore.jpg","imageAlt":"Cinnamon rolls at Cinnamore","url":"https://cinnamore.com/pages/about","menuUrl":"https://cinnamore.com/","menuLabel":"Explore cinnamon rolls","locationUrl":"https://www.google.com/maps/search/?api=1&query=Cinnamore+Boxpark+Dubai","detail":"Cinnamon rolls with a classic vegan option. Confirm toppings and current vegan choices before ordering."},
+  {"name":"The Gentle Oven","area":"Online ordering","address":"Check delivery coverage when ordering","type":"Vegan friendly","moods":["Bakery & desserts"],"cuisines":["Bakery"],"image":"places/gentle-oven.jpg","imageAlt":"A box of vegan cookies from The Gentle Oven","url":"https://thegentleoven.com/product-category/cakes/","menuUrl":"https://thegentleoven.com/product-category/cakes/","menuLabel":"Browse vegan cakes","locationUrl":null,"detail":"Dairy-free and egg-free cakes, including vegan-labelled options. Check the specific cake’s ingredients."},
+  {"name":"Plant Power","area":"Dubai delivery","address":"Online meal plans · delivery coverage on the website","type":"Vegan","moods":["Meal plans"],"cuisines":["International"],"image":"places/plant-power.jpg","imageAlt":"A plant-based meal bowl from Plant Power","url":"https://plantpowerdubai.com/","menuUrl":"https://plantpowerdubai.com/","menuLabel":"Explore meal plans","locationUrl":null,"detail":"A vegan meal-plan delivery service. Choose a plan and check the current menu and delivery coverage."},
 ]
 
 export const productCategories = ['All', 'Meat alternatives', 'Dairy alternatives', 'Tofu & tempeh', 'Treats', 'Pantry', 'Protein powders', 'Home care']
@@ -84,26 +84,36 @@ export const supermarkets = [
 export const placesToConfirm = [
   {
     "name": "Dobro / Top Vegan",
+    "image": "places/dobro.jpeg",
+    "imageAlt": "Interior of Dobro Top Vegan in Dubai with a plated vegan dish in the foreground",
     "url": "https://order.chatfood.io/top-vegan/delivery/top-vegan/item/691581455968638989",
     "note": "Community-recommended vegan eatery · confirm the current menu and location"
   },
   {
     "name": "Ninna Homemade Bakery",
+    "image": "places/ninna.jpg",
+    "imageAlt": "Coffee and vegetable sandwich from Ninna Homemade Bakery in Dubai",
     "url": "https://www.ninnadubai.com/contactus",
     "note": "Community suggestion · vegan menu not independently confirmed"
   },
   {
     "name": "Vegan Life bakery",
+    "image": "places/vegan-life.jpeg",
+    "imageAlt": "Veganlife Bakery brand image",
     "url": "https://www.instagram.com/veganlifeuae/",
     "note": "Community suggestion · confirm products and delivery directly"
   },
   {
     "name": "Bishette Bakery",
+    "image": "places/bishette.png",
+    "imageAlt": "Fudge brownies from Bishette Bakery in Dubai",
     "url": "https://bishettebakery.com/",
     "note": "Community suggestion · vegan options not confirmed on the website"
   },
   {
     "name": "Cinnamood",
+    "image": "places/cinnamood.jpg",
+    "imageAlt": "Cinnamood Dubai store interior at Mall of the Emirates",
     "url": "https://cinnamoodrolls.com/uae/?lang=en",
     "note": "Mall of the Emirates · confirm which rolls and toppings are vegan"
   }

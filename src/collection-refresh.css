@@ -1,0 +1,93 @@
+.browse-page,.recipes-page{background:#f8f7f2;color:#183e31;--paper:#f8f7f2;--ink:#183e31;--forest:#183e31;--line:#d8ded5}
+.browse-sidebar .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+.browse-page h1,.browse-page h2,.browse-page h3,.recipes-page h1,.recipes-page h2,.recipes-page h3{font-family:Switzer,Arial,sans-serif;font-style:normal;font-weight:600;letter-spacing:-.045em}
+.browse-collection{padding-block:58px 90px}
+.browse-heading{display:flex;justify-content:space-between;gap:24px;align-items:center;margin-bottom:42px}
+.browse-heading h1{font-size:clamp(46px,5.8vw,82px);line-height:1.04}
+.browse-heading p{max-width:620px;margin-top:18px;font-size:17px;line-height:1.55;color:#56675c}
+.browse-contribute{display:inline-flex;flex:none;align-items:center;justify-content:space-between;gap:24px;border:1px solid #183e31;border-radius:99px;padding:15px 23px;min-height:50px;font-size:14px;font-weight:600;transition:background 150ms,color 150ms}
+.browse-contribute:hover{background:#183e31;color:#fff}
+.browse-layout{display:grid;grid-template-columns:minmax(220px,.65fr) minmax(0,2fr);gap:clamp(30px,4vw,66px);align-items:start}
+.browse-sidebar{position:sticky;top:120px;min-width:0}
+.browse-search{position:relative;display:flex;align-items:center;gap:16px;min-height:60px;padding-inline:22px;background:#fff;border-radius:99px}
+.browse-search-symbol{flex:none;width:16px;height:16px;border:2px solid #183e31;border-radius:50%;position:relative}
+.browse-search-symbol:after{content:'';position:absolute;width:8px;height:2px;background:#183e31;right:-6px;bottom:-3px;transform:rotate(45deg)}
+.browse-search input{width:100%;min-width:0;min-height:60px;padding:12px 0;border:0;background:transparent;color:#183e31;font:inherit;font-size:15px;outline-offset:3px;border-radius:10px}
+.browse-search input::placeholder{color:#56675c}
+.browse-filter-heading{display:flex;align-items:center;justify-content:space-between;gap:20px;margin:30px 0 13px}
+.browse-filter-heading h2{font-size:23px;letter-spacing:-.035em}
+.browse-filter-heading button{min-height:44px;padding:8px 0;border:0;background:none;color:#183e31;text-decoration:underline;text-underline-offset:4px;font:inherit;font-size:14px}
+.browse-filter-heading button:disabled{opacity:.5;cursor:default}
+.browse-filter-panel fieldset{border:0;margin:0;padding:0;display:grid;gap:3px}
+.browse-filter-panel label{display:flex;align-items:center;gap:13px;min-height:44px;font-size:16px;line-height:1.35;cursor:pointer}
+.browse-filter-panel label input{appearance:none;flex:none;width:23px;height:23px;margin:0;border:1px solid #617968;border-radius:4px;background:transparent;display:grid;place-content:center;cursor:pointer}
+.browse-filter-panel label input:checked{background:#183e31;border-color:#183e31}
+.browse-filter-panel label input:checked:after{content:'';display:block;width:10px;height:6px;border-left:2px solid white;border-bottom:2px solid white;transform:rotate(-45deg) translateY(-1px)}
+.browse-filter-panel label small{margin-left:auto;color:#647369;font-size:13px;font-variant-numeric:tabular-nums}
+.browse-result-count{border-top:1px solid #cbd3c8;padding-top:26px;margin-top:30px;font-size:15px;color:#56675c;line-height:1.5}
+.browse-result-count strong{color:#183e31;font-weight:600}
+.browse-filter-toggle{display:none}
+.browse-results{min-width:0}
+.browse-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:25px}
+.browse-card{min-width:0;overflow:hidden;background:#fff;border-radius:22px;padding:10px;display:flex;flex-direction:column}
+.browse-card-link{display:block;flex:1;min-width:0}
+.browse-card-photo{aspect-ratio:1.47;overflow:hidden;border-radius:15px;background:#e9ede5}
+.browse-card-photo img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .3s ease}
+.browse-card-link:hover img{transform:scale(1.025)}
+.browse-card-copy{padding:25px 16px 20px}
+.browse-card-copy h2{display:flex;gap:16px;justify-content:space-between;font-size:clamp(22px,2vw,29px);line-height:1.17;font-weight:600}
+.browse-card-copy h2>span{flex:none;font-size:20px}
+.browse-card-copy p{margin-top:13px;font-size:14px;line-height:1.6;color:#56675c}
+.browse-card-copy small{display:block;margin-top:18px;font-size:13px;color:#56675c;line-height:1.5}
+.browse-card-pdf{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:44px;margin:0 16px 9px;border-top:1px solid #e0e4dd;padding-top:9px;font-size:13px;font-weight:600}
+.browse-card-pdf:hover{text-decoration:underline;text-underline-offset:4px}
+.browse-packshot{display:flex;align-items:center;justify-content:center;height:clamp(230px,24vw,360px);aspect-ratio:auto;padding:26px;background:#f1f3ed}
+.browse-packshot img{min-width:0;min-height:0;max-width:100%;max-height:100%;object-fit:contain;mix-blend-mode:multiply}
+.browse-photo-missing{max-width:190px;text-align:center;color:#657469;font-size:14px;line-height:1.6}
+.browse-empty{padding:48px 25px;background:#fff;border-radius:22px;text-align:center}
+.browse-empty p{font-size:20px;line-height:1.4}.browse-empty button{min-height:48px;margin-top:22px;background:#183e31;color:#fff;border:0;border-radius:99px;padding:13px 23px;font:inherit;font-size:14px}
+.browse-note{font-size:13px;line-height:1.65;color:#56675c;margin-top:30px;max-width:640px}
+.browse-shops{padding-bottom:85px}
+.browse-shops h2{font-size:clamp(35px,4vw,54px);line-height:1.1}
+.browse-shops>p{margin-top:18px;font-size:16px;line-height:1.6;color:#56675c;max-width:600px}
+.browse-shop-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:28px}
+.browse-shop-list>a{display:flex;justify-content:space-between;align-items:center;gap:20px;border-radius:16px;background:#fff;padding:22px 25px;font-size:19px;min-height:74px}
+.browse-shop-list>a small{display:block;margin-top:7px;max-width:400px;font-size:13px;line-height:1.5;color:#56675c}
+.browse-page .submission-copy h2,.recipes-page .submission-copy h2{font-family:Switzer,Arial,sans-serif;font-size:clamp(36px,4.4vw,58px);font-weight:600;letter-spacing:-.04em}
+.browse-page .submission-panel,.recipes-page .submission-panel{background:#e2e9dd;color:#183e31}
+.browse-page .submission-copy .submission-note,.recipes-page .submission-copy .submission-note{color:#465e4d;border-color:#94a18f}
+.browse-page .submission-form input,.browse-page .submission-form textarea,.browse-page .submission-form select,.recipes-page .submission-form input,.recipes-page .submission-form textarea,.recipes-page .submission-form select{border-color:#82917b}
+.browse-page .submission-form button,.recipes-page .submission-form button{color:#52634e}
+.browse-page .submission-form input::placeholder,.recipes-page .submission-form input::placeholder{color:#52634e}
+.browse-page .submission-form select option,.recipes-page .submission-form select option{background:#e2e9dd;color:#183e31}
+.browse-offer-card{padding:30px;gap:22px;min-height:290px}
+.browse-offer-card h2{font-size:29px;line-height:1.15}
+.browse-offer-card p{font-size:15px;line-height:1.55;color:#56675c;margin-top:13px}
+.browse-offer-action{margin-top:auto;display:flex;align-items:start;flex-wrap:wrap;gap:12px}
+.browse-offer-action button{min-height:48px;background:#183e31;color:#fff;border:0;border-radius:99px;padding:12px 20px;font:inherit;font-size:14px}
+.browse-offer-action small{flex-basis:100%;font-size:12px;line-height:1.6;color:#56675c}
+.recipes-page .recipe-detail{padding-block:40px 90px}
+.recipes-page .recipe-breadcrumb{font-size:14px;line-height:1.5;flex-wrap:wrap}
+.recipes-page .recipe-detail-heading{display:block;padding:36px 0}
+.recipes-page .recipe-detail-heading h1{font-size:clamp(44px,5.5vw,78px);max-width:1050px;line-height:1.07;letter-spacing:-.05em}
+.recipes-page .recipe-detail-heading p{max-width:680px;margin-top:20px;font-size:18px;line-height:1.6}
+.recipes-page .recipe-detail-meta{display:flex;flex-wrap:wrap;align-items:center;gap:18px 28px;border:0;margin-top:27px;padding:0;font-size:14px}
+.recipes-page .recipe-detail-meta small{max-width:none;font-size:12px;flex-basis:100%;order:2}
+.recipes-page .recipe-detail-meta a{margin:0;margin-left:auto;border:1px solid #183e31;border-radius:99px;padding:12px 21px;min-height:46px}
+.recipes-page .recipe-detail-main{border:0;padding:0;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:28px}
+.recipes-page .recipe-detail-photo{height:clamp(360px,39vw,580px);border-radius:22px;overflow:hidden;position:sticky;top:118px}
+.recipes-page .recipe-sheet{border:0;background:#fff;border-radius:22px;box-shadow:none;padding:clamp(28px,3.5vw,50px)}
+.recipes-page .recipe-sheet .recipe-ingredients h2,.recipes-page .recipe-sheet .recipe-method h2{font-size:34px;font-weight:600;line-height:1.15;letter-spacing:-.04em}
+.recipes-page .recipe-sheet .recipe-ingredients li{padding:11px 0;font-size:16px;line-height:1.55;border:0}
+.recipes-page .recipe-sheet .recipe-method{margin-top:30px;border-color:#d8ded5}
+.recipes-page .recipe-sheet .recipe-method>div p{font-size:16px;line-height:1.7;padding:12px 0;border:0}
+.recipes-page .recipe-source-note{background:#edf1e8;color:#183e31;border-radius:14px;font-size:14px;padding:20px}
+.recipes-page .recipe-source-note h3{font-size:16px;font-weight:600}.recipes-page .recipe-source-note p{font-size:14px}
+.recipes-page .recipe-more{margin-top:65px;padding-top:32px;border-color:#d8ded5}
+.recipes-page .recipe-more h2{font-size:40px;letter-spacing:-.04em}
+.recipes-page .recipe-more a{font-family:Switzer,Arial,sans-serif;background:#fff;border:0;border-radius:18px;padding:12px;font-size:23px;line-height:1.3}
+.recipes-page .recipe-more img{border-radius:12px}
+@media(max-width:1000px){.browse-layout{grid-template-columns:220px minmax(0,1fr);gap:28px}.browse-grid{gap:18px}.browse-card-copy{padding:20px 10px 16px}.browse-card-copy h2{font-size:23px}.browse-filter-panel label{font-size:15px;gap:10px}.browse-heading{align-items:start}}
+@media(max-width:760px){.browse-collection{padding-block:34px 60px}.browse-heading{display:block;margin-bottom:28px}.browse-heading h1{font-size:50px}.browse-heading p{font-size:16px}.browse-contribute{margin-top:22px;padding:12px 20px;min-height:46px}.browse-layout{grid-template-columns:minmax(0,1fr);gap:24px}.browse-sidebar{position:static}.browse-search{min-height:56px}.browse-search input{min-height:56px;font-size:16px}.browse-filter-toggle{display:flex;justify-content:space-between;gap:16px;align-items:center;width:100%;margin-top:16px;padding:12px 2px;min-height:48px;border:0;border-bottom:1px solid #cbd3c8;background:transparent;color:#183e31;font:inherit;font-size:17px}.browse-filter-toggle span{font-size:24px}.browse-filter-panel{display:none}.browse-filter-panel.is-open{display:block}.browse-filter-heading{margin-top:14px}.browse-filter-panel fieldset{grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 16px}.browse-filter-panel label{font-size:14px}.browse-filter-panel label small{display:none}.browse-result-count{border:0;margin-top:18px;padding-top:0;font-size:14px}.browse-grid{gap:16px}.browse-card-photo{aspect-ratio:1.25}.browse-card-copy h2{font-size:22px}.browse-shops{padding-bottom:55px}.browse-shop-list{grid-template-columns:1fr}.recipes-page .recipe-detail-main{grid-template-columns:1fr;gap:22px}.recipes-page .recipe-detail-photo{position:static;height:clamp(280px,65vw,450px)}.recipes-page .recipe-detail-meta{gap:12px 22px}.recipes-page .recipe-detail-meta a{margin-left:0}.recipes-page .recipe-detail-heading p{font-size:16px}.recipes-page .recipe-more>div{grid-template-columns:1fr}.recipes-page .recipe-detail-heading h1{font-size:48px}}
+@media(max-width:540px){.browse-grid{grid-template-columns:1fr;gap:22px}.browse-card-photo{aspect-ratio:1.45}.browse-card-copy{padding:22px 16px}.browse-card-copy h2{font-size:27px}.browse-card-copy p{font-size:15px}.browse-card-copy small{font-size:13px}.browse-packshot{aspect-ratio:1.5;padding:25px}.browse-filter-panel fieldset{grid-template-columns:1fr}.browse-heading h1{font-size:46px}.browse-offer-card{padding:25px;min-height:270px}.recipes-page .recipe-detail-heading h1{font-size:41px}.recipes-page .recipe-sheet .recipe-ingredients h2,.recipes-page .recipe-sheet .recipe-method h2{font-size:31px}.recipes-page .recipe-detail-meta span{font-size:13px}}
+@media(prefers-reduced-motion:reduce){.browse-card-photo img,.browse-contribute{transition:none}.browse-card-link:hover img{transform:none}}

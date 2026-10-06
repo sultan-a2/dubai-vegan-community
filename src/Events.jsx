@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 import DirectoryLayout from './components/DirectoryLayout.jsx'
-import ArrowLink from './components/ArrowLink.jsx'
+import EventActions from './components/EventActions.jsx'
+import SiteIcon from './components/SiteIcon.jsx'
 import { events } from './data/events.js'
 
 const asset = (name) => import.meta.env.BASE_URL + 'assets/' + name
 const weekdays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-const ticketPrice = 75
 const eventImages = {
   'ripe-market': 'community/gathering-hall.jpg',
   'not-just-for-vegans': 'community/cafe-room.jpg',
@@ -45,30 +45,28 @@ function EventsCalendar() {
   </div>
 }
 
-function BookingPreview() {
-  const [stage, setStage] = useState('details')
-  const [tickets, setTickets] = useState(1)
-
-  return <section className="booking-preview" id="booking-preview" aria-labelledby="booking-title"><div className="wrap booking-preview-inner">
-    <div className="booking-preview-intro"><h2 id="booking-title">Booking a community workshop</h2><p>This is the planned booking flow for events hosted by Dubai Vegan Community. The listed events above are run by other organisers, so book those through their links.</p></div>
-    <div className="booking-card"><div className="booking-card-image"><img src={asset('community/shared-meal.jpg')} alt="Community members sharing a plant-based meal" loading="lazy" /></div><div className="booking-card-body">
-      <h3>Plant-based cooking together</h3><p className="booking-card-meta">Workshop concept · Date and venue to be announced · AED {ticketPrice} per person</p>
-      {stage === 'details' && <><p>Spend a relaxed morning making a simple meal with other curious cooks.</p><form onSubmit={(event) => { event.preventDefault(); setStage('checkout') }}><label>Your name<input name="name" required autoComplete="off" placeholder="Your name" /></label><label>Email for confirmation<input name="email" type="email" required autoComplete="off" placeholder="you@example.com" /></label><label>Places<select value={tickets} onChange={(event) => setTickets(Number(event.target.value))}><option value="1">1 place</option><option value="2">2 places</option><option value="3">3 places</option><option value="4">4 places</option></select></label><div className="booking-total"><span>Total</span><strong>AED {ticketPrice * tickets}</strong></div><button className="booking-primary" type="submit">Continue to checkout <span aria-hidden="true">→</span></button></form><p className="booking-availability">Bookings for this workshop are not open yet.</p></>}
-      {stage === 'checkout' && <div className="booking-checkout"><p className="booking-checkout-title">Checkout</p><p>{tickets} {tickets === 1 ? 'place' : 'places'} · AED {ticketPrice * tickets}</p><div className="booking-pay-panel"><strong>Ziina payment</strong><span>Card · Apple Pay · Google Pay</span></div><p>Online payment is not connected yet. No place has been reserved and no payment has been taken.</p><button className="booking-back" type="button" onClick={() => setStage('details')}>Back to event details</button></div>}
+function EventHero({ event, selected }) {
+  return <section className="event-feature-hero"><div className="wrap">
+    <h1>{selected ? event.title : 'Events & gatherings.'}</h1>
+    {!selected && <p className="event-hero-intro">Good food and a reason to get together. Find what’s coming up around Dubai.</p>}
+    <div className="event-feature-photo"><img src={asset(eventImages[event.id])} alt="Dubai Vegan Community members gathering around a table" fetchPriority="high" /><div className="event-feature-info">
+      <h2>{selected ? 'Event details' : event.title}</h2><p><SiteIcon name="calendar" size={19} />{event.day} {event.month} 2026</p><p>{event.venue}</p><p className="event-feature-note">{event.note}</p>
+      <EventActions event={event} organiser={selected} />
     </div></div>
+    <p className="event-photo-note">Photo from our community gatherings, rather than this event.</p>
   </div></section>
 }
 
 export default function Events() {
+  const selected = events.find((event) => event.id === new URLSearchParams(window.location.search).get('event'))
   useEffect(() => {
     const id = decodeURIComponent(window.location.hash.slice(1))
     if (id) requestAnimationFrame(() => document.getElementById(id)?.scrollIntoView())
   }, [])
-
   return <DirectoryLayout active="Events">
-    <section className="events-page-hero wrap"><div><h1>Events for vegans in Dubai</h1><p>Find vegan and vegan-friendly markets and expos. See the date and location below, then use the organiser’s link for entry, tickets or registration.</p><ArrowLink href="#upcoming">See upcoming events</ArrowLink></div><img src={asset('community/long-table.jpg')} alt="Dubai Vegan Community members dining together" /></section>
-    <section className="events-page-list wrap" id="upcoming" aria-labelledby="upcoming-title"><div className="events-page-list-head"><h2 id="upcoming-title">Upcoming events</h2><p>These events are run by independent organisers. Open their pages to confirm details and how to attend. The photos show our community gatherings, not the listed events.</p></div><div className="events-page-items">{events.map((event) => <article id={event.id} key={event.id}><div className="events-page-date"><strong className={event.endDate ? 'date-range' : ''}>{event.day}</strong><span>{event.month} 2026</span></div><img className="events-page-thumb" src={asset(eventImages[event.id])} alt="" loading="lazy" /><div className="events-page-detail"><h3>{event.title}</h3><p>{event.venue}</p><p>{event.note}</p><ArrowLink href={event.url} target="_blank" rel="noopener noreferrer">How to attend</ArrowLink></div></article>)}</div><p className="events-page-caveat">The Not Just For Vegans organiser shows conflicting dates. Its 11 October listing is tentative, so it is not marked on the calendar. Confirm with the organiser before making plans.</p></section>
+    <EventHero event={selected || events[0]} selected={Boolean(selected)} />
+    {selected && <section className="event-reading wrap" id="event-details"><aside><a href={`${import.meta.env.BASE_URL}events.html`}>← Back to all events</a><div><h2>Before you go</h2><p>Check the organiser’s page for entry, ticket prices and any changes to the date or venue.</p><a href={selected.url} target="_blank" rel="noopener noreferrer">Open organiser’s page ↗</a></div></aside><div><h2>{selected.title}</h2><p>{selected.note}.</p><p>{selected.venue}. Listed for {selected.day} {selected.month} 2026.</p><p>This event is run by an independent organiser. Use their page for the latest details and to arrange your visit.</p>{!selected.date && <p>The displayed date is tentative. The organiser has shown conflicting dates, so confirm before making plans.</p>}</div></section>}
+    <section className="event-card-section wrap" id="upcoming" aria-labelledby="upcoming-title"><div className="event-card-section-heading"><h2 id="upcoming-title">Coming up in Dubai</h2><p>Independent markets and expos with plant-based options. Confirm the details with their organisers.</p></div><div className="event-photo-grid">{events.map((event) => <article className="event-photo-card" id={event.id} key={event.id}><a href={`${import.meta.env.BASE_URL}events.html?event=${event.id}#event-details`} aria-label={event.title}><img src={asset(eventImages[event.id])} alt="A Dubai Vegan Community gathering" loading="lazy" /></a><div className="event-photo-card-body"><h3><a href={`${import.meta.env.BASE_URL}events.html?event=${event.id}#event-details`}>{event.title}<SiteIcon name="arrow" size={22} /></a></h3><p className="event-card-date"><SiteIcon name="calendar" size={18} />{event.day} {event.month} 2026</p><p>{event.venue}</p><p>{event.note}</p><EventActions event={event} /></div></article>)}</div><p className="event-section-note">The Not Just For Vegans date is tentative and is excluded from the confirmed calendar. Photos show our community, not the listed events.</p></section>
     <section className="events-page-calendar" aria-labelledby="events-calendar-title"><div className="wrap"><h2 id="events-calendar-title" className="events-calendar-title">Events calendar</h2><EventsCalendar /></div></section>
-    <BookingPreview />
   </DirectoryLayout>
 }
