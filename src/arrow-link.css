@@ -3,6 +3,7 @@ a.arrow-link svg{flex:none}
 a.arrow-link:hover,a.arrow-link:focus-visible{background:transparent;color:#587335;transform:none}
 a.arrow-link svg{transition:transform 150ms cubic-bezier(.2,0,0,1)}
 a.arrow-link:hover svg,a.arrow-link:focus-visible svg{transform:translateX(5px)}
+a.arrow-link:hover svg[data-direction="up"],a.arrow-link:focus-visible svg[data-direction="up"]{transform:translateY(-5px)}
 
 .site-header .header-inner{grid-template-columns:auto minmax(0,1fr) auto;gap:clamp(18px,3vw,44px);min-height:88px}
 .site-header .brand{grid-column:1;justify-self:start}
@@ -42,4 +43,4 @@ a.arrow-link:hover svg,a.arrow-link:focus-visible svg{transform:translateX(5px)}
 }
 .recipe-breadcrumb a:hover,.recipe-breadcrumb a:focus-visible,.recipe-detail-meta a:hover,.recipe-detail-meta a:focus-visible{color:#587335;text-decoration:none}
 .recipe-teaser-card a:hover h3,.recipe-teaser-card a:focus-visible h3,.products-showcase-grid a:hover strong,.products-showcase-grid a:focus-visible strong,.places-showcase-list a:hover strong,.places-showcase-list a:focus-visible strong,.event-list .event-spotlight:hover strong,.event-list .event-spotlight:focus-visible strong{color:#587335;text-decoration:none}
-@media(prefers-reduced-motion:reduce){a.arrow-link svg,.site-header .main-nav a{transition:none}a.arrow-link:hover svg,a.arrow-link:focus-visible svg{transform:none}}
+@media(prefers-reduced-motion:reduce){a.arrow-link svg,.site-header .main-nav a{transition:none}a.arrow-link:hover svg,a.arrow-link:focus-visible svg,a.arrow-link:hover svg[data-direction="up"],a.arrow-link:focus-visible svg[data-direction="up"]{transform:none}}
