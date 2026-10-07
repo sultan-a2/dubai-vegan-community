@@ -10,6 +10,9 @@
 .home-restored .recipe-teaser-card img,.home-restored .places-showcase-list a img,.home-restored .intro-band .explore-shortcuts img{border-radius:14px}
 .home-restored .recipe-teaser-card h3{font-size:clamp(27px,2.8vw,38px)}
 .home-restored .community-search{border-radius:22px}
+.home-restored :is(.places-showcase-bottom,.recipe-teaser-head,.products-showcase-bottom,.living-home-copy)>a.arrow-link{display:inline-flex;align-items:center;gap:12px;min-height:48px;padding:12px 18px;border:1px solid var(--forest);border-radius:999px;font-size:14px;font-weight:600;line-height:1.35;background:transparent;color:var(--ink)}
+.home-restored :is(.places-showcase-bottom,.recipe-teaser-head,.products-showcase-bottom,.living-home-copy)>a.arrow-link svg{width:22px;height:22px}
+.home-restored :is(.places-showcase-bottom,.recipe-teaser-head,.products-showcase-bottom,.living-home-copy)>a.arrow-link:hover,.home-restored :is(.places-showcase-bottom,.recipe-teaser-head,.products-showcase-bottom,.living-home-copy)>a.arrow-link:focus-visible{background:var(--forest);color:var(--paper)}
 .home-restored .intro-band .search-field,.home-restored .intro-band .search-field:focus-within{width:100%;transition:none}
 .home-restored .community-search-body{min-width:0}
 .home-restored .search-suggestions{margin-top:14px}

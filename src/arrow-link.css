@@ -1,5 +1,6 @@
 a.arrow-link{display:inline-flex;align-items:center;justify-content:flex-start;flex:none;gap:15px;width:max-content;max-width:100%;min-height:46px;margin-top:18px;border:0;border-bottom:2px solid currentColor;border-radius:0;background:transparent;color:inherit;padding:0 0 15px;font-family:Switzer,Arial,sans-serif;font-size:17px;font-weight:700;letter-spacing:0;line-height:1;text-align:left;text-decoration:none;white-space:normal;transform:none;transition:color .2s}
-a.arrow-link svg{flex:none}
+a.arrow-link>span{min-width:0;overflow-wrap:anywhere}
+a.arrow-link svg{display:block;flex:none;align-self:center}
 a.arrow-link:hover,a.arrow-link:focus-visible{background:transparent;color:#587335;transform:none}
 a.arrow-link svg{transition:transform 150ms cubic-bezier(.2,0,0,1)}
 a.arrow-link:hover svg,a.arrow-link:focus-visible svg{transform:translateX(5px)}
