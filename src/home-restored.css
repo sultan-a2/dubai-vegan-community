@@ -1,5 +1,6 @@
 /* The original homepage composition, with the shared cream, sage and rounded surfaces. */
 .home-restored .hero-copy h1{font-size:clamp(44px,4.6vw,68px);line-height:1.04;letter-spacing:-.055em}
+.home-restored .hero-photo>img{object-position:center 62%}
 .home-restored .hero-photo,.home-restored .intro-photo,.home-restored .places-showcase-photo,.home-restored .products-showcase-image,.home-restored .living-banner{border-radius:24px;overflow:hidden}
 .home-restored .intro-band{background:#c9dfbf;color:var(--ink);margin-top:0}
 .home-restored .intro-band .explore-shortcuts a strong,.home-restored .places-showcase-list strong,.home-restored .products-showcase-grid strong,.home-restored .community-search label,.home-restored .intro-photo-words,.home-restored .place-photo-words,.home-restored .living-banner-words{font-family:Switzer,Arial,sans-serif;font-weight:600;letter-spacing:-.04em}
@@ -33,6 +34,7 @@
 .home-restored #join .submission-form :focus-visible{outline-color:#39754f}
 @media(max-width:760px){
   .home-restored .hero{padding-top:24px}
+  .home-restored .hero-photo{height:auto;aspect-ratio:1}
   .home-restored .hero-copy h1{font-size:clamp(40px,9.6vw,68px)}
   .home-restored .hero-photo,.home-restored .intro-photo,.home-restored .places-showcase-photo,.home-restored .products-showcase-image,.home-restored .living-banner{border-radius:20px}
   .home-restored .recipe-teaser-grid{padding-bottom:12px}
