@@ -1,6 +1,7 @@
 /* The original homepage composition, with the shared cream, sage and rounded surfaces. */
 .home-restored .hero-copy h1{font-size:clamp(44px,4.6vw,68px);line-height:1.04;letter-spacing:-.055em}
-.home-restored .hero-copy>a.arrow-link{width:186px;height:46px;min-height:46px;justify-content:space-between;padding:0 13px 0 19px;border-bottom:1.33333px solid #183e31;border-radius:999px;background:#fff;color:#183e31;font-family:Arial,system-ui,sans-serif;font-size:17px;font-weight:700;line-height:1}
+.home-restored .hero-copy>a.arrow-link{width:186px;height:46px;min-height:46px;justify-content:space-between;gap:13px;padding:0 13px 0 19px;border-bottom:1.33333px solid #183e31;border-radius:999px;background:#fff;color:#183e31;font-family:Arial,system-ui,sans-serif;font-size:17px;font-weight:700;line-height:1}
+.home-restored .hero-copy>a.arrow-link>span{white-space:nowrap}
 .home-restored .hero-copy>a.arrow-link svg{width:18px;height:18px;rotate:.89deg}
 .home-restored .hero-copy>a.arrow-link svg path{stroke-width:2.88889px}
 .home-restored .hero-photo>img{object-position:center 62%}
