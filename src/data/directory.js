@@ -15,21 +15,21 @@ export const places = [
   {"name":"Plant Power","area":"Dubai delivery","address":"Online meal plans · delivery coverage on the website","type":"Vegan","moods":["Meal plans"],"cuisines":["International"],"image":"places/plant-power.jpg","imageAlt":"A plant-based meal bowl from Plant Power","url":"https://plantpowerdubai.com/","menuUrl":"https://plantpowerdubai.com/","menuLabel":"Explore meal plans","locationUrl":null,"detail":"A vegan meal-plan delivery service. Choose a plan and check the current menu and delivery coverage."},
 ]
 
-export const productCategories = ['All', 'Meat alternatives', 'Dairy alternatives', 'Tofu & tempeh', 'Treats', 'Pantry', 'Protein powders', 'Home care']
+export const productCategories = ['All', 'Meat alternatives', 'Dairy alternatives', 'Tofu & tempeh', 'Sweets', 'Pantry', 'Protein powders', 'Home care', 'Beauty']
 
 export const products = [
   { brand: 'Alpro', name: 'Unsweetened oat drink', detail: 'Oat drink · 1 L', category: 'Dairy alternatives', retailer: 'Carrefour UAE', image: 'products/alpro-oat.jpg', url: 'https://www.carrefouruae.com/mafuae/en/root-maf-category/food-navigation-category/bio-organic-more/organic-dairy-products/organic-milk/alpro-oat-unsweetened-1l/p/1629611' },
   { brand: 'Saba', name: 'Plant based yoghurt', detail: 'Made in Dubai · Coconut yoghurt', category: 'Dairy alternatives', retailer: 'Waitrose UAE', image: 'products/saba-yoghurt.jpg', url: 'https://www.waitrose.ae/en/products/saba-plant-based-yoghurt-natural-115g_37040/' },
   { brand: 'Switch', name: 'Plant based burger patties', detail: 'Made in the UAE · Pea protein', category: 'Meat alternatives', retailer: 'Carrefour UAE', image: 'products/switch-burger.jpg', url: 'https://www.carrefouruae.com/mafuae/en/vegan/switch-p-based-burger-p230g-2x115g-/p/1974713' },
   { brand: 'Violife', name: 'Mozzarella block', detail: 'Cheese alternative · 200 g', category: 'Dairy alternatives', retailer: 'Carrefour UAE', image: 'products/violife-mozzarella.jpg', url: 'https://www.carrefouruae.com/mafuae/en/vegan-cheese/violife-blk-mozflavour-200g/p/1879867' },
-  { brand: 'Raw Halo', name: 'Salted almond chocolate', detail: 'Vegan dark chocolate · 90 g', category: 'Treats', retailer: 'Waitrose UAE', image: 'products/raw-halo-chocolate.jpg', url: 'https://www.waitrose.ae/en/products/raw-halo-dark-and-salted-almond-truffle-centre-organic-vegan-chocolate-90g_63855/' },
+  { brand: 'Raw Halo', name: 'Salted almond chocolate', detail: 'Vegan dark chocolate · 90 g', category: 'Sweets', retailer: 'Waitrose UAE', image: 'products/raw-halo-chocolate.jpg', url: 'https://www.waitrose.ae/en/products/raw-halo-dark-and-salted-almond-truffle-centre-organic-vegan-chocolate-90g_63855/' },
   { brand: 'Cocos Organic', name: 'Yoghurt', detail: 'Coconut yoghurt · 400 g', category: 'Dairy alternatives', retailer: 'Waitrose UAE', image: 'products/cocos-yoghurt.jpg', url: 'https://www.waitrose.ae/en/products/cocos-organic-natural-coconut-yoghurt-alternative-400g_42000/' },
   { brand: 'The Tofoo Co', name: 'Organic smoked tofu', detail: 'Smoked tofu · 225 g', category: 'Tofu & tempeh', retailer: 'Waitrose UAE', image: 'products/tofoo-smoked-tofu.jpg', url: 'https://www.waitrose.ae/en/products/tofoo-co-organic-smoked-tofu-225g_37773/' },
   { brand: 'Better Nature', name: 'Organic tempeh', detail: 'Organic tempeh · 200 g', category: 'Tofu & tempeh', retailer: 'Waitrose UAE', image: 'products/better-nature-tempeh.jpg', url: 'https://www.waitrose.ae/en/products/better-nature-organic-tempeh-200g_41892/' },
-  { brand: 'Oddlygood', name: 'Dreamy lemon dessert', detail: 'Oat-based dessert · 130 g', category: 'Treats', retailer: 'Waitrose UAE', image: 'products/oddlygood-lemon.jpg', url: 'https://www.waitrose.ae/en/products/oddlygood-dreamy-lemon-dessert-130g_78151/' },
+  { brand: 'Oddlygood', name: 'Dreamy lemon dessert', detail: 'Oat-based dessert · 130 g', category: 'Sweets', retailer: 'Waitrose UAE', image: 'products/oddlygood-lemon.jpg', url: 'https://www.waitrose.ae/en/products/oddlygood-dreamy-lemon-dessert-130g_78151/' },
   { brand: 'FineFOOD', name: 'Medium-firm fresh tofu', detail: 'Fresh tofu · 500 g', category: 'Tofu & tempeh', retailer: 'Waitrose UAE', image: 'products/finefood-tofu.jpg', url: 'https://www.waitrose.ae/en/products/finefood-medium-firm-fresh-tofu-500g_73997/' },
   { brand: 'Switch', name: 'Plant based kafta', detail: 'Frozen kafta · 4 skewers · 240 g', category: 'Meat alternatives', retailer: 'Spinneys UAE', image: 'products/switch-kafta.jpg', url: 'https://www.spinneys.com/en-ae/catalogue/switch-plant-based-kafta-4s-240g_58350/' },
-  { brand: 'Spinneysfood', name: 'Vegan chocolate ice cream', detail: 'Vegan ice cream · 500 ml', category: 'Treats', retailer: 'Spinneys UAE', image: 'products/spinneys-vegan-ice-cream.jpg', url: 'https://www.spinneys.com/en-ae/catalogue/test_46165/' },
+  { brand: 'Spinneysfood', name: 'Vegan chocolate ice cream', detail: 'Vegan ice cream · 500 ml', category: 'Sweets', retailer: 'Spinneys UAE', image: 'products/spinneys-vegan-ice-cream.jpg', url: 'https://www.spinneys.com/en-ae/catalogue/test_46165/' },
   {"brand":"Grawtitude","name":"Cashew cream cheese","detail":"Fermented cashew cheese · choose size on the brand site","category":"Dairy alternatives","retailer":"Grawtitude","image":"products/grawtitude-cream-cheese.jpg","url":"https://grawtitude.com/products/cashew-cream-cheese"},
   {"brand":"Grawtitude","name":"Plain plant-based salami","detail":"Figs, walnuts, seeds and spices","category":"Meat alternatives","retailer":"Grawtitude","image":"products/grawtitude-salami.jpg","url":"https://grawtitude.com/products/plain-plant-based-salami"},
   {"brand":"Nuttino","name":"Paprika chili cashew cheese","detail":"Cashew-based cheese with paprika and chili","category":"Dairy alternatives","retailer":"Nuttino","image":"products/nuttino-paprika-cheese.png","url":"https://nuttino.com/product/paprika-chili-cashew-cheese/"},
@@ -52,30 +52,39 @@ export const promotions = [
 export const supermarkets = [
   {
     "name": "Kibsons",
+    "logo": "retailers/kibsons.png",
+    "logoBackground": "navy",
     "url": "https://www.kibsons.com/"
   },
   {
     "name": "Talabat mart",
+    "logo": "retailers/talabat-mart.svg",
+    "logoBackground": "orange",
     "url": "https://www.talabat.com/uae/talabat-mart"
   },
   {
     "name": "Noon",
+    "logo": "retailers/noon.svg",
     "url": "https://www.noon.com/uae-en/"
   },
   {
     "name": "Lulu",
+    "logo": "retailers/lulu.svg",
     "url": "https://gcc.luluhypermarket.com/en-ae/"
   },
   {
     "name": "Carrefour",
+    "logo": "retailers/carrefour.svg",
     "url": "https://www.carrefouruae.com/"
   },
   {
     "name": "Spinneys",
+    "logo": "retailers/spinneys.svg",
     "url": "https://www.spinneys.com/en-ae/"
   },
   {
     "name": "Wemart",
+    "logo": "retailers/wemart.png",
     "url": "https://wemart.com/",
     "note": "Community suggestion for tofu and mock meats · check the exact pack"
   }

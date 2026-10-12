@@ -23,7 +23,7 @@ export default function Products() {
         </div>
       </div>
     </section>
-    <section className="browse-shops wrap" aria-labelledby="shops-title"><h2 id="shops-title">Where to shop</h2><p>Supermarkets shared by the community. Search their current ranges and check delivery in your area.</p><div className="browse-shop-list">{supermarkets.map((shop) => <a key={shop.name} href={shop.url} target="_blank" rel="noopener noreferrer"><span>{shop.name}{shop.note && <small>{shop.note}</small>}</span><span aria-hidden="true">↗</span></a>)}</div></section>
+    <section className="browse-shops wrap" aria-labelledby="shops-title"><h2 id="shops-title">Where to shop</h2><p>Supermarkets shared by the community. Search their current ranges and check delivery in your area.</p><div className="browse-shop-list">{supermarkets.map((shop) => <a key={shop.name} href={shop.url} target="_blank" rel="noopener noreferrer"><span className={`shop-logo${shop.logoBackground ? ` shop-logo-${shop.logoBackground}` : ''}`}><img src={asset(shop.logo)} alt="" loading="lazy" /></span><span className="shop-name">{shop.name}</span>{shop.note && <small>{shop.note}</small>}<span className="shop-arrow" aria-hidden="true">↗</span></a>)}</div></section>
     <SubmissionPanel kind="Product" />
   </DirectoryLayout></div>
 }

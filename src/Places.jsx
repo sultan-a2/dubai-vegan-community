@@ -8,7 +8,7 @@ import './collection-refresh.css'
 const asset = (name) => import.meta.env.BASE_URL + 'assets/' + name
 const items = places.map((place) => ({ ...place, category: place.type }))
 const types = ['Vegan', 'Vegetarian', 'Vegan friendly']
-const moods = [...new Set(places.flatMap((place) => place.moods))]
+const moods = [...new Set(places.flatMap((place) => place.moods || []))]
 
 export default function Places() {
   const params = new URLSearchParams(window.location.search)
@@ -24,7 +24,7 @@ export default function Places() {
   const toggle = (type) => setSelected((current) => current.includes(type) ? current.filter((item) => item !== type) : [...current, type])
 
   return <div className="browse-page places-page"><DirectoryLayout active="Places">
-    <section className="places-page-banner"><div className="wrap"><h1>Find your kind<br />of table.</h1><p>Vegan kitchens, neighbourhood favourites and something sweet. Find a place that fits what you feel like.</p><img src={asset('community/shared-meal.jpg')} alt="Community members sharing a plant-based meal" /></div></section>
+    <section className="places-page-banner"><div className="wrap"><div className="places-banner-copy"><h1>Find your kind of table.</h1><p>Vegan kitchens, neighbourhood favourites and something sweet. Find a place that fits what you feel like.</p></div><img src={asset('stock/salad-bowl.webp')} alt="A colourful bowl of chickpeas, avocado and fresh vegetables" width="1400" height="933" fetchPriority="high" /></div></section>
     <section className="browse-collection wrap" id="browse-places" aria-labelledby="places-list-title">
       <div className="browse-heading"><div><h2 id="places-list-title">Places to eat in Dubai</h2><p>Browse the directory. Check each venue’s current menu before you go.</p></div></div>
       <div className="browse-layout">

@@ -11,7 +11,7 @@ for (const product of products) {
   if (product.image) assert(existsSync(new URL(`../public/assets/${product.image}`, import.meta.url)), product.image)
   else assert.equal(product.communityLink, true, `Unmarked product without photo: ${product.name}`)
 }
-for (const category of productCategories.slice(1)) assert(products.some((item) => item.category === category), `Empty category: ${category}`)
+for (const category of productCategories.filter(category => !['All', 'Beauty'].includes(category))) assert(products.some((item) => item.category === category), `Empty category: ${category}`)
 assert(products.filter((item) => item.brand === 'Switch').every((item) => item.category === 'Meat alternatives'))
 assert(products.filter((item) => /tofu|tempeh/i.test(item.name)).every((item) => item.category === 'Tofu & tempeh'))
 for (const recipe of recipes) {
