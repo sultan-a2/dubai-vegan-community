@@ -60,9 +60,14 @@
 }
 
 .home-restored .intro-photo>img{object-position:center 70%}
-.home-restored .products-showcase-head{grid-template-columns:1fr .85fr;gap:8%}
-.home-restored .products-showcase-image{display:block;width:100%;height:auto;aspect-ratio:4/5;margin:0}
-.home-restored .products-showcase-image img{object-position:center 55%}
-.home-restored .products-showcase h2{font-size:clamp(44px,5vw,76px);line-height:1.04}
+.home-restored .products-showcase{padding-block:64px 70px}
+.home-restored .products-showcase-head{grid-template-columns:1.1fr .9fr;gap:7%;align-items:center}
+.home-restored .products-showcase-image{position:relative;display:block;width:100%;height:clamp(260px,25vw,360px);aspect-ratio:auto;margin:0}
+.home-restored .products-showcase-image img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 53%}
+.home-restored .products-showcase h2{max-width:14ch;font-size:clamp(38px,3.7vw,58px);line-height:1.06;letter-spacing:-.045em}
+.home-restored .products-showcase-head p{max-width:420px;margin-top:20px;font-size:17px;line-height:1.55}
+.home-restored .products-showcase-head .arrow-link{display:inline-flex;align-items:center;gap:12px;min-height:48px;margin-top:24px;padding:12px 20px;border:1px solid var(--forest);border-radius:999px;font-size:14px;font-weight:600;line-height:1.35;color:var(--ink)}
+.home-restored .products-showcase-head .arrow-link svg{width:22px;height:22px}
+.home-restored .products-showcase-head .arrow-link:hover,.home-restored .products-showcase-head .arrow-link:focus-visible{background:var(--forest);color:var(--paper)}
 .home-restored #join .submission-community-photo{object-position:center 48%}
-@media(max-width:760px){.home-restored .products-showcase-head{grid-template-columns:1fr;gap:26px}.home-restored .products-showcase-image{width:100%;max-height:380px;aspect-ratio:4/3}.home-restored .products-showcase h2{font-size:clamp(40px,9vw,62px)}}
+@media(max-width:760px){.home-restored .products-showcase-head{grid-template-columns:1fr;gap:26px}.home-restored .products-showcase{padding-block:44px 48px}.home-restored .products-showcase-image{width:100%;height:clamp(220px,58vw,320px);aspect-ratio:auto}.home-restored .products-showcase-head p{font-size:16px}.home-restored .products-showcase h2{font-size:clamp(36px,8.5vw,52px)}}

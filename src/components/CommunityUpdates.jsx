@@ -5,7 +5,7 @@ const updates = [
   { icon: 'calendar', text: 'The Ripe Market · 10 October', href: 'events.html#ripe-market' },
   { icon: 'food', text: 'Find your next favourite table', href: 'places.html' },
   { icon: 'calendar', text: 'See what’s coming up · Events & gatherings', href: 'events.html#upcoming' },
-  { icon: 'book', text: 'New to vegan living? Start here', href: 'guide.html' },
+  { icon: 'book', text: 'New to vegan living? Start here', href: 'blog.html' },
 ]
 export default function CommunityUpdates() {
   return <aside className="community-updates" aria-label="Events and community updates">

@@ -8,7 +8,7 @@ const groups = [
   { label: 'Recipes', icon: 'book', links: [['Recipes', 'recipes.html']] },
   { label: 'Products', icon: 'basket', links: [['Browse products', 'products.html'], ['Community offers', 'offers.html']] },
   { label: 'Events', icon: 'calendar', links: [['Upcoming events', 'events.html#upcoming'], ['Events calendar', 'events.html#calendar']] },
-  { label: 'Guide', icon: 'book', links: [['Vegan living guides', 'guide.html'], ['Download the starter guide', 'guides/vegan-dubai-starter-guide.pdf']] },
+  { label: 'Blog', icon: 'book', links: [['Blog', 'blog.html']] },
 ]
 
 export default function SiteHeader({ active }) {

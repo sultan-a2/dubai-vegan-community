@@ -16,6 +16,7 @@ export default defineConfig({
         places: resolve(import.meta.dirname, 'places.html'),
         products: resolve(import.meta.dirname, 'products.html'),
         offers: resolve(import.meta.dirname, 'offers.html'),
+        blog: resolve(import.meta.dirname, 'blog.html'),
         guide: resolve(import.meta.dirname, 'guide.html')
       }
     }
